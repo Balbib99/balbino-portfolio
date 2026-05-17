@@ -19,10 +19,10 @@ export const Contact = () => (
           <LinkButton href={links.linkedin} target="_blank" rel="noreferrer" variant="primary">
             LinkedIn
           </LinkButton>
-          <LinkButton href={links.github} target="_blank" rel="noreferrer" className="border-slate-600 bg-slate-900 text-white hover:border-teal-400 hover:text-teal-200">
+          <LinkButton href={links.github} target="_blank" rel="noreferrer" variant="secondary">
             GitHub
           </LinkButton>
-          <LinkButton href={personalData.cvUrl} download className="border-slate-600 bg-slate-900 text-white hover:border-teal-400 hover:text-teal-200">
+          <LinkButton href={personalData.cvUrl} download variant="secondary">
             Descargar CV
           </LinkButton>
         </div>

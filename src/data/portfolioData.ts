@@ -67,7 +67,7 @@ export const personalData = {
   heroDescription:
     "Construyo soluciones completas combinando frontend, backend, datos, integración hardware-software y buenas prácticas de seguridad.",
   professionalProfile:
-    "Balbino Martínez Rodríguez es un desarrollador de software con perfil híbrido en desarrollo web, ciberseguridad, IoT e IA aplicada. Tiene experiencia en entornos reales de I+D, desarrollo de interfaces web, integración hardware-software, adquisición y visualización de datos, sistemas distribuidos y buenas prácticas de seguridad.",
+    "Soy desarrollador de software con un perfil híbrido en desarrollo web, ciberseguridad, IoT e IA aplicada. Tengo experiencia en entornos reales de I+D, desarrollo de interfaces web, integración hardware-software, adquisición y visualización de datos, sistemas distribuidos y buenas prácticas de seguridad.",
   about:
     "Soy Técnico Superior en Desarrollo de Aplicaciones Web y actualmente curso un Máster en Ciberseguridad. Mi perfil combina desarrollo web, integración hardware-software, análisis de datos, IoT e IA aplicada. He trabajado en entornos reales de I+D desarrollando interfaces web, módulos de sensorización, sistemas distribuidos y soluciones orientadas a la adquisición y visualización de datos.",
 };

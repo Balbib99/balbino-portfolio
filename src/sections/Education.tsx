@@ -1,0 +1,50 @@
+import { SectionTitle } from "../components/SectionTitle";
+import { SkillBadge } from "../components/SkillBadge";
+import { certifications, education, type EducationItem } from "../data/portfolioData";
+
+const ItemList = ({ items }: { items: EducationItem[] }) => (
+  <div className="space-y-4">
+    {items.map((item) => (
+      <article
+        key={`${item.title}-${item.institution ?? "cert"}`}
+        className="rounded-lg border border-slate-200 bg-white p-5 transition duration-200 hover:-translate-y-1 hover:border-teal-200 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-teal-800"
+      >
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <h3 className="font-bold text-slate-950 dark:text-white">{item.title}</h3>
+            {item.institution ? <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{item.institution}</p> : null}
+          </div>
+          {item.period ? (
+            <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+              {item.period}
+            </span>
+          ) : null}
+        </div>
+        {item.description ? <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{item.description}</p> : null}
+        <div className="mt-4 flex flex-wrap gap-2">
+          {item.tags.map((tag) => (
+            <SkillBadge key={tag} label={tag} />
+          ))}
+        </div>
+      </article>
+    ))}
+  </div>
+);
+
+export const Education = () => (
+  <section id="formacion" className="px-4 py-20 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl">
+      <SectionTitle eyebrow="Formación y certificaciones" title="Aprendizaje continuo en software, seguridad e IA" />
+      <div className="grid gap-8 lg:grid-cols-2">
+        <div>
+          <h3 className="mb-4 text-xl font-bold text-slate-950 dark:text-white">Formación</h3>
+          <ItemList items={education} />
+        </div>
+        <div>
+          <h3 className="mb-4 text-xl font-bold text-slate-950 dark:text-white">Certificaciones</h3>
+          <ItemList items={certifications} />
+        </div>
+      </div>
+    </div>
+  </section>
+);

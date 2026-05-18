@@ -1,4 +1,5 @@
-import { FormEvent, useState } from "react";
+import type { FormEvent } from "react";
+import { useState } from "react";
 import { personalData } from "../data/portfolioData";
 
 type ContactFormState = {
@@ -55,9 +56,10 @@ export const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block text-sm font-semibold text-slate-200">
+        <label className="block text-sm font-semibold text-slate-200" htmlFor="contact-name">
           Nombre
           <input
+            id="contact-name"
             className={inputClassName}
             type="text"
             value={form.name}
@@ -66,9 +68,10 @@ export const ContactForm = () => {
             autoComplete="name"
           />
         </label>
-        <label className="block text-sm font-semibold text-slate-200">
+        <label className="block text-sm font-semibold text-slate-200" htmlFor="contact-email">
           Email
           <input
+            id="contact-email"
             className={inputClassName}
             type="email"
             value={form.email}
@@ -79,9 +82,10 @@ export const ContactForm = () => {
         </label>
       </div>
 
-      <label className="block text-sm font-semibold text-slate-200">
+      <label className="block text-sm font-semibold text-slate-200" htmlFor="contact-subject">
         Asunto
         <input
+          id="contact-subject"
           className={inputClassName}
           type="text"
           value={form.subject}
@@ -91,9 +95,10 @@ export const ContactForm = () => {
         />
       </label>
 
-      <label className="block text-sm font-semibold text-slate-200">
+      <label className="block text-sm font-semibold text-slate-200" htmlFor="contact-message">
         Mensaje
         <textarea
+          id="contact-message"
           className={`${inputClassName} min-h-36 resize-y`}
           value={form.message}
           onChange={(event) => updateField("message", event.target.value)}

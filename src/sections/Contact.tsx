@@ -45,7 +45,7 @@ export const Contact = () => (
               variant={action.variant}
               download={action.download}
               target={action.external ? "_blank" : undefined}
-              rel={action.external ? "noreferrer" : undefined}
+              rel={action.external ? "noopener noreferrer" : undefined}
               className={index === 0 ? "sm:col-span-2" : ""}
             >
               {action.label}

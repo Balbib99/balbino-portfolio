@@ -23,10 +23,10 @@ export const Hero = () => (
           <LinkButton href={personalData.cvUrl} download>
             Descargar CV
           </LinkButton>
-          <LinkButton href={links.github} target="_blank" rel="noreferrer" variant="ghost">
+          <LinkButton href={links.github} target="_blank" rel="noopener noreferrer" variant="ghost">
             GitHub
           </LinkButton>
-          <LinkButton href={links.linkedin} target="_blank" rel="noreferrer" variant="ghost">
+          <LinkButton href={links.linkedin} target="_blank" rel="noopener noreferrer" variant="ghost">
             LinkedIn
           </LinkButton>
         </div>
@@ -38,7 +38,7 @@ export const Hero = () => (
           <div className="aspect-[4/5] max-h-[560px] overflow-hidden rounded-[1.25rem] bg-slate-200 dark:bg-slate-800">
             <img
               src={personalData.profileImage}
-              alt="Balbino Martínez Rodríguez"
+              alt="Foto de perfil de Balbino Martínez Rodríguez"
               className="h-full w-full object-cover"
               loading="eager"
               onError={(event) => {

@@ -130,10 +130,10 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           </ul>
 
           <div className="mt-7 flex flex-wrap gap-3">
-            <LinkButton href={project.links.demo} target="_blank" rel="noreferrer" variant="primary">
+            <LinkButton href={project.links.demo} target="_blank" rel="noopener noreferrer" variant="primary">
               Ver demo
             </LinkButton>
-            <LinkButton href={project.links.code} target="_blank" rel="noreferrer">
+            <LinkButton href={project.links.code} target="_blank" rel="noopener noreferrer">
               Ver código
             </LinkButton>
             <button

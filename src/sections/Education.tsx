@@ -8,7 +8,7 @@ const ItemList = ({ items }: { items: EducationItem[] }) => (
     {items.map((item) => (
       <article
         key={`${item.title}-${item.institution ?? "cert"}`}
-        className="rounded-lg border border-slate-200 bg-white p-5 transition duration-200 hover:-translate-y-1 hover:border-teal-200 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-teal-800"
+        className="rounded-lg border border-slate-200 bg-white p-5 transition duration-200 hover:-translate-y-1 hover:border-teal-200 dark:border-white/10 dark:bg-white/[0.055] dark:shadow-[0_22px_70px_-52px_rgba(45,212,191,0.22)] dark:hover:border-teal-400/35 dark:hover:bg-white/[0.075]"
       >
         <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
           <div>
@@ -16,7 +16,7 @@ const ItemList = ({ items }: { items: EducationItem[] }) => (
             {item.institution ? <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{item.institution}</p> : null}
           </div>
           {item.period ? (
-            <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+            <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 dark:bg-white/[0.07] dark:text-slate-300">
               {item.period}
             </span>
           ) : null}

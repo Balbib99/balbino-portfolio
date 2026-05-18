@@ -9,9 +9,9 @@ const variants = {
   primary:
     "border border-teal-600 bg-teal-600 text-white shadow-soft hover:border-teal-500 hover:bg-teal-500 dark:border-teal-400 dark:bg-teal-400 dark:text-slate-950 dark:hover:border-teal-300 dark:hover:bg-teal-300",
   secondary:
-    "border border-slate-300 bg-white text-slate-900 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 dark:border-slate-600 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-slate-800 dark:hover:text-white",
+    "border border-slate-300 bg-white text-slate-900 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-100 dark:hover:border-teal-400/40 dark:hover:bg-white/[0.1] dark:hover:text-white",
   ghost:
-    "text-slate-800 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-100 dark:hover:bg-slate-800 dark:hover:text-white",
+    "text-slate-800 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-100 dark:hover:bg-white/[0.07] dark:hover:text-white",
 };
 
 export const LinkButton = ({ children, className = "", variant = "secondary", ...props }: LinkButtonProps) => (

@@ -18,7 +18,7 @@ const initialState: ContactFormState = {
 };
 
 const inputClassName =
-  "mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-950 transition placeholder:text-slate-400 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/30 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-teal-400";
+  "mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-950 transition placeholder:text-slate-400 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/30 dark:border-slate-700/80 dark:bg-[#0a1020] dark:text-slate-50 dark:placeholder:text-slate-400/80 dark:focus:border-teal-400 dark:focus:ring-teal-400/30";
 
 export const ContactForm = () => {
   const { t } = useLanguage();
@@ -117,7 +117,7 @@ export const ContactForm = () => {
 
       <button
         type="submit"
-        className="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-teal-400 bg-teal-400 px-5 py-3 text-sm font-semibold text-slate-950 shadow-soft transition duration-200 hover:border-teal-300 hover:bg-teal-300 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:w-auto"
+        className="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-teal-400 bg-teal-400 px-5 py-3 text-sm font-semibold text-slate-950 shadow-soft transition duration-200 hover:border-teal-300 hover:bg-teal-300 focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 dark:shadow-[0_16px_45px_-28px_rgba(45,212,191,0.9)] sm:w-auto"
       >
         {t.contact.form.submit}
       </button>

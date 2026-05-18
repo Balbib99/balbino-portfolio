@@ -6,7 +6,7 @@ export const Stack = () => {
   const { t } = useLanguage();
 
   return (
-  <section id="stack" className="bg-slate-100 px-4 py-20 transition-colors duration-300 dark:bg-slate-900/40 sm:px-6 lg:px-8">
+  <section id="stack" className="bg-slate-100 px-4 py-20 transition-colors duration-300 dark:bg-[#0b1220] sm:px-6 lg:px-8">
     <div className="mx-auto max-w-7xl">
       <SectionTitle
         eyebrow={t.stack.eyebrow}

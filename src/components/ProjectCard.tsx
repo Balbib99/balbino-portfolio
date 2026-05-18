@@ -26,8 +26,8 @@ const CaseStudySection = ({
   <section
     className={`rounded-lg border p-5 ${
       accent
-        ? "border-teal-200 bg-teal-50/70 dark:border-teal-900 dark:bg-teal-950/20"
-        : "border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900"
+        ? "border-teal-200 bg-teal-50/70 dark:border-teal-400/20 dark:bg-teal-400/[0.08]"
+        : "border-slate-200 bg-white dark:border-white/10 dark:bg-white/[0.055]"
     }`}
   >
     <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">{title}</h4>
@@ -41,7 +41,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
   const caseStudyId = `${project.name.toLowerCase().replace(/\s+/g, "-")}-case-study`;
 
   return (
-    <article className="relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft transition duration-200 hover:border-orange-200 focus-within:border-orange-200 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-orange-900/70 dark:focus-within:border-orange-900/70">
+    <article className="relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft transition duration-200 hover:border-orange-200 focus-within:border-orange-200 dark:border-white/10 dark:bg-white/[0.055] dark:shadow-[0_28px_100px_-58px_rgba(251,146,60,0.28)] dark:hover:border-orange-400/25 dark:focus-within:border-orange-400/25">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.08] dark:opacity-[0.06]"
@@ -52,7 +52,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         <div className="absolute bottom-10 right-0 h-px w-72 bg-orange-500" />
       </div>
       <div className="grid gap-0 lg:grid-cols-[0.88fr_1.12fr]">
-        <div className="relative flex min-h-80 flex-col justify-between overflow-hidden bg-slate-950 p-7 text-white dark:bg-slate-900">
+        <div className="relative flex min-h-80 flex-col justify-between overflow-hidden bg-slate-950 p-7 text-white dark:bg-[#0a1020]">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full border-[14px] border-orange-400/15"
@@ -141,7 +141,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
               aria-expanded={isCaseStudyOpen}
               aria-controls={caseStudyId}
               onClick={() => setIsCaseStudyOpen((current) => !current)}
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-slate-800 transition duration-200 hover:bg-slate-100 hover:text-slate-950 focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-slate-100 dark:hover:bg-slate-800 dark:hover:text-white dark:focus-visible:ring-offset-slate-950"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-slate-800 transition duration-200 hover:bg-slate-100 hover:text-slate-950 focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-slate-100 dark:hover:bg-white/[0.07] dark:hover:text-white dark:focus-visible:ring-offset-slate-950"
             >
               {t.buttons.technicalDetails}
               <span className={`transition-transform duration-200 ${isCaseStudyOpen ? "rotate-180" : ""}`} aria-hidden="true">
@@ -157,7 +157,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             }`}
           >
             <div className="overflow-hidden">
-              <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950/50 sm:p-5">
+              <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-[#0b1220]/85 sm:p-5">
                 <div className="grid gap-4 md:grid-cols-2">
                   <CaseStudySection title={t.projects.card.problem}>
                     <p>{project.caseStudy.problem}</p>
@@ -167,11 +167,11 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                   </CaseStudySection>
                 </div>
 
-                <div className="mt-4 rounded-lg border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+                <div className="mt-4 rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
                   <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">{t.projects.card.architecture}</h4>
                   <div className="mt-4 grid gap-3 sm:grid-cols-4">
                     {t.projects.card.pipelineItems.map((item, index) => (
-                      <div key={item} className="rounded-lg border border-slate-200 bg-slate-50 p-3 transition duration-200 hover:border-orange-200 hover:bg-orange-50/70 dark:border-slate-800 dark:bg-slate-950/50 dark:hover:border-orange-900/70 dark:hover:bg-orange-950/20">
+                      <div key={item} className="rounded-lg border border-slate-200 bg-slate-50 p-3 transition duration-200 hover:border-orange-200 hover:bg-orange-50/70 dark:border-white/10 dark:bg-[#0b1220]/80 dark:hover:border-orange-400/25 dark:hover:bg-orange-400/[0.07]">
                         <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
                           {t.projects.card.step} {index + 1}
                         </p>
@@ -201,13 +201,13 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                   </CaseStudySection>
                 </div>
 
-                <div className="mt-4 rounded-lg border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+                <div className="mt-4 rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
                   <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">{t.projects.card.technicalDecisions}</h4>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.caseStudy.technicalDecisions.map((decision) => (
                       <span
                         key={decision}
-                        className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-950/50 dark:text-slate-200"
+                        className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-[#0b1220]/80 dark:text-slate-200"
                       >
                         {decision}
                       </span>

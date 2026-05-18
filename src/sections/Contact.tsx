@@ -14,7 +14,7 @@ export const Contact = () => {
   ];
 
   return (
-  <section id="contacto" className="bg-slate-950 px-4 py-20 text-white sm:px-6 lg:px-8">
+  <section id="contacto" className="bg-slate-950 px-4 py-20 text-white dark:bg-[radial-gradient(circle_at_top_left,rgba(20,184,166,0.1),transparent_30%),#070b14] sm:px-6 lg:px-8">
     <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-center">
       <div>
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-teal-300">{t.contact.eyebrow}</p>
@@ -22,7 +22,7 @@ export const Contact = () => {
         <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
           {t.contact.description}
         </p>
-        <div className="mt-7 rounded-lg border border-white/10 bg-white/5 p-5">
+        <div className="mt-7 rounded-lg border border-white/10 bg-white/5 p-5 dark:bg-white/[0.045]">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">{t.contact.availabilityTitle}</p>
           <p className="mt-2 text-sm leading-6 text-slate-300">
             {t.contact.availabilityText} <span className="font-semibold text-teal-300">NBA Insight</span>.
@@ -30,7 +30,7 @@ export const Contact = () => {
         </div>
       </div>
 
-      <div className="rounded-lg border border-white/10 bg-white/5 p-6 shadow-soft">
+      <div className="rounded-lg border border-white/10 bg-white/5 p-6 shadow-soft dark:bg-white/[0.055] dark:shadow-[0_24px_90px_-56px_rgba(45,212,191,0.32)]">
         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">{t.contact.formTitle}</p>
         <a className="mt-3 block text-lg font-semibold text-white transition hover:text-teal-300" href={links.email}>
           {personalData.email}

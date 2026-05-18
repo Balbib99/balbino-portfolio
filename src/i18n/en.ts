@@ -3,7 +3,7 @@ import { links } from "../data/portfolioData";
 
 export const en: typeof es = {
   seo: {
-    title: "Balbino Martínez | Software Developer, Cybersecurity and Applied AI",
+    title: "Balbino Martínez | Software Developer · Cybersecurity · Applied AI",
     description:
       "Professional portfolio of Balbino Martínez Rodríguez, a software developer specialized in web applications, IoT, cybersecurity, data and applied artificial intelligence.",
   },
@@ -16,13 +16,13 @@ export const en: typeof es = {
     profileImage: "/balbino-profile.jpg",
     cvUrl: "/cv-balbino-martinez-en.pdf",
     heroTitle: "Hi, I’m Balbino Martínez.",
-    heroSubtitle: "Software developer specialized in web development, IoT, cybersecurity and applied AI.",
+    heroSubtitle: "Software developer focused on web development, IoT, cybersecurity and applied AI.",
     heroDescription:
       "I build end-to-end solutions combining frontend, backend, data, hardware–software integration and security best practices.",
     professionalProfile:
       "I’m a software developer with a hybrid profile in web development, cybersecurity, IoT and applied AI. I have experience in real R&D environments, web interface development, hardware–software integration, data acquisition and visualization, distributed systems and security best practices.",
     about:
-      "I’m a Higher Technician in Web Application Development and currently studying a Master’s Degree in Cybersecurity. My profile combines web development, hardware–software integration, data analysis, IoT and applied AI. I have worked in real R&D environments developing web interfaces, sensing modules, distributed systems and solutions focused on data acquisition and visualization.",
+      "I hold a Higher Technician degree in Web Application Development and I’m currently studying a Master’s Degree in Cybersecurity. My profile combines web development, hardware–software integration, data analysis, IoT and applied AI. I have worked in real R&D environments developing web interfaces, sensor modules, distributed systems and solutions focused on data acquisition and visualization.",
   },
   navItems: [
     { label: "About", href: "#sobre-mi" },
@@ -59,7 +59,7 @@ export const en: typeof es = {
     description:
       "I’m a software developer with a hybrid profile in web development, cybersecurity, IoT and applied AI. I have experience in real R&D environments, web interface development, hardware–software integration, data acquisition and visualization, distributed systems and security best practices.",
     text:
-      "I’m a Higher Technician in Web Application Development and currently studying a Master’s Degree in Cybersecurity. My profile combines web development, hardware–software integration, data analysis, IoT and applied AI. I have worked in real R&D environments developing web interfaces, sensing modules, distributed systems and solutions focused on data acquisition and visualization.",
+      "I hold a Higher Technician degree in Web Application Development and I’m currently studying a Master’s Degree in Cybersecurity. My profile combines web development, hardware–software integration, data analysis, IoT and applied AI. I have worked in real R&D environments developing web interfaces, sensor modules, distributed systems and solutions focused on data acquisition and visualization.",
     cards: [
       {
         title: "Real R&D",
@@ -95,18 +95,18 @@ export const en: typeof es = {
       "I have worked in real environments developing web solutions, sensing systems, hardware–software integration, IoT services and tools focused on data visualization and management.",
     responsibilities: "Responsibilities",
     technologies: "Technologies and areas",
-    value: "Value delivered",
+    value: "Professional value",
     items: [
       {
         company: "Universidad de Valladolid",
         role: "Research Technician Level 1",
         period: "2024 - 2026",
         location: "Valladolid, Spain",
-        type: "R&D · Full time",
+        type: "R&D · Full-time",
         summary:
           "Participation in research and development projects focused on sensing solutions, web interfaces, hardware–software integration, data acquisition and connected systems.",
         responsibilities: [
-          "Development of web interfaces for sensing modules.",
+          "Development of web interfaces for sensor modules.",
           "Python programming for data acquisition, processing and visualization.",
           "Integration of sensors, hardware and software in IoT environments.",
           "Work with Linux systems and Raspberry Pi for service deployment and device connectivity.",
@@ -128,7 +128,7 @@ export const en: typeof es = {
         location: "Valladolid, Spain",
         type: "Internship + subsequent temporary position",
         summary:
-          "I started as a full stack developer during an internship and later continued collaborating full time, participating in web application development, data management and maintenance of digital solutions.",
+          "I started as a full stack developer during an internship and later continued working with the company full-time, participating in web application development, data management and the maintenance of digital solutions.",
         responsibilities: [
           "Development of web applications using Angular and Node.js.",
           "Implementation of business logic and API communication.",
@@ -161,10 +161,10 @@ export const en: typeof es = {
           { label: "Games", value: "Stats" },
           { label: "Players", value: "Profiles" },
           { label: "Standings", value: "Live view" },
-          { label: "Favorites", value: "Persist" },
+          { label: "Favorites", value: "Saved" },
         ],
         description:
-          "Full stack NBA analytics web application built with React, TypeScript, Node.js and PostgreSQL. The project includes a frontend deployed on Vercel, a backend connected to external services, JWT authentication, demo mode, persistent favorites and an architecture designed to separate the public experience from backend logic.",
+          "Full-stack NBA analytics web application built with React, TypeScript, Node.js and PostgreSQL. The project includes a frontend deployed on Vercel, a backend connected to external services, JWT authentication, demo mode, persistent favorites and an architecture designed to separate the public experience from backend logic.",
         technologies: ["React", "TypeScript", "Vite", "Node.js", "Express", "PostgreSQL", "JWT", "Vercel", "Render", "Neon", "Git"],
         highlights: [
           "Real application deployed in production.",
@@ -177,9 +177,9 @@ export const en: typeof es = {
         ],
         caseStudy: {
           problem:
-            "I wanted to build a web platform to browse NBA information in a clear, modern and accessible way, demonstrating a real full stack architecture deployed in production.",
+            "I wanted to build a web platform to browse NBA information in a clear, modern and accessible way, demonstrating a real full-stack architecture deployed in production.",
           solution:
-            "I developed an application with a React and TypeScript frontend, Node.js and Express backend, JWT authentication, favorite persistence and deployment using Vercel, Render and Neon.",
+            "I developed an application with a React and TypeScript frontend, Node.js and Express backend, JWT authentication, persistent favorites and deployment using Vercel, Render and Neon.",
           architecture: [
             "Frontend in React, TypeScript and Vite.",
             "Backend with Node.js and Express.",
@@ -190,11 +190,11 @@ export const en: typeof es = {
             "Integration with external APIs for NBA data.",
           ],
           role:
-            "I designed and developed the full application, from frontend structure and user experience to backend integration, authentication, favorite persistence and deployment.",
+            "I designed and developed the full application, from frontend structure and user experience to backend integration, authentication, persistent favorites and deployment.",
           technicalDecisions: [
             "Separation between frontend and backend.",
             "Demo mode available without registration.",
-            "Favorite persistence.",
+            "Persistent favorites.",
             "Use of external APIs.",
             "Fallback strategy to keep a stable experience.",
             "Product-oriented responsive design.",
@@ -203,7 +203,7 @@ export const en: typeof es = {
           result:
             "A functional and deployed application that recruiters can test directly, showing frontend, backend, data integration, authentication, deployment and product design skills.",
           learning:
-            "This project helped me strengthen my knowledge of full stack architecture, real deployment, authentication, external API consumption, data persistence and user experience.",
+            "This project helped me strengthen my knowledge of full-stack architecture, real deployment, authentication, external API consumption, data persistence and user experience.",
         },
         links: { demo: links.nbaInsight, code: "https://github.com/Balbib99/nba-insight" },
       },
@@ -229,7 +229,7 @@ export const en: typeof es = {
       "I have worked with frontend, backend, data, IoT systems, deployment and cybersecurity technologies, applying them in academic, professional and personal projects.",
     categories: [
       { title: "Frontend", description: "I develop modern, adaptable and maintainable interfaces using current web ecosystem technologies.", items: ["React", "TypeScript", "JavaScript", "Angular", "Vite", "HTML", "CSS", "Tailwind CSS"] },
-      { title: "Backend", description: "Building APIs, business logic, authentication and backend services for web applications.", items: ["Node.js", "Express", "Python", "REST APIs", "JWT"] },
+      { title: "Backend", description: "I build APIs, business logic, authentication flows and backend services for web applications.", items: ["Node.js", "Express", "Python", "REST APIs", "JWT"] },
       { title: "Data and databases", description: "Work with relational and time-series databases to store, query and visualize information.", items: ["PostgreSQL", "Neon", "InfluxDB", "Time-series databases", "Data visualization"] },
       { title: "DevOps and deployment", description: "Use of version control, deployment and configuration tools to bring applications to production.", items: ["Git", "GitHub", "Vercel", "Render", "Docker", "Environment variables", "Nginx"] },
       { title: "IoT and Linux systems", description: "Experience with Linux, Raspberry Pi, sensors and data acquisition in hardware–software integration environments.", items: ["Linux", "Raspberry Pi", "Sensors", "MQTT", "Data acquisition", "Hardware–software integration", "Linux services", "Systemd"] },

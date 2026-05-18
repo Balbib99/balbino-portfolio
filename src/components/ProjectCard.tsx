@@ -41,7 +41,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
   const caseStudyId = `${project.name.toLowerCase().replace(/\s+/g, "-")}-case-study`;
 
   return (
-    <article className="relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft transition duration-200 hover:border-orange-200 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-orange-900/70">
+    <article className="relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft transition duration-200 hover:border-orange-200 focus-within:border-orange-200 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-orange-900/70 dark:focus-within:border-orange-900/70">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.08] dark:opacity-[0.06]"

@@ -39,8 +39,9 @@ export type Project = {
 };
 
 export type SkillCategory = {
-  name: string;
-  skills: string[];
+  title: string;
+  description: string;
+  items: string[];
 };
 
 export type AboutCard = {
@@ -235,32 +236,46 @@ export const projects: Project[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    name: "Frontend",
-    skills: ["React", "TypeScript", "JavaScript", "Angular", "Vite", "HTML", "CSS", "Tailwind CSS"],
+    title: "Frontend",
+    description:
+      "Desarrollo interfaces modernas, adaptables y mantenibles usando tecnologías actuales del ecosistema web.",
+    items: ["React", "TypeScript", "JavaScript", "Angular", "Vite", "HTML", "CSS", "Tailwind CSS"],
   },
   {
-    name: "Backend",
-    skills: ["Node.js", "Express", "Python", "APIs REST"],
+    title: "Backend",
+    description:
+      "Construcción de APIs, lógica de negocio, autenticación y servicios backend para aplicaciones web.",
+    items: ["Node.js", "Express", "Python", "APIs REST", "JWT"],
   },
   {
-    name: "Bases de datos",
-    skills: ["PostgreSQL", "InfluxDB", "Bases de datos temporales"],
+    title: "Datos y bases de datos",
+    description:
+      "Trabajo con bases de datos relacionales y temporales para almacenar, consultar y visualizar información.",
+    items: ["PostgreSQL", "Neon", "InfluxDB", "Bases de datos temporales", "Visualización de datos"],
   },
   {
-    name: "DevOps y despliegue",
-    skills: ["Git", "GitHub", "Vercel", "Render", "Neon"],
+    title: "DevOps y despliegue",
+    description:
+      "Uso de herramientas de control de versiones, despliegue y configuración para llevar aplicaciones a producción.",
+    items: ["Git", "GitHub", "Vercel", "Render", "Docker", "Variables de entorno", "Nginx"],
   },
   {
-    name: "IoT y hardware",
-    skills: ["Raspberry Pi", "Sensores", "MQTT", "Integración hardware-software", "Adquisición de datos"],
+    title: "IoT y sistemas Linux",
+    description:
+      "Experiencia con Linux, Raspberry Pi, sensores y adquisición de datos en entornos de integración hardware-software.",
+    items: ["Linux", "Raspberry Pi", "Sensores", "MQTT", "Adquisición de datos", "Integración hardware-software", "Servicios Linux", "Systemd"],
   },
   {
-    name: "Ciberseguridad",
-    skills: ["ISO 27001", "ISO 27002", "Análisis de riesgos", "Auditoría interna", "Linux", "Metasploit", "SQLMap", "TryHackMe"],
+    title: "Ciberseguridad",
+    description:
+      "Conocimientos en seguridad de la información, análisis de riesgos, auditoría interna y herramientas de evaluación técnica.",
+    items: ["ISO 27001", "ISO 27002", "Análisis de riesgos", "Auditoría interna", "Linux", "Metasploit", "SQLMap", "TryHackMe"],
   },
   {
-    name: "IA aplicada",
-    skills: ["Automatizaciones", "Agentes", "Integración de IA en soluciones reales", "Productividad con IA"],
+    title: "IA aplicada y automatización",
+    description:
+      "Uso de inteligencia artificial y automatizaciones para mejorar procesos, productividad y soluciones software.",
+    items: ["IA aplicada", "Automatizaciones", "Agentes IA", "Flujos de trabajo", "Productividad con IA"],
   },
 ];
 

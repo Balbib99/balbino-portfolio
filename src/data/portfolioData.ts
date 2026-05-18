@@ -7,7 +7,12 @@ export type Experience = {
   company: string;
   role: string;
   period: string;
-  description: string[];
+  location: string;
+  type: string;
+  summary: string;
+  responsibilities: string[];
+  technologies: string[];
+  valuePoints: string[];
 };
 
 export type CaseStudy = {
@@ -140,24 +145,58 @@ export const experiences: Experience[] = [
     company: "Universidad de Valladolid",
     role: "Técnico Investigador Nivel 1",
     period: "2024 - 2026",
-    description: [
+    location: "Valladolid, España",
+    type: "I+D · Tiempo completo",
+    summary:
+      "Participación en proyectos de investigación y desarrollo centrados en soluciones de sensorización, interfaces web, integración hardware-software, adquisición de datos y sistemas conectados.",
+    responsibilities: [
       "Desarrollo de interfaces web para módulos de sensorización.",
-      "Programación en Python para adquisición y procesamiento de datos.",
-      "Integración hardware-software en entornos IoT.",
-      "Montaje de servicios IoT, servidores y bases de datos.",
-      "Aplicación de inteligencia artificial y buenas prácticas de seguridad en sistemas de datos.",
+      "Programación en Python para adquisición, tratamiento y visualización de datos.",
+      "Integración de sensores, hardware y software en entornos IoT.",
+      "Trabajo con sistemas Linux y Raspberry Pi para despliegue de servicios y conexión de dispositivos.",
+      "Montaje y configuración de servicios IoT, servidores y bases de datos.",
+      "Aplicación de inteligencia artificial y buenas prácticas de seguridad en sistemas orientados a datos.",
+    ],
+    technologies: [
+      "Python",
+      "Linux",
+      "Raspberry Pi",
+      "IoT",
+      "Sensores",
+      "Bases de datos",
+      "IA aplicada",
+      "Integración hardware-software",
+      "Adquisición de datos",
+    ],
+    valuePoints: [
+      "Experiencia en entornos reales de I+D.",
+      "Capacidad para conectar software, hardware y datos.",
+      "Trabajo en soluciones aplicadas con impacto práctico.",
+      "Perfil técnico híbrido entre desarrollo, sistemas, IoT y seguridad.",
     ],
   },
   {
     company: "ZG Service",
     role: "Desarrollador Full Stack",
     period: "Marzo 2023 - Julio 2023",
-    description: [
-      "Desarrollo de aplicaciones web con Angular y Node.js.",
-      "Implementación de APIs y lógica de negocio.",
-      "Gestión de datos temporales con InfluxDB.",
-      "Desarrollo de sitios corporativos con WordPress.",
-      "Trabajo con control de versiones y entornos ágiles.",
+    location: "Valladolid, España",
+    type: "Prácticas + posterior incorporación temporal",
+    summary:
+      "Comencé como desarrollador full stack en periodo de prácticas y posteriormente continué colaborando en jornada completa, participando en el desarrollo de aplicaciones web, gestión de datos y mantenimiento de soluciones digitales.",
+    responsibilities: [
+      "Desarrollo de aplicaciones web utilizando Angular y Node.js.",
+      "Implementación de lógica de negocio y comunicación con APIs.",
+      "Gestión y consulta de datos temporales con InfluxDB.",
+      "Desarrollo y mantenimiento de sitios corporativos con WordPress.",
+      "Trabajo con control de versiones y colaboración en tareas de desarrollo.",
+      "Participación en el ciclo de desarrollo desde una primera etapa de prácticas hasta una posterior incorporación temporal.",
+    ],
+    technologies: ["Angular", "Node.js", "JavaScript", "InfluxDB", "WordPress", "APIs", "Git", "Desarrollo web", "Full Stack"],
+    valuePoints: [
+      "Primera experiencia profesional en desarrollo web.",
+      "Continuidad tras el periodo de prácticas, asumiendo nuevas responsabilidades.",
+      "Aplicación práctica de tecnologías frontend y backend.",
+      "Adaptación a flujos de trabajo reales y colaboración técnica.",
     ],
   },
 ];

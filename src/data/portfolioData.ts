@@ -13,13 +13,21 @@ export type Experience = {
 export type CaseStudy = {
   problem: string;
   solution: string;
+  architecture: string[];
+  role: string;
   technicalDecisions: string[];
+  result: string;
   learning: string;
 };
 
 export type Project = {
   name: string;
   subtitle: string;
+  badges: string[];
+  dashboardItems: {
+    label: string;
+    value: string;
+  }[];
   description: string;
   technologies: string[];
   highlights: string[];
@@ -157,6 +165,13 @@ export const projects: Project[] = [
   {
     name: "NBA Insight",
     subtitle: "Full Stack NBA Analytics Platform",
+    badges: ["Proyecto principal", "Desplegado en producción", "NBA Analytics", "Demo disponible"],
+    dashboardItems: [
+      { label: "Games", value: "Stats" },
+      { label: "Players", value: "Profiles" },
+      { label: "Standings", value: "Live view" },
+      { label: "Favorites", value: "Persist" },
+    ],
     description:
       "Aplicación web full stack de análisis NBA desarrollada con React, TypeScript, Node.js y PostgreSQL. El proyecto incluye frontend desplegado en Vercel, backend conectado a servicios externos, autenticación JWT, modo demo, favoritos persistentes y una arquitectura pensada para separar la experiencia pública de la lógica backend.",
     technologies: [
@@ -186,6 +201,17 @@ export const projects: Project[] = [
         "Quería construir una plataforma web que permitiese consultar información NBA de forma clara, moderna y accesible, demostrando una arquitectura full stack real y desplegada en producción.",
       solution:
         "Desarrollé una aplicación con frontend en React y TypeScript, backend en Node.js y Express, autenticación con JWT, persistencia de favoritos y despliegue usando Vercel, Render y Neon.",
+      architecture: [
+        "Frontend en React, TypeScript y Vite.",
+        "Backend con Node.js y Express.",
+        "Base de datos PostgreSQL alojada en Neon.",
+        "Despliegue del frontend en Vercel.",
+        "Despliegue del backend en Render.",
+        "Modo demo con persistencia local para permitir que cualquier recruiter pruebe la aplicación sin registrarse.",
+        "Integración con APIs externas para datos NBA.",
+      ],
+      role:
+        "Diseñé y desarrollé la aplicación completa, desde la estructura frontend y la experiencia de usuario hasta la integración backend, autenticación, persistencia de favoritos y despliegue.",
       technicalDecisions: [
         "Separación entre frontend y backend.",
         "Modo demo accesible sin registro.",
@@ -193,7 +219,10 @@ export const projects: Project[] = [
         "Uso de APIs externas.",
         "Estrategia de fallback para mantener una experiencia estable.",
         "Diseño responsive orientado a producto.",
+        "Separación entre experiencia pública y lógica backend.",
       ],
+      result:
+        "Una aplicación funcional y desplegada que puede ser probada directamente por reclutadores, mostrando capacidades de desarrollo frontend, backend, integración de datos, autenticación, despliegue y diseño de producto.",
       learning:
         "Este proyecto me permitió reforzar conocimientos de arquitectura full stack, despliegue real, autenticación, consumo de APIs externas, persistencia de datos y experiencia de usuario.",
     },

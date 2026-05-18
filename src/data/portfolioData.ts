@@ -74,7 +74,7 @@ export const personalData = {
   email: "balbib99@gmail.com",
   location: "Valladolid, España",
   profileImage: "/balbino-profile.jpg",
-  cvUrl: "/cv-balbino-martinez.pdf",
+  cvUrl: "/cv-balbino-martinez-es.pdf",
   heroTitle: "Hola, soy Balbino Martínez.",
   heroSubtitle:
     "Desarrollador de software especializado en web, IoT, ciberseguridad e IA aplicada.",

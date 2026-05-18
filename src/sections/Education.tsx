@@ -1,6 +1,7 @@
 import { SectionTitle } from "../components/SectionTitle";
 import { SkillBadge } from "../components/SkillBadge";
-import { certifications, education, type EducationItem } from "../data/portfolioData";
+import { useLanguage } from "../context/LanguageContext";
+import type { EducationItem } from "../data/portfolioData";
 
 const ItemList = ({ items }: { items: EducationItem[] }) => (
   <div className="space-y-4">
@@ -31,24 +32,28 @@ const ItemList = ({ items }: { items: EducationItem[] }) => (
   </div>
 );
 
-export const Education = () => (
+export const Education = () => {
+  const { t } = useLanguage();
+
+  return (
   <section id="formacion" className="px-4 py-20 sm:px-6 lg:px-8">
     <div className="mx-auto max-w-7xl">
       <SectionTitle
-        eyebrow="Formación y certificaciones"
-        title="Aprendizaje continuo en software, ciberseguridad e IA"
-        description="Mi formación combina desarrollo de software, seguridad de la información, inteligencia artificial aplicada y fundamentos técnicos de sistemas, lo que me permite abordar soluciones desde una perspectiva completa."
+        eyebrow={t.education.eyebrow}
+        title={t.education.title}
+        description={t.education.description}
       />
       <div className="grid gap-8 lg:grid-cols-2">
         <div>
-          <h3 className="mb-4 text-xl font-bold text-slate-950 dark:text-white">Formación principal</h3>
-          <ItemList items={education} />
+          <h3 className="mb-4 text-xl font-bold text-slate-950 dark:text-white">{t.education.mainTitle}</h3>
+          <ItemList items={t.education.education} />
         </div>
         <div>
-          <h3 className="mb-4 text-xl font-bold text-slate-950 dark:text-white">Certificaciones</h3>
-          <ItemList items={certifications} />
+          <h3 className="mb-4 text-xl font-bold text-slate-950 dark:text-white">{t.education.certificationsTitle}</h3>
+          <ItemList items={t.education.certifications} />
         </div>
       </div>
     </div>
   </section>
-);
+  );
+};

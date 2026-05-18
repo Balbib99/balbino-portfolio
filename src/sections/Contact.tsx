@@ -1,33 +1,37 @@
 import { ContactForm } from "../components/ContactForm";
 import { LinkButton } from "../components/LinkButton";
+import { useLanguage } from "../context/LanguageContext";
 import { links, personalData } from "../data/portfolioData";
 
-const quickActions = [
-  { label: "Descargar CV", href: personalData.cvUrl, variant: "secondary" as const, download: true },
-  { label: "LinkedIn", href: links.linkedin, variant: "secondary" as const, external: true },
-  { label: "GitHub", href: links.github, variant: "secondary" as const, external: true },
-  { label: "Ver NBA Insight", href: links.nbaInsight, variant: "ghost" as const, external: true },
-];
+export const Contact = () => {
+  const { t } = useLanguage();
 
-export const Contact = () => (
+  const quickActions = [
+    { label: t.buttons.downloadCv, href: t.personalData.cvUrl, variant: "secondary" as const, download: true },
+    { label: t.buttons.linkedin, href: links.linkedin, variant: "secondary" as const, external: true },
+    { label: t.buttons.github, href: links.github, variant: "secondary" as const, external: true },
+    { label: t.buttons.viewNbaInsight, href: links.nbaInsight, variant: "ghost" as const, external: true },
+  ];
+
+  return (
   <section id="contacto" className="bg-slate-950 px-4 py-20 text-white sm:px-6 lg:px-8">
     <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-center">
       <div>
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-teal-300">Contacto</p>
-        <h2 className="mt-3 max-w-3xl text-3xl font-bold sm:text-4xl">Hablemos de software, datos y sistemas conectados.</h2>
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-teal-300">{t.contact.eyebrow}</p>
+        <h2 className="mt-3 max-w-3xl text-3xl font-bold sm:text-4xl">{t.contact.title}</h2>
         <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
-          Estoy abierto a oportunidades profesionales donde pueda aportar en desarrollo web, integración IoT, ciberseguridad, automatización e IA aplicada.
+          {t.contact.description}
         </p>
         <div className="mt-7 rounded-lg border border-white/10 bg-white/5 p-5">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">Disponibilidad</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">{t.contact.availabilityTitle}</p>
           <p className="mt-2 text-sm leading-6 text-slate-300">
-            También puedes revisar mi proyecto principal desplegado en producción: <span className="font-semibold text-teal-300">NBA Insight</span>.
+            {t.contact.availabilityText} <span className="font-semibold text-teal-300">NBA Insight</span>.
           </p>
         </div>
       </div>
 
       <div className="rounded-lg border border-white/10 bg-white/5 p-6 shadow-soft">
-        <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">Formulario de contacto</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">{t.contact.formTitle}</p>
         <a className="mt-3 block text-lg font-semibold text-white transition hover:text-teal-300" href={links.email}>
           {personalData.email}
         </a>
@@ -35,7 +39,7 @@ export const Contact = () => (
           <ContactForm />
         </div>
         <div className="mt-6 border-t border-white/10 pt-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">Enlaces rápidos</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">{t.contact.quickLinks}</p>
         </div>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
           {quickActions.map((action, index) => (
@@ -55,4 +59,5 @@ export const Contact = () => (
       </div>
     </div>
   </section>
-);
+  );
+};

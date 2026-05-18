@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
+import { useLanguage } from "../context/LanguageContext";
 import type { Project } from "../data/portfolioData";
 import { LinkButton } from "./LinkButton";
 import { SkillBadge } from "./SkillBadge";
@@ -7,8 +8,6 @@ import { SkillBadge } from "./SkillBadge";
 type ProjectCardProps = {
   project: Project;
 };
-
-const pipelineItems = ["Frontend", "Backend", "Base de datos", "Deploy"];
 
 const getBadgeClassName = (index: number) =>
   index % 2 === 0
@@ -38,6 +37,7 @@ const CaseStudySection = ({
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
+  const { t } = useLanguage();
   const caseStudyId = `${project.name.toLowerCase().replace(/\s+/g, "-")}-case-study`;
 
   return (
@@ -76,12 +76,12 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             <h3 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">{project.name}</h3>
             <p className="mt-2 text-base text-slate-300">{project.subtitle}</p>
             <p className="mt-4 inline-flex rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-200">
-              Sports Analytics · Full Stack
+              {t.projects.card.sportsAnalytics}
             </p>
           </div>
 
           <div className="mt-8">
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">Sports dashboard</p>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">{t.projects.card.sportsDashboard}</p>
             <div className="mt-3 grid grid-cols-2 gap-3 text-sm text-slate-300">
               {project.dashboardItems.map((item) => (
                 <div
@@ -131,10 +131,10 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 
           <div className="mt-7 flex flex-wrap gap-3">
             <LinkButton href={project.links.demo} target="_blank" rel="noopener noreferrer" variant="primary">
-              Ver demo
+              {t.buttons.viewDemo}
             </LinkButton>
             <LinkButton href={project.links.code} target="_blank" rel="noopener noreferrer">
-              Ver código
+              {t.buttons.viewCode}
             </LinkButton>
             <button
               type="button"
@@ -143,7 +143,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
               onClick={() => setIsCaseStudyOpen((current) => !current)}
               className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-slate-800 transition duration-200 hover:bg-slate-100 hover:text-slate-950 focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-slate-100 dark:hover:bg-slate-800 dark:hover:text-white dark:focus-visible:ring-offset-slate-950"
             >
-              Detalles técnicos
+              {t.buttons.technicalDetails}
               <span className={`transition-transform duration-200 ${isCaseStudyOpen ? "rotate-180" : ""}`} aria-hidden="true">
                 v
               </span>
@@ -159,21 +159,21 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             <div className="overflow-hidden">
               <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950/50 sm:p-5">
                 <div className="grid gap-4 md:grid-cols-2">
-                  <CaseStudySection title="Problema">
+                  <CaseStudySection title={t.projects.card.problem}>
                     <p>{project.caseStudy.problem}</p>
                   </CaseStudySection>
-                  <CaseStudySection title="Solución">
+                  <CaseStudySection title={t.projects.card.solution}>
                     <p>{project.caseStudy.solution}</p>
                   </CaseStudySection>
                 </div>
 
                 <div className="mt-4 rounded-lg border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
-                  <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">Arquitectura</h4>
+                  <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">{t.projects.card.architecture}</h4>
                   <div className="mt-4 grid gap-3 sm:grid-cols-4">
-                    {pipelineItems.map((item, index) => (
+                    {t.projects.card.pipelineItems.map((item, index) => (
                       <div key={item} className="rounded-lg border border-slate-200 bg-slate-50 p-3 transition duration-200 hover:border-orange-200 hover:bg-orange-50/70 dark:border-slate-800 dark:bg-slate-950/50 dark:hover:border-orange-900/70 dark:hover:bg-orange-950/20">
                         <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
-                          Paso {index + 1}
+                          {t.projects.card.step} {index + 1}
                         </p>
                         <p className="mt-1 text-sm font-semibold text-slate-950 dark:text-white">{item}</p>
                       </div>
@@ -190,19 +190,19 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                 </div>
 
                 <div className="mt-4 grid gap-4 md:grid-cols-3">
-                  <CaseStudySection title="Rol en el proyecto" accent>
+                  <CaseStudySection title={t.projects.card.role} accent>
                     <p>{project.caseStudy.role}</p>
                   </CaseStudySection>
-                  <CaseStudySection title="Resultado" accent>
+                  <CaseStudySection title={t.projects.card.result} accent>
                     <p>{project.caseStudy.result}</p>
                   </CaseStudySection>
-                  <CaseStudySection title="Aprendizaje" accent>
+                  <CaseStudySection title={t.projects.card.learning} accent>
                     <p>{project.caseStudy.learning}</p>
                   </CaseStudySection>
                 </div>
 
                 <div className="mt-4 rounded-lg border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
-                  <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">Decisiones técnicas</h4>
+                  <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">{t.projects.card.technicalDecisions}</h4>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.caseStudy.technicalDecisions.map((decision) => (
                       <span

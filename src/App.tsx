@@ -1,3 +1,4 @@
+import { AnimatedSection } from "./components/AnimatedSection";
 import { Navbar } from "./components/Navbar";
 import { useTheme } from "./hooks/useTheme";
 import { About } from "./sections/About";
@@ -18,13 +19,27 @@ const App = () => {
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
       <main>
         <Hero />
-        <About />
-        <Value />
-        <Experience />
-        <Projects />
-        <Stack />
-        <Education />
-        <Contact />
+        <AnimatedSection>
+          <About />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Value />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Experience />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Projects />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Stack />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Education />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Contact />
+        </AnimatedSection>
       </main>
       <Footer />
     </div>

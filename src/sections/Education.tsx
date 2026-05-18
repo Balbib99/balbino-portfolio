@@ -34,10 +34,14 @@ const ItemList = ({ items }: { items: EducationItem[] }) => (
 export const Education = () => (
   <section id="formacion" className="px-4 py-20 sm:px-6 lg:px-8">
     <div className="mx-auto max-w-7xl">
-      <SectionTitle eyebrow="Formación y certificaciones" title="Aprendizaje continuo en software, seguridad e IA" />
+      <SectionTitle
+        eyebrow="Formación y certificaciones"
+        title="Aprendizaje continuo en software, ciberseguridad e IA"
+        description="Mi formación combina desarrollo de software, seguridad de la información, inteligencia artificial aplicada y fundamentos técnicos de sistemas, lo que me permite abordar soluciones desde una perspectiva completa."
+      />
       <div className="grid gap-8 lg:grid-cols-2">
         <div>
-          <h3 className="mb-4 text-xl font-bold text-slate-950 dark:text-white">Formación</h3>
+          <h3 className="mb-4 text-xl font-bold text-slate-950 dark:text-white">Formación principal</h3>
           <ItemList items={education} />
         </div>
         <div>

@@ -283,42 +283,79 @@ export const education: EducationItem[] = [
   {
     title: "Máster en Ciberseguridad",
     institution: "Instituto Europeo de Posgrado",
-    tags: ["Análisis de riesgos", "Seguridad de la información", "Auditoría", "Investigación forense"],
+    period: "2025 - 2026",
+    description:
+      "Formación especializada en protección de sistemas, análisis de riesgos, auditoría de seguridad, investigación forense y gestión de la seguridad de la información.",
+    tags: ["Ciberseguridad", "Análisis de riesgos", "ISO 27001", "Auditoría", "Investigación forense"],
+  },
+  {
+    title: "Máster Online en IA e Innovación",
+    institution: "Founderz & Microsoft",
+    period: "2026",
+    description:
+      "Programa orientado a la aplicación práctica de inteligencia artificial en productos digitales, automatización de procesos, agentes IA y mejora de productividad.",
+    tags: ["IA aplicada", "Automatizaciones", "Agentes IA", "Innovación", "Productividad"],
   },
   {
     title: "Técnico Superior en Desarrollo de Aplicaciones Web",
     institution: "IES Julián Marías",
-    tags: ["Frontend", "Backend", "Bases de datos", "Desarrollo web"],
+    period: "2021 - 2023",
+    description:
+      "Formación técnica en desarrollo de aplicaciones web, bases de datos, frontend, backend, programación y despliegue de soluciones web.",
+    tags: ["Desarrollo web", "Frontend", "Backend", "Bases de datos", "JavaScript"],
   },
   {
     title: "Técnico en Instalaciones Eléctricas y Automáticas",
     institution: "IES Julián Marías",
-    tags: ["Automatismos", "Instalaciones eléctricas", "Fundamentos hardware"],
+    period: "2019 - 2021",
+    description:
+      "Formación técnica en instalaciones eléctricas, automatismos y fundamentos de sistemas eléctricos, aportando una base útil para integración hardware-software e IoT.",
+    tags: ["Automatismos", "Instalaciones eléctricas", "Fundamentos hardware", "IoT"],
   },
 ];
 
 export const certifications: EducationItem[] = [
   {
-    title: "Máster Online en IA e Innovación",
-    institution: "Founderz & Microsoft",
-    tags: ["IA aplicada", "Automatizaciones", "Agentes IA", "Productividad"],
-  },
-  {
-    title: "Especialización en Automatizaciones",
-    institution: "Founderz & Microsoft",
-    tags: ["Automatización", "IA", "Flujos de trabajo", "Productividad"],
-  },
-  {
     title: "Auditor Interno ISO 27001:2022",
-    tags: ["ISO 27001", "Auditoría interna", "Seguridad de la información"],
+    institution: "IEP / CUA / Bureau Veritas Business School",
+    period: "2026",
+    description:
+      "Certificación orientada a la auditoría interna de Sistemas de Gestión de Seguridad de la Información bajo la norma ISO 27001:2022.",
+    tags: ["ISO 27001", "SGSI", "Auditoría interna", "Seguridad de la información"],
   },
   {
     title: "Cyber Security 101",
     institution: "TryHackMe",
-    tags: ["Linux", "Fundamentos de ciberseguridad", "TryHackMe"],
+    period: "2026",
+    description:
+      "Certificación introductoria enfocada en fundamentos de ciberseguridad, Linux, redes, análisis básico y herramientas de seguridad.",
+    tags: ["TryHackMe", "Linux", "Fundamentos de ciberseguridad", "Seguridad ofensiva"],
   },
   {
     title: "Máster en React: ReactJS, Hooks, MERN, NodeJS, JWT+",
+    institution: "Udemy",
+    period: "2023",
+    description:
+      "Formación práctica en desarrollo frontend con React, hooks, arquitectura MERN, Node.js y autenticación con JWT.",
     tags: ["React", "Hooks", "MERN", "Node.js", "JWT"],
+  },
+  {
+    title: "TryHackMe badges destacados",
+    institution: "TryHackMe",
+    period: "2025 - 2026",
+    description:
+      "Reconocimientos prácticos obtenidos en laboratorios de ciberseguridad enfocados en Linux, enumeración, explotación controlada de vulnerabilidades y uso de herramientas como Metasploit y SQLMap.",
+    tags: [
+      "Linux",
+      "Metasploit",
+      "SQLMap",
+      "EternalBlue",
+      "Explotación controlada",
+      "Laboratorios prácticos",
+      "Aprendiz de espada",
+      "Being competent in Linux",
+      "Contains the knowledge to use Metasploit",
+      "Hacking into Windows via EternalBlue",
+    ],
   },
 ];

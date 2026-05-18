@@ -90,6 +90,7 @@ export const links = {
   github: "https://github.com/Balbib99",
   linkedin: "https://www.linkedin.com/in/balbino-martinez-rodriguez-2912bb332",
   email: "mailto:balbib99@gmail.com",
+  nbaInsight: "https://nba-insight-eight.vercel.app/",
 };
 
 export const navItems: LinkItem[] = [

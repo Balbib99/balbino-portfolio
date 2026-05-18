@@ -4,7 +4,7 @@ import { aboutCards, personalData } from "../data/portfolioData";
 export const About = () => (
   <section id="sobre-mi" className="px-4 py-20 sm:px-6 lg:px-8">
     <div className="mx-auto max-w-7xl">
-      <SectionTitle eyebrow="Sobre mí" title="Tecnología aplicada con mentalidad de producto" description={personalData.professionalProfile} />
+      <SectionTitle eyebrow="Sobre mí" title="Perfil híbrido en desarrollo web, datos y ciberseguridad" description={personalData.professionalProfile} />
       <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="rounded-lg border border-slate-200 bg-white p-7 shadow-soft dark:border-slate-800 dark:bg-slate-900">
           <p className="text-lg leading-8 text-slate-700 dark:text-slate-300">{personalData.about}</p>

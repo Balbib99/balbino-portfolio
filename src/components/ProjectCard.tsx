@@ -158,12 +158,41 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           >
             <div className="overflow-hidden">
               <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-[#0b1220]/85 sm:p-5">
-                <div className="grid gap-4 md:grid-cols-2">
+                <CaseStudySection title={t.projects.card.overview} accent>
+                  <p>{project.caseStudy.overview}</p>
+                </CaseStudySection>
+
+                <div className="mt-4 grid gap-4 md:grid-cols-2">
                   <CaseStudySection title={t.projects.card.problem}>
                     <p>{project.caseStudy.problem}</p>
                   </CaseStudySection>
                   <CaseStudySection title={t.projects.card.solution}>
                     <p>{project.caseStudy.solution}</p>
+                  </CaseStudySection>
+                </div>
+
+                <div className="mt-4 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+                  <CaseStudySection title={t.projects.card.mainFeatures}>
+                    <ul className="grid gap-2">
+                      {project.caseStudy.mainFeatures.map((feature) => (
+                        <li key={feature} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CaseStudySection>
+                  <CaseStudySection title={t.projects.card.techStack}>
+                    <div className="flex flex-wrap gap-2">
+                      {project.caseStudy.techStack.map((technology) => (
+                        <span
+                          key={technology}
+                          className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700 dark:border-white/10 dark:bg-[#0b1220]/80 dark:text-slate-200"
+                        >
+                          {technology}
+                        </span>
+                      ))}
+                    </div>
                   </CaseStudySection>
                 </div>
 
@@ -212,6 +241,18 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                         {decision}
                       </span>
                     ))}
+                  </div>
+                </div>
+
+                <div className="mt-4 rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
+                  <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">{t.projects.card.links}</h4>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    <LinkButton href={project.links.demo} target="_blank" rel="noopener noreferrer" variant="primary">
+                      {t.buttons.viewDemo}
+                    </LinkButton>
+                    <LinkButton href={project.links.code} target="_blank" rel="noopener noreferrer">
+                      {t.buttons.viewCode}
+                    </LinkButton>
                   </div>
                 </div>
               </div>

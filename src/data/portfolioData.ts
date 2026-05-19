@@ -16,8 +16,11 @@ export type Experience = {
 };
 
 export type CaseStudy = {
+  overview: string;
   problem: string;
   solution: string;
+  mainFeatures: string[];
+  techStack: string[];
   architecture: string[];
   role: string;
   technicalDecisions: string[];
@@ -77,9 +80,9 @@ export const personalData = {
   cvUrl: "/cv-balbino-martinez-es.pdf",
   heroTitle: "Hola, soy Balbino Martínez.",
   heroSubtitle:
-    "Desarrollador de software especializado en web, IoT, ciberseguridad e IA aplicada.",
+    "Desarrollador web full-stack enfocado en crear aplicaciones basadas en datos, integraciones reales con APIs y productos digitales desplegables.",
   heroDescription:
-    "Construyo soluciones completas combinando frontend, backend, datos, integración hardware-software y buenas prácticas de seguridad.",
+    "Trabajo con frontend, backend, APIs, bases de datos y despliegue para convertir ideas técnicas en productos utilizables.",
   professionalProfile:
     "Soy desarrollador de software con un perfil híbrido en desarrollo web, ciberseguridad, IoT e IA aplicada. Tengo experiencia en entornos reales de I+D, desarrollo de interfaces web, integración hardware-software, adquisición y visualización de datos, sistemas distribuidos y buenas prácticas de seguridad.",
   about:
@@ -120,24 +123,24 @@ export const aboutCards: AboutCard[] = [
 
 export const valueItems: ValueItem[] = [
   {
-    title: "Desarrollo web completo",
-    text: "Frontend, backend, APIs REST, autenticación, despliegue y mantenimiento de aplicaciones.",
+    title: "Interfaces modernas",
+    text: "Construyo interfaces responsive, mantenibles y pensadas para que el usuario entienda rápido el producto.",
   },
   {
-    title: "Datos e integración",
-    text: "Trabajo con bases de datos, datos temporales, visualización, adquisición de datos y conexión entre sistemas.",
+    title: "Integración completa",
+    text: "Conecto frontend con backend, APIs, autenticación y bases de datos para crear aplicaciones funcionales.",
   },
   {
-    title: "IoT y hardware-software",
-    text: "Experiencia conectando sensores, Raspberry Pi, servicios backend y plataformas de visualización.",
+    title: "Proyectos reales",
+    text: "He trabajado en soluciones aplicadas más allá de landing pages: datos, servicios, despliegue y producto.",
   },
   {
-    title: "Seguridad desde el diseño",
-    text: "Conocimientos en ISO 27001, análisis de riesgos, Linux, auditoría interna y buenas prácticas de protección de datos.",
+    title: "Datos, IoT y seguridad",
+    text: "Me interesan los productos basados en datos, sistemas conectados, ciberseguridad e integración hardware-software.",
   },
   {
-    title: "Automatización e IA",
-    text: "Uso de IA aplicada y automatizaciones para crear soluciones más eficientes y escalables.",
+    title: "Criterio técnico y UX",
+    text: "Cuido tanto la arquitectura y mantenibilidad como la claridad visual, el responsive y la experiencia de uso.",
   },
 ];
 
@@ -205,23 +208,25 @@ export const experiences: Experience[] = [
 export const projects: Project[] = [
   {
     name: "NBA Insight",
-    subtitle: "Full Stack NBA Analytics Platform",
+    subtitle: "Full-stack basketball analytics platform",
     badges: ["Proyecto principal", "Desplegado en producción", "NBA Analytics", "Demo disponible"],
     dashboardItems: [
       { label: "Games", value: "Stats" },
       { label: "Players", value: "Profiles" },
       { label: "Standings", value: "Live view" },
-      { label: "Favorites", value: "Persist" },
+      { label: "Favorites", value: "Saved" },
     ],
     description:
-      "Aplicación web full stack de análisis NBA desarrollada con React, TypeScript, Node.js y PostgreSQL. El proyecto incluye frontend desplegado en Vercel, backend conectado a servicios externos, autenticación JWT, modo demo, favoritos persistentes y una arquitectura pensada para separar la experiencia pública de la lógica backend.",
+      "Plataforma full-stack de analítica NBA desarrollada con React, TypeScript, Node.js y PostgreSQL. El proyecto permite explorar equipos, jugadores, standings, playoffs, comparativas y favoritos mediante una interfaz limpia, responsive y preparada como producto real desplegado.",
     technologies: [
       "React",
       "TypeScript",
       "Vite",
+      "Tailwind CSS",
       "Node.js",
       "Express",
       "PostgreSQL",
+      "API-Basketball",
       "JWT",
       "Vercel",
       "Render",
@@ -231,25 +236,48 @@ export const projects: Project[] = [
     highlights: [
       "Aplicación real desplegada en producción.",
       "Modo demo accesible para reclutadores sin necesidad de registro.",
+      "Exploración de teams, players, analytics, compare, standings y playoffs.",
       "Sistema de autenticación con JWT.",
       "Persistencia de favoritos.",
       "Arquitectura frontend/backend separada.",
       "Diseño responsive.",
-      "Uso de APIs externas y estrategia de fallback.",
+      "Uso de APIs externas con fallback/cache/mock data cuando es necesario.",
     ],
     caseStudy: {
+      overview:
+        "NBA Insight es una plataforma full-stack de analítica de baloncesto diseñada para explorar equipos, jugadores, standings, playoffs y favoritos de usuario mediante una interfaz limpia y responsive.",
       problem:
-        "Quería construir una plataforma web que permitiese consultar información NBA de forma clara, moderna y accesible, demostrando una arquitectura full stack real y desplegada en producción.",
+        "Las aplicaciones de datos deportivos suelen depender de APIs externas, disponibilidad irregular y estructuras de datos complejas. El objetivo era construir un producto presentable en portfolio que se sintiera realista y mantuviera una demo pública estable y accesible.",
       solution:
-        "Desarrollé una aplicación con frontend en React y TypeScript, backend en Node.js y Express, autenticación con JWT, persistencia de favoritos y despliegue usando Vercel, Render y Neon.",
+        "La aplicación combina un frontend en React y TypeScript con backend en Node.js/Express, persistencia en PostgreSQL y una estrategia híbrida de datos usando información cacheada, mockeada o externa según el entorno.",
+      mainFeatures: [
+        "Teams, players, standings y playoffs.",
+        "Analytics, compare y favoritos persistentes.",
+        "Modo demo para probar la aplicación sin registro.",
+        "Autenticación con JWT y separación de experiencia pública/backend.",
+        "Fallback/cache/mock data para mantener una experiencia estable.",
+      ],
+      techStack: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "Node.js",
+        "Express",
+        "PostgreSQL / Neon",
+        "Render",
+        "Vercel",
+        "API-Basketball",
+      ],
       architecture: [
         "Frontend en React, TypeScript y Vite.",
+        "Interfaz construida con Tailwind CSS y diseño responsive.",
         "Backend con Node.js y Express.",
         "Base de datos PostgreSQL alojada en Neon.",
         "Despliegue del frontend en Vercel.",
         "Despliegue del backend en Render.",
         "Modo demo con persistencia local para permitir que cualquier recruiter pruebe la aplicación sin registrarse.",
-        "Integración con APIs externas para datos NBA.",
+        "Integración con API-Basketball para datos NBA sin exponer API keys en el frontend.",
       ],
       role:
         "Diseñé y desarrollé la aplicación completa, desde la estructura frontend y la experiencia de usuario hasta la integración backend, autenticación, persistencia de favoritos y despliegue.",
@@ -258,14 +286,14 @@ export const projects: Project[] = [
         "Modo demo accesible sin registro.",
         "Persistencia de favoritos.",
         "Uso de APIs externas.",
-        "Estrategia de fallback para mantener una experiencia estable.",
+        "Estrategia de fallback/cache/mock data para mantener una experiencia estable.",
         "Diseño responsive orientado a producto.",
         "Separación entre experiencia pública y lógica backend.",
       ],
       result:
         "Una aplicación funcional y desplegada que puede ser probada directamente por reclutadores, mostrando capacidades de desarrollo frontend, backend, integración de datos, autenticación, despliegue y diseño de producto.",
       learning:
-        "Este proyecto me permitió reforzar conocimientos de arquitectura full stack, despliegue real, autenticación, consumo de APIs externas, persistencia de datos y experiencia de usuario.",
+        "Este proyecto me permitió mejorar mi capacidad para diseñar arquitectura frontend, conectar servicios backend, gestionar variables de entorno, resolver problemas de despliegue, estructurar integraciones con APIs y construir un producto pulido para usuarios reales.",
     },
     links: {
       demo: "https://nba-insight-eight.vercel.app/",
@@ -276,46 +304,28 @@ export const projects: Project[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Frontend",
+    title: "Frontend Engineering",
     description:
-      "Desarrollo interfaces modernas, adaptables y mantenibles usando tecnologías actuales del ecosistema web.",
-    items: ["React", "TypeScript", "JavaScript", "Angular", "Vite", "HTML", "CSS", "Tailwind CSS"],
+      "Desarrollo interfaces modernas, responsive y mantenibles usando tecnologías actuales del ecosistema web.",
+    items: ["React", "TypeScript", "Vite", "Tailwind CSS", "Diseño responsive", "Modo oscuro"],
   },
   {
-    title: "Backend",
+    title: "Backend & APIs",
     description:
-      "Construcción de APIs, lógica de negocio, autenticación y servicios backend para aplicaciones web.",
-    items: ["Node.js", "Express", "Python", "APIs REST", "JWT"],
+      "Construcción de APIs, lógica de negocio, autenticación e integración con servicios externos.",
+    items: ["Node.js", "Express", "APIs REST", "PostgreSQL", "Integración de APIs externas"],
   },
   {
-    title: "Datos y bases de datos",
+    title: "Data & Deployment",
     description:
-      "Trabajo con bases de datos relacionales y temporales para almacenar, consultar y visualizar información.",
-    items: ["PostgreSQL", "Neon", "InfluxDB", "Bases de datos temporales", "Visualización de datos"],
+      "Trabajo con despliegue, configuración y visualización de datos para llevar aplicaciones a producción.",
+    items: ["Vercel", "Render", "Neon", "Visualización de datos", "Variables de entorno"],
   },
   {
-    title: "DevOps y despliegue",
+    title: "IoT & Cybersecurity",
     description:
-      "Uso de herramientas de control de versiones, despliegue y configuración para llevar aplicaciones a producción.",
-    items: ["Git", "GitHub", "Vercel", "Render", "Docker", "Variables de entorno", "Nginx"],
-  },
-  {
-    title: "IoT y sistemas Linux",
-    description:
-      "Experiencia con Linux, Raspberry Pi, sensores y adquisición de datos en entornos de integración hardware-software.",
-    items: ["Linux", "Raspberry Pi", "Sensores", "MQTT", "Adquisición de datos", "Integración hardware-software", "Servicios Linux", "Systemd"],
-  },
-  {
-    title: "Ciberseguridad",
-    description:
-      "Conocimientos en seguridad de la información, análisis de riesgos, auditoría interna y herramientas de evaluación técnica.",
-    items: ["ISO 27001", "ISO 27002", "Análisis de riesgos", "Auditoría interna", "Linux", "Metasploit", "SQLMap", "TryHackMe"],
-  },
-  {
-    title: "IA aplicada y automatización",
-    description:
-      "Uso de inteligencia artificial y automatizaciones para mejorar procesos, productividad y soluciones software.",
-    items: ["IA aplicada", "Automatizaciones", "Agentes IA", "Flujos de trabajo", "Productividad con IA"],
+      "Experiencia con Linux, Raspberry Pi, sensores y fundamentos de ciberseguridad en sistemas conectados.",
+    items: ["Raspberry Pi", "Sensores", "MQTT", "Linux", "Fundamentos de ciberseguridad", "ISO 27001"],
   },
 ];
 

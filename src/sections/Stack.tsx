@@ -13,7 +13,7 @@ export const Stack = () => {
         title={t.stack.title}
         description={t.stack.description}
       />
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {t.stack.categories.map((category, index) => (
           <SkillCategoryCard key={category.title} category={category} index={index} />
         ))}

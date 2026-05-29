@@ -53,6 +53,7 @@ export const es = {
     title: "Perfil híbrido en desarrollo, datos y ciberseguridad",
     description: personalData.professionalProfile,
     text: personalData.about,
+    avatarAlt: "Avatar ilustrado de Balbino Martínez con paneles de ciberseguridad",
     cards: aboutCards,
   },
   value: {

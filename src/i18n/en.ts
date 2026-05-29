@@ -60,6 +60,7 @@ export const en: typeof es = {
       "I’m a software developer with a hybrid profile in web development, cybersecurity, IoT and applied AI. I have experience in real R&D environments, web interface development, hardware–software integration, data acquisition and visualization, distributed systems and security best practices.",
     text:
       "I hold a Higher Technician degree in Web Application Development and I’m currently studying a Master’s Degree in Cybersecurity. My profile combines web development, hardware–software integration, data analysis, IoT and applied AI. I have worked in real R&D environments developing web interfaces, sensor modules, distributed systems and solutions focused on data acquisition and visualization.",
+    avatarAlt: "Illustrated avatar of Balbino Martínez with cybersecurity panels",
     cards: [
       {
         title: "Real R&D",

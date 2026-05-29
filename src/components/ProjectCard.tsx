@@ -9,10 +9,49 @@ type ProjectCardProps = {
   project: Project;
 };
 
-const getBadgeClassName = (index: number) =>
-  index % 2 === 0
-    ? "border-orange-300/40 bg-orange-300/10 text-orange-100 dark:border-orange-300/30 dark:bg-orange-300/10"
-    : "border-teal-300/30 bg-teal-300/10 text-teal-100 dark:border-teal-300/30 dark:bg-teal-300/10";
+const accentStyles = {
+  orange: {
+    article:
+      "hover:border-orange-200 focus-within:border-orange-200 dark:shadow-[0_28px_100px_-58px_rgba(251,146,60,0.28)] dark:hover:border-orange-400/25 dark:focus-within:border-orange-400/25",
+    badgePrimary:
+      "border-orange-300/40 bg-orange-300/10 text-orange-100 dark:border-orange-300/30 dark:bg-orange-300/10",
+    badgeSecondary:
+      "border-teal-300/30 bg-teal-300/10 text-teal-100 dark:border-teal-300/30 dark:bg-teal-300/10",
+    outline: "border-orange-500",
+    line: "bg-orange-500",
+    heroRing: "border-orange-400/15",
+    heroGlow: "bg-[linear-gradient(90deg,rgba(251,146,60,0.18),transparent_42%,rgba(45,212,191,0.12))]",
+    marker: "bg-orange-400",
+    dashboardHover: "hover:border-orange-300/40 hover:bg-orange-300/10",
+    dashboardLabel: "text-orange-200",
+    contentBadgePrimary:
+      "bg-orange-50 text-orange-700 ring-1 ring-orange-200 dark:bg-orange-950/30 dark:text-orange-300 dark:ring-orange-900/70",
+    bullet: "bg-orange-500",
+    pipelineHover: "hover:border-orange-200 hover:bg-orange-50/70 dark:hover:border-orange-400/25 dark:hover:bg-orange-400/[0.07]",
+  },
+  red: {
+    article:
+      "hover:border-red-200 focus-within:border-red-200 dark:shadow-[0_28px_100px_-58px_rgba(248,113,113,0.3)] dark:hover:border-red-400/30 dark:focus-within:border-red-400/30",
+    badgePrimary:
+      "border-red-300/45 bg-red-300/10 text-red-100 dark:border-red-300/30 dark:bg-red-300/10",
+    badgeSecondary:
+      "border-cyan-300/30 bg-cyan-300/10 text-cyan-100 dark:border-cyan-300/30 dark:bg-cyan-300/10",
+    outline: "border-red-500",
+    line: "bg-red-500",
+    heroRing: "border-red-400/15",
+    heroGlow: "bg-[linear-gradient(90deg,rgba(248,113,113,0.2),transparent_42%,rgba(34,211,238,0.12))]",
+    marker: "bg-red-400",
+    dashboardHover: "hover:border-red-300/40 hover:bg-red-300/10",
+    dashboardLabel: "text-red-200",
+    contentBadgePrimary:
+      "bg-red-50 text-red-700 ring-1 ring-red-200 dark:bg-red-950/30 dark:text-red-300 dark:ring-red-900/70",
+    bullet: "bg-red-500",
+    pipelineHover: "hover:border-red-200 hover:bg-red-50/70 dark:hover:border-red-400/25 dark:hover:bg-red-400/[0.07]",
+  },
+};
+
+const getBadgeClassName = (index: number, accent: Project["accentColor"]) =>
+  index % 2 === 0 ? accentStyles[accent].badgePrimary : accentStyles[accent].badgeSecondary;
 
 const CaseStudySection = ({
   title,
@@ -39,56 +78,57 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
   const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
   const { t } = useLanguage();
   const caseStudyId = `${project.name.toLowerCase().replace(/\s+/g, "-")}-case-study`;
+  const accent = accentStyles[project.accentColor];
 
   return (
-    <article className="relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft transition duration-200 hover:border-orange-200 focus-within:border-orange-200 dark:border-white/10 dark:bg-white/[0.055] dark:shadow-[0_28px_100px_-58px_rgba(251,146,60,0.28)] dark:hover:border-orange-400/25 dark:focus-within:border-orange-400/25">
+    <article className={`relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft transition duration-200 dark:border-white/10 dark:bg-white/[0.055] ${accent.article}`}>
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.08] dark:opacity-[0.06]"
       >
-        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full border-[18px] border-orange-500" />
-        <div className="absolute -left-6 top-0 h-96 w-40 rounded-full border-r-[10px] border-orange-500" />
-        <div className="absolute right-12 top-8 h-28 w-28 rounded-full border-[8px] border-orange-500" />
-        <div className="absolute bottom-10 right-0 h-px w-72 bg-orange-500" />
+        <div className={`absolute -left-24 top-10 h-72 w-72 rounded-full border-[18px] ${accent.outline}`} />
+        <div className={`absolute -left-6 top-0 h-96 w-40 rounded-full border-r-[10px] ${accent.outline}`} />
+        <div className={`absolute right-12 top-8 h-28 w-28 rounded-full border-[8px] ${accent.outline}`} />
+        <div className={`absolute bottom-10 right-0 h-px w-72 ${accent.line}`} />
       </div>
       <div className="grid gap-0 lg:grid-cols-[0.88fr_1.12fr]">
         <div className="relative flex min-h-80 flex-col justify-between overflow-hidden bg-slate-950 p-7 text-white dark:bg-[#0a1020]">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full border-[14px] border-orange-400/15"
+            className={`pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full border-[14px] ${accent.heroRing}`}
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute bottom-0 left-0 h-20 w-full bg-[linear-gradient(90deg,rgba(251,146,60,0.18),transparent_42%,rgba(45,212,191,0.12))]"
+            className={`pointer-events-none absolute bottom-0 left-0 h-20 w-full ${accent.heroGlow}`}
           />
           <div>
             <div className="flex flex-wrap gap-2">
               {project.badges.slice(0, 2).map((badge, index) => (
                 <span
                   key={badge}
-                  className={`rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] ${getBadgeClassName(index)}`}
+                  className={`rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] ${getBadgeClassName(index, project.accentColor)}`}
                 >
                   {badge}
                 </span>
               ))}
             </div>
-            <div className="mt-5 h-1 w-16 rounded-full bg-orange-400" />
+            <div className={`mt-5 h-1 w-16 rounded-full ${accent.marker}`} />
             <h3 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">{project.name}</h3>
             <p className="mt-2 text-base text-slate-300">{project.subtitle}</p>
             <p className="mt-4 inline-flex rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-200">
-              {t.projects.card.sportsAnalytics}
+              {project.categoryLabel}
             </p>
           </div>
 
           <div className="mt-8">
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">{t.projects.card.sportsDashboard}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">{project.dashboardTitle}</p>
             <div className="mt-3 grid grid-cols-2 gap-3 text-sm text-slate-300">
               {project.dashboardItems.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-lg border border-white/10 bg-white/5 p-3 transition duration-200 hover:border-orange-300/40 hover:bg-orange-300/10"
+                  className={`rounded-lg border border-white/10 bg-white/5 p-3 transition duration-200 ${accent.dashboardHover}`}
                 >
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-orange-200">{item.label}</p>
+                  <p className={`text-xs font-semibold uppercase tracking-[0.14em] ${accent.dashboardLabel}`}>{item.label}</p>
                   <p className="mt-1 font-semibold text-white">{item.value}</p>
                 </div>
               ))}
@@ -103,7 +143,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                 key={badge}
                 className={`rounded-full px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] ${
                   index === 0
-                    ? "bg-orange-50 text-orange-700 ring-1 ring-orange-200 dark:bg-orange-950/30 dark:text-orange-300 dark:ring-orange-900/70"
+                    ? accent.contentBadgePrimary
                     : "bg-teal-50 text-teal-700 ring-1 ring-teal-200 dark:bg-teal-950/40 dark:text-teal-300 dark:ring-teal-900/70"
                 }`}
               >
@@ -116,23 +156,25 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 
           <div className="mt-6 flex flex-wrap gap-2">
             {project.technologies.map((technology) => (
-              <SkillBadge key={technology} label={technology} />
+              <SkillBadge key={technology} label={technology} accent={project.accentColor} />
             ))}
           </div>
 
           <ul className="mt-6 grid gap-3 text-sm leading-6 text-slate-600 dark:text-slate-300 sm:grid-cols-2">
             {project.highlights.map((highlight) => (
               <li key={highlight} className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500" />
+                <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.bullet}`} />
                 <span>{highlight}</span>
               </li>
             ))}
           </ul>
 
           <div className="mt-7 flex flex-wrap gap-3">
-            <LinkButton href={project.links.demo} target="_blank" rel="noopener noreferrer" variant="primary">
-              {t.buttons.viewDemo}
-            </LinkButton>
+            {project.links.demo ? (
+              <LinkButton href={project.links.demo} target="_blank" rel="noopener noreferrer" variant="primary">
+                {t.buttons.viewDemo}
+              </LinkButton>
+            ) : null}
             <LinkButton href={project.links.code} target="_blank" rel="noopener noreferrer">
               {t.buttons.viewCode}
             </LinkButton>
@@ -176,7 +218,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                     <ul className="grid gap-2">
                       {project.caseStudy.mainFeatures.map((feature) => (
                         <li key={feature} className="flex gap-3">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500" />
+                          <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.bullet}`} />
                           <span>{feature}</span>
                         </li>
                       ))}
@@ -199,8 +241,8 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                 <div className="mt-4 rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
                   <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">{t.projects.card.architecture}</h4>
                   <div className="mt-4 grid gap-3 sm:grid-cols-4">
-                    {t.projects.card.pipelineItems.map((item, index) => (
-                      <div key={item} className="rounded-lg border border-slate-200 bg-slate-50 p-3 transition duration-200 hover:border-orange-200 hover:bg-orange-50/70 dark:border-white/10 dark:bg-[#0b1220]/80 dark:hover:border-orange-400/25 dark:hover:bg-orange-400/[0.07]">
+                    {project.caseStudy.pipelineItems.map((item, index) => (
+                      <div key={item} className={`rounded-lg border border-slate-200 bg-slate-50 p-3 transition duration-200 dark:border-white/10 dark:bg-[#0b1220]/80 ${accent.pipelineHover}`}>
                         <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
                           {t.projects.card.step} {index + 1}
                         </p>
@@ -211,7 +253,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                   <ul className="mt-5 grid gap-2 text-sm leading-6 text-slate-600 dark:text-slate-300 md:grid-cols-2">
                     {project.caseStudy.architecture.map((item) => (
                       <li key={item} className="flex gap-3">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500" />
+                        <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.bullet}`} />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -247,9 +289,11 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                 <div className="mt-4 rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
                   <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">{t.projects.card.links}</h4>
                   <div className="mt-4 flex flex-wrap gap-3">
-                    <LinkButton href={project.links.demo} target="_blank" rel="noopener noreferrer" variant="primary">
-                      {t.buttons.viewDemo}
-                    </LinkButton>
+                    {project.links.demo ? (
+                      <LinkButton href={project.links.demo} target="_blank" rel="noopener noreferrer" variant="primary">
+                        {t.buttons.viewDemo}
+                      </LinkButton>
+                    ) : null}
                     <LinkButton href={project.links.code} target="_blank" rel="noopener noreferrer">
                       {t.buttons.viewCode}
                     </LinkButton>

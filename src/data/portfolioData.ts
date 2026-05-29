@@ -21,6 +21,7 @@ export type CaseStudy = {
   solution: string;
   mainFeatures: string[];
   techStack: string[];
+  pipelineItems: string[];
   architecture: string[];
   role: string;
   technicalDecisions: string[];
@@ -31,6 +32,9 @@ export type CaseStudy = {
 export type Project = {
   name: string;
   subtitle: string;
+  accentColor: "orange" | "red";
+  categoryLabel: string;
+  dashboardTitle: string;
   badges: string[];
   dashboardItems: {
     label: string;
@@ -41,7 +45,7 @@ export type Project = {
   highlights: string[];
   caseStudy: CaseStudy;
   links: {
-    demo: string;
+    demo?: string;
     code: string;
   };
 };
@@ -209,6 +213,9 @@ export const projects: Project[] = [
   {
     name: "NBA Insight",
     subtitle: "Full-stack basketball analytics platform",
+    accentColor: "orange",
+    categoryLabel: "Sports Analytics · Full-stack",
+    dashboardTitle: "Sports dashboard",
     badges: ["Proyecto principal", "Desplegado en producción", "NBA Analytics", "Demo disponible"],
     dashboardItems: [
       { label: "Games", value: "Stats" },
@@ -269,6 +276,7 @@ export const projects: Project[] = [
         "Vercel",
         "API-Basketball",
       ],
+      pipelineItems: ["Frontend", "Backend", "Base de datos", "Deploy"],
       architecture: [
         "Frontend en React, TypeScript y Vite.",
         "Interfaz construida con Tailwind CSS y diseño responsive.",
@@ -298,6 +306,101 @@ export const projects: Project[] = [
     links: {
       demo: "https://nba-insight-eight.vercel.app/",
       code: "https://github.com/Balbib99/nba-insight",
+    },
+  },
+  {
+    name: "AttackFlow Lab",
+    subtitle: "Plataforma educativa de ciberseguridad visual",
+    accentColor: "red",
+    categoryLabel: "Cybersecurity Education · Frontend",
+    dashboardTitle: "Learning dashboard",
+    badges: ["Nuevo proyecto", "Ciberseguridad", "Simuladores visuales", "Portfolio"],
+    dashboardItems: [
+      { label: "Threats", value: "Library" },
+      { label: "Simulators", value: "2 flows" },
+      { label: "Challenges", value: "Progress" },
+      { label: "Tips", value: "Daily security" },
+    ],
+    description:
+      "Plataforma educativa e interactiva de ciberseguridad en español. Permite aprender amenazas comunes mediante simulaciones visuales, escenarios guiados, consejos prácticos, herramientas recomendadas y retos de conocimiento con progreso local.",
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "Framer Motion",
+      "lucide-react",
+      "next/image",
+      "localStorage",
+      "ESLint",
+      "Git",
+    ],
+    highlights: [
+      "Simuladores paso a paso de Phishing y SQL Injection.",
+      "Enfoque educativo y defensivo, sin instrucciones explotables.",
+      "Biblioteca de amenazas, escenarios y rutas de aprendizaje.",
+      "Retos interactivos con feedback inmediato.",
+      "Progreso de conocimiento guardado en localStorage.",
+      "Tema claro/oscuro con persistencia local.",
+      "Diseño responsive con componentes organizados por dominio.",
+      "Datos mock locales modelados con TypeScript.",
+    ],
+    caseStudy: {
+      overview:
+        "AttackFlow Lab es una plataforma frontend educativa que transforma conceptos de ciberseguridad en flujos visuales, retos breves y consejos aplicables al día a día.",
+      problem:
+        "Muchas explicaciones de ciberseguridad son demasiado técnicas o abstractas para usuarios que necesitan entender riesgos reales y tomar mejores decisiones antes de hacer clic, compartir datos o introducir credenciales.",
+      solution:
+        "La aplicación organiza el aprendizaje en amenazas, simuladores, escenarios, tips y retos conectados, manteniendo un enfoque defensivo y visual con progreso local para reforzar el aprendizaje.",
+      mainFeatures: [
+        "Landing orientada a portfolio y reclutadores.",
+        "Panel interno de aprendizaje.",
+        "Biblioteca de amenazas y rutas guiadas.",
+        "Simuladores visuales de Phishing y SQL Injection.",
+        "Consejos de seguridad diaria y herramientas recomendadas.",
+        "Retos tipo test, verdadero/falso, ordenar pasos y elegir defensa.",
+        "Persistencia de progreso y tema en localStorage.",
+      ],
+      techStack: [
+        "Next.js 16",
+        "App Router",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS 4",
+        "Framer Motion",
+        "lucide-react",
+        "next/image",
+      ],
+      pipelineItems: ["Contenido", "Simulación", "Retos", "Progreso"],
+      architecture: [
+        "Aplicación Next.js con App Router y rutas por dominio.",
+        "Componentes organizados para dashboard, simuladores, amenazas, retos, tips y layout.",
+        "Datos mock locales tipados en TypeScript.",
+        "Simuladores visuales basados en pasos, imágenes locales y análisis defensivo.",
+        "Estado local para progreso de retos y preferencia de tema.",
+        "Uso de next/image para recursos visuales optimizados.",
+        "Tema claro/oscuro con experiencia principal dark tech.",
+        "Sin backend ni datos reales de usuarios en esta versión.",
+      ],
+      role:
+        "Diseñé y desarrollé la aplicación completa, desde la arquitectura de rutas y componentes hasta el contenido educativo, los simuladores, los retos, el sistema de tema y la experiencia responsive.",
+      technicalDecisions: [
+        "Next.js App Router para organizar rutas educativas.",
+        "Contenido local tipado para iterar rápido sin backend.",
+        "Enfoque defensivo para explicar riesgos sin payloads explotables.",
+        "Componentización por dominio.",
+        "localStorage para progreso y preferencia de tema.",
+        "Imágenes educativas locales para reforzar el aprendizaje visual.",
+        "Diseño responsive orientado a producto de portfolio.",
+      ],
+      result:
+        "Un frontend funcional de ciberseguridad educativa que demuestra diseño de producto, arquitectura frontend escalable, modelado de datos, UX visual, theming y contenido aplicado de seguridad.",
+      learning:
+        "Este proyecto me permitió profundizar en Next.js con App Router, diseño de experiencias educativas, modelado de contenido tipado, simuladores visuales, estado local y comunicación clara de conceptos de ciberseguridad.",
+    },
+    links: {
+      demo: "https://cyber-attack-visualizer-xi.vercel.app/",
+      code: "https://github.com/Balbib99/cyber-attack-visualizer",
     },
   },
 ];

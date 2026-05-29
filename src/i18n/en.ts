@@ -156,6 +156,9 @@ export const en: typeof es = {
       {
         name: "NBA Insight",
         subtitle: "Full-stack basketball analytics platform",
+        accentColor: "orange",
+        categoryLabel: "Sports Analytics · Full-stack",
+        dashboardTitle: "Sports dashboard",
         badges: ["Main project", "Deployed in production", "NBA Analytics", "Demo available"],
         dashboardItems: [
           { label: "Games", value: "Stats" },
@@ -202,6 +205,7 @@ export const en: typeof es = {
             "Vercel",
             "API-Basketball",
           ],
+          pipelineItems: ["Frontend", "Backend", "Database", "Deploy"],
           architecture: [
             "Frontend in React, TypeScript and Vite.",
             "Interface built with Tailwind CSS and responsive design.",
@@ -229,6 +233,101 @@ export const en: typeof es = {
             "Through this project, I improved my ability to design frontend architecture, connect backend services, manage environment variables, handle deployment issues, structure API integrations and build a polished product for real users.",
         },
         links: { demo: links.nbaInsight, code: "https://github.com/Balbib99/nba-insight" },
+      },
+      {
+        name: "AttackFlow Lab",
+        subtitle: "Visual cybersecurity education platform",
+        accentColor: "red",
+        categoryLabel: "Cybersecurity Education · Frontend",
+        dashboardTitle: "Learning dashboard",
+        badges: ["New project", "Cybersecurity", "Visual simulators", "Portfolio"],
+        dashboardItems: [
+          { label: "Threats", value: "Library" },
+          { label: "Simulators", value: "2 flows" },
+          { label: "Challenges", value: "Progress" },
+          { label: "Tips", value: "Daily security" },
+        ],
+        description:
+          "Interactive cybersecurity education platform in Spanish. It helps users learn common threats through visual simulations, guided scenarios, practical safety tips, recommended tools and knowledge challenges with local progress.",
+        technologies: [
+          "Next.js 16",
+          "React 19",
+          "TypeScript",
+          "Tailwind CSS 4",
+          "Framer Motion",
+          "lucide-react",
+          "next/image",
+          "localStorage",
+          "ESLint",
+          "Git",
+        ],
+        highlights: [
+          "Step-by-step simulators for Phishing and SQL Injection.",
+          "Educational and defensive approach without exploitable instructions.",
+          "Threat library, scenarios and connected learning paths.",
+          "Interactive challenges with immediate feedback.",
+          "Knowledge progress stored in localStorage.",
+          "Light/dark theme with local persistence.",
+          "Responsive design with components organized by domain.",
+          "Local mock data modeled with TypeScript.",
+        ],
+        caseStudy: {
+          overview:
+            "AttackFlow Lab is an educational frontend platform that turns cybersecurity concepts into visual flows, short challenges and practical daily safety tips.",
+          problem:
+            "Many cybersecurity explanations are too technical or abstract for users who need to understand real risks and make better decisions before clicking, sharing data or entering credentials.",
+          solution:
+            "The application structures learning around threats, simulators, scenarios, tips and connected challenges, keeping a defensive visual approach with local progress to reinforce learning.",
+          mainFeatures: [
+            "Portfolio and recruiter-oriented landing page.",
+            "Internal learning dashboard.",
+            "Threat library and guided paths.",
+            "Visual simulators for Phishing and SQL Injection.",
+            "Daily security tips and recommended tools.",
+            "Multiple choice, true/false, ordering and best-defense challenges.",
+            "Progress and theme persistence in localStorage.",
+          ],
+          techStack: [
+            "Next.js 16",
+            "App Router",
+            "React 19",
+            "TypeScript",
+            "Tailwind CSS 4",
+            "Framer Motion",
+            "lucide-react",
+            "next/image",
+          ],
+          pipelineItems: ["Content", "Simulation", "Challenges", "Progress"],
+          architecture: [
+            "Next.js application with App Router and domain-based routes.",
+            "Components organized for dashboard, simulators, threats, challenges, tips and layout.",
+            "Local mock data typed with TypeScript.",
+            "Visual simulators based on steps, local images and defensive analysis.",
+            "Local state for challenge progress and theme preference.",
+            "Use of next/image for optimized visual assets.",
+            "Light/dark theme with a primary dark tech experience.",
+            "No backend or real user data in this version.",
+          ],
+          role:
+            "I designed and developed the full application, from route and component architecture to educational content, simulators, challenges, theming and the responsive experience.",
+          technicalDecisions: [
+            "Next.js App Router to organize educational routes.",
+            "Typed local content to iterate quickly without a backend.",
+            "Defensive approach to explain risks without exploitable payloads.",
+            "Domain-based component organization.",
+            "localStorage for progress and theme preference.",
+            "Local educational images to reinforce visual learning.",
+            "Portfolio-oriented responsive product design.",
+          ],
+          result:
+            "A functional cybersecurity education frontend that demonstrates product design, scalable frontend architecture, data modeling, visual UX, theming and applied security content.",
+          learning:
+            "This project helped me deepen my work with Next.js App Router, educational UX, typed content modeling, visual simulators, local state and clear communication of cybersecurity concepts.",
+        },
+        links: {
+          demo: "https://cyber-attack-visualizer-xi.vercel.app/",
+          code: "https://github.com/Balbib99/cyber-attack-visualizer",
+        },
       },
     ],
     card: {

@@ -1,6 +1,6 @@
 type SkillBadgeProps = {
   label: string;
-  accent?: "orange" | "red";
+  accent?: "orange" | "red" | "emerald";
 };
 
 const accentClassNames = {
@@ -8,6 +8,8 @@ const accentClassNames = {
     "hover:border-teal-300 hover:text-teal-700 dark:hover:border-teal-400/50 dark:hover:bg-teal-400/10 dark:hover:text-teal-200",
   red:
     "hover:border-red-300 hover:text-red-700 dark:hover:border-red-400/50 dark:hover:bg-red-400/10 dark:hover:text-red-200",
+  emerald:
+    "hover:border-emerald-300 hover:text-emerald-700 dark:hover:border-emerald-400/50 dark:hover:bg-emerald-400/10 dark:hover:text-emerald-200",
 };
 
 export const SkillBadge = ({ label, accent = "orange" }: SkillBadgeProps) => (

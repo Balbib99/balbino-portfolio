@@ -48,6 +48,25 @@ const accentStyles = {
     bullet: "bg-red-500",
     pipelineHover: "hover:border-red-200 hover:bg-red-50/70 dark:hover:border-red-400/25 dark:hover:bg-red-400/[0.07]",
   },
+  emerald: {
+    article:
+      "hover:border-emerald-200 focus-within:border-emerald-200 dark:shadow-[0_28px_100px_-58px_rgba(52,211,153,0.28)] dark:hover:border-emerald-400/30 dark:focus-within:border-emerald-400/30",
+    badgePrimary:
+      "border-emerald-300/45 bg-emerald-300/10 text-emerald-100 dark:border-emerald-300/30 dark:bg-emerald-300/10",
+    badgeSecondary:
+      "border-sky-300/30 bg-sky-300/10 text-sky-100 dark:border-sky-300/30 dark:bg-sky-300/10",
+    outline: "border-emerald-500",
+    line: "bg-emerald-500",
+    heroRing: "border-emerald-400/15",
+    heroGlow: "bg-[linear-gradient(90deg,rgba(52,211,153,0.2),transparent_42%,rgba(56,189,248,0.12))]",
+    marker: "bg-emerald-400",
+    dashboardHover: "hover:border-emerald-300/40 hover:bg-emerald-300/10",
+    dashboardLabel: "text-emerald-200",
+    contentBadgePrimary:
+      "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 dark:bg-emerald-950/30 dark:text-emerald-300 dark:ring-emerald-900/70",
+    bullet: "bg-emerald-500",
+    pipelineHover: "hover:border-emerald-200 hover:bg-emerald-50/70 dark:hover:border-emerald-400/25 dark:hover:bg-emerald-400/[0.07]",
+  },
 };
 
 const getBadgeClassName = (index: number, accent: Project["accentColor"]) =>

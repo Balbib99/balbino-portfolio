@@ -32,7 +32,7 @@ export type CaseStudy = {
 export type Project = {
   name: string;
   subtitle: string;
-  accentColor: "orange" | "red";
+  accentColor: "orange" | "red" | "emerald";
   categoryLabel: string;
   dashboardTitle: string;
   badges: string[];
@@ -401,6 +401,101 @@ export const projects: Project[] = [
     links: {
       demo: "https://cyber-attack-visualizer-xi.vercel.app/",
       code: "https://github.com/Balbib99/cyber-attack-visualizer",
+    },
+  },
+  {
+    name: "Court Vision Lab",
+    subtitle: "Tablero táctico interactivo de baloncesto",
+    accentColor: "emerald",
+    categoryLabel: "Basketball Tactics · Frontend Tool",
+    dashboardTitle: "Tactical board",
+    badges: ["Proyecto desplegado", "Basketball tooling", "Editor táctico", "Demo disponible"],
+    dashboardItems: [
+      { label: "Board", value: "2D court" },
+      { label: "Plays", value: "Animated" },
+      { label: "Playbook", value: "Custom" },
+      { label: "Export", value: "PNG/JSON" },
+    ],
+    description:
+      "Herramienta frontend para visualizar, editar y reproducir jugadas de baloncesto en un tablero táctico 2D. Incluye movimientos animados, modo edición, playbook, roster, estadísticas, guías interactivas, persistencia local y exportación de diagramas.",
+    technologies: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS 4",
+      "Framer Motion",
+      "Lucide React",
+      "html-to-image",
+      "localStorage",
+      "ESLint",
+      "Vercel",
+    ],
+    highlights: [
+      "Cancha 2D interactiva con jugadores ofensivos, defensivos y balón.",
+      "Reproducción animada de jugadas como Pick and Roll, Horns y Fast Break.",
+      "Editor de jugadas personalizadas con pasos, anotaciones y herramientas tácticas.",
+      "Playbook con jugadas integradas y jugadas guardadas por el usuario.",
+      "Roster y vista de estadísticas para contexto de equipo.",
+      "Exportación de diagramas a PNG y jugadas/playbooks a JSON.",
+      "Persistencia en localStorage y soporte de undo/redo.",
+      "Modo claro/oscuro, modo coach y guías de ayuda integradas.",
+    ],
+    caseStudy: {
+      overview:
+        "Court Vision Lab es una aplicación frontend que funciona como pizarra táctica digital para entrenadores, analistas y creadores de contenido de baloncesto.",
+      problem:
+        "Las jugadas de baloncesto son difíciles de comunicar solo con texto o capturas estáticas. El objetivo era crear una herramienta visual que permitiera entender movimientos, roles, balón y timing de una forma más clara e interactiva.",
+      solution:
+        "La aplicación separa el modelo de datos de las jugadas de la capa visual, permitiendo reproducir secuencias animadas, editar posiciones, crear jugadas personalizadas, guardar estado local y exportar contenido para compartir.",
+      mainFeatures: [
+        "Tablero 2D con cancha, jugadores, balón y trayectorias.",
+        "Animación paso a paso de jugadas tácticas.",
+        "Editor con jugadores ofensivos/defensivos y herramientas de anotación.",
+        "Playbook con jugadas built-in y custom plays.",
+        "Importación/exportación de jugadas en JSON.",
+        "Exportación de diagramas a PNG.",
+        "Roster, estadísticas, modo coach y guías interactivas.",
+      ],
+      techStack: [
+        "React 19",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS 4",
+        "Framer Motion",
+        "html-to-image",
+        "Lucide React",
+        "Vercel",
+      ],
+      pipelineItems: ["Board", "Animation", "Editor", "Export"],
+      architecture: [
+        "Frontend en React, TypeScript y Vite.",
+        "Modelo de jugadas tipado con jugadores, pasos, movimientos, balón y anotaciones.",
+        "Hooks separados para animación, edición de cancha, undo/redo, persistencia y exportación.",
+        "Componentes organizados por dominio: court, layout, plays, views y help.",
+        "Persistencia local para tablero, jugadas personalizadas, playbook y tema.",
+        "Exportación PNG mediante html-to-image.",
+        "Importación y exportación JSON para jugadas y backups de playbook.",
+        "Despliegue frontend en Vercel.",
+      ],
+      role:
+        "Diseñé y desarrollé la aplicación completa, incluyendo el modelo de datos táctico, la cancha interactiva, la animación de jugadas, el editor, el playbook, la persistencia local, las vistas de roster/stats y el despliegue.",
+      technicalDecisions: [
+        "Separar datos tácticos de renderizado visual.",
+        "Usar Framer Motion para movimientos claros y controlados.",
+        "Modelar jugadas con TypeScript para facilitar futuras vistas 2D/3D.",
+        "Persistir jugadas personalizadas en localStorage.",
+        "Añadir exportación PNG/JSON para convertir la app en una herramienta real.",
+        "Incluir undo/redo y atajos de teclado para mejorar el flujo de trabajo.",
+        "Diseñar una interfaz densa y operativa, más cercana a dashboard que a landing.",
+      ],
+      result:
+        "Una herramienta táctica desplegada y usable que demuestra frontend avanzado, modelado de datos, animación, estado local, arquitectura por hooks y una experiencia de producto orientada a usuarios reales.",
+      learning:
+        "Este proyecto me ayudó a profundizar en animaciones controladas, diseño de herramientas interactivas, persistencia local, exportación de contenido, separación de lógica visual y estructura escalable para futuras funciones como vistas 3D o colaboración.",
+    },
+    links: {
+      demo: "https://court-vision-lab.vercel.app/",
+      code: "https://github.com/Balbib99/court-vision-lab",
     },
   },
 ];

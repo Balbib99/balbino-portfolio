@@ -348,6 +348,10 @@ export const en: typeof es = {
           { label: "Playbook", value: "Custom" },
           { label: "Export", value: "PNG/JSON" },
         ],
+        visual: {
+          src: "/project-court-vision-lab-visual.jpg",
+          alt: "Illustrated avatar dribbling with basketball tactical diagrams",
+        },
         description:
           "Frontend tool to visualize, edit and replay basketball plays on a 2D tactical board. It includes animated movements, edit mode, playbook, roster, stats, guided help, local persistence and diagram exports.",
         technologies: [

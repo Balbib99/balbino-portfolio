@@ -424,6 +424,10 @@ export const projects: Project[] = [
       { label: "Playbook", value: "Custom" },
       { label: "Export", value: "PNG/JSON" },
     ],
+    visual: {
+      src: "/project-court-vision-lab-visual.jpg",
+      alt: "Avatar ilustrado driblando con diagramas tácticos de baloncesto",
+    },
     description:
       "Herramienta frontend para visualizar, editar y reproducir jugadas de baloncesto en un tablero táctico 2D. Incluye movimientos animados, modo edición, playbook, roster, estadísticas, guías interactivas, persistencia local y exportación de diagramas.",
     technologies: [

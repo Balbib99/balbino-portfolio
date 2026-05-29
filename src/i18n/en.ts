@@ -94,6 +94,7 @@ export const en: typeof es = {
     title: "Experience in development, data and integration",
     description:
       "I have worked in real environments developing web solutions, sensing systems, hardware–software integration, IoT services and tools focused on data visualization and management.",
+    avatarAlt: "Illustrated avatar of Balbino Martínez with development, data and IoT technologies",
     responsibilities: "Responsibilities",
     technologies: "Technologies and areas",
     value: "Professional value",
@@ -167,6 +168,10 @@ export const en: typeof es = {
           { label: "Standings", value: "Live view" },
           { label: "Favorites", value: "Saved" },
         ],
+        visual: {
+          src: "/project-nba-insight-visual.jpg",
+          alt: "Illustrated avatar reviewing basketball dashboards and statistics",
+        },
         description:
           "Full-stack NBA analytics platform built with React, TypeScript, Node.js and PostgreSQL. It lets users explore teams, players, standings, playoffs, comparisons and favorites through a clean, responsive interface prepared as a real deployed product.",
         technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "API-Basketball", "JWT", "Vercel", "Render", "Neon", "Git"],

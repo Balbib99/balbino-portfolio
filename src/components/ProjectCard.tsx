@@ -139,6 +139,18 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             </p>
           </div>
 
+          {project.visual ? (
+            <div className="relative mx-auto mt-7 h-44 w-44 sm:h-52 sm:w-52">
+              <div className={`absolute inset-0 rounded-full border ${accent.badgePrimary} opacity-70`} />
+              <div className="absolute inset-2 rounded-full border border-white/10 bg-white/5" />
+              <img
+                src={project.visual.src}
+                alt={project.visual.alt}
+                className="relative h-full w-full rounded-full object-cover p-2 shadow-[0_22px_70px_-34px_rgba(0,0,0,0.8)]"
+              />
+            </div>
+          ) : null}
+
           <div className="mt-8">
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">{project.dashboardTitle}</p>
             <div className="mt-3 grid grid-cols-2 gap-3 text-sm text-slate-300">

@@ -40,6 +40,10 @@ export type Project = {
     label: string;
     value: string;
   }[];
+  visual?: {
+    src: string;
+    alt: string;
+  };
   description: string;
   technologies: string[];
   highlights: string[];
@@ -223,6 +227,10 @@ export const projects: Project[] = [
       { label: "Standings", value: "Live view" },
       { label: "Favorites", value: "Saved" },
     ],
+    visual: {
+      src: "/project-nba-insight-visual.jpg",
+      alt: "Avatar ilustrado revisando dashboards y estadísticas de baloncesto",
+    },
     description:
       "Plataforma full-stack de analítica NBA desarrollada con React, TypeScript, Node.js y PostgreSQL. El proyecto permite explorar equipos, jugadores, standings, playoffs, comparativas y favoritos mediante una interfaz limpia, responsive y preparada como producto real desplegado.",
     technologies: [

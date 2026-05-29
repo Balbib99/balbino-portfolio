@@ -68,6 +68,7 @@ export const es = {
     title: "Experiencia en desarrollo, datos e integración",
     description:
       "He trabajado en entornos reales desarrollando soluciones web, sistemas de sensorización, integración hardware-software, servicios IoT y herramientas orientadas a la visualización y gestión de datos.",
+    avatarAlt: "Avatar ilustrado de Balbino Martínez con tecnologías de desarrollo, datos e IoT",
     responsibilities: "Responsabilidades",
     technologies: "Tecnologías y áreas",
     value: "Valor aportado",

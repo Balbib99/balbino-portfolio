@@ -329,6 +329,10 @@ export const projects: Project[] = [
       { label: "Challenges", value: "Progress" },
       { label: "Tips", value: "Daily security" },
     ],
+    visual: {
+      src: "/project-attackflow-lab-visual.jpg",
+      alt: "Avatar ilustrado como analista de ciberseguridad con paneles defensivos",
+    },
     description:
       "Plataforma educativa e interactiva de ciberseguridad en español. Permite aprender amenazas comunes mediante simulaciones visuales, escenarios guiados, consejos prácticos, herramientas recomendadas y retos de conocimiento con progreso local.",
     technologies: [

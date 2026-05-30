@@ -10,7 +10,6 @@ export const Contact = () => {
     { label: t.buttons.downloadCv, href: t.personalData.cvUrl, variant: "secondary" as const, download: true },
     { label: t.buttons.linkedin, href: links.linkedin, variant: "secondary" as const, external: true },
     { label: t.buttons.github, href: links.github, variant: "secondary" as const, external: true },
-    { label: t.buttons.viewNbaInsight, href: links.nbaInsight, variant: "ghost" as const, external: true },
   ];
 
   return (
@@ -22,12 +21,6 @@ export const Contact = () => {
         <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
           {t.contact.description}
         </p>
-        <div className="mt-7 rounded-lg border border-white/10 bg-white/5 p-5 dark:bg-white/[0.045]">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">{t.contact.availabilityTitle}</p>
-          <p className="mt-2 text-sm leading-6 text-slate-300">
-            {t.contact.availabilityText} <span className="font-semibold text-teal-300">NBA Insight</span>.
-          </p>
-        </div>
       </div>
 
       <div className="rounded-lg border border-white/10 bg-white/5 p-6 shadow-soft dark:bg-white/[0.055] dark:shadow-[0_24px_90px_-56px_rgba(45,212,191,0.32)]">

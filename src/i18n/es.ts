@@ -33,7 +33,6 @@ export const es = {
     downloadCv: "Descargar CV",
     github: "GitHub",
     linkedin: "LinkedIn",
-    viewNbaInsight: "Ver NBA Insight",
     viewDemo: "Ver demo",
     viewCode: "GitHub",
     technicalDetails: "Caso de estudio",
@@ -110,6 +109,7 @@ export const es = {
     title: "Aprendizaje continuo en software, ciberseguridad e IA",
     description:
       "Mi formación combina desarrollo de software, seguridad de la información, inteligencia artificial aplicada y fundamentos técnicos de sistemas, lo que me permite abordar soluciones desde una perspectiva completa.",
+    avatarAlt: "Avatar ilustrado de Balbino Martínez con toga y diploma de graduación",
     mainTitle: "Formación principal",
     certificationsTitle: "Certificaciones",
     education,
@@ -120,8 +120,6 @@ export const es = {
     title: "Hablemos de software, datos y sistemas conectados.",
     description:
       "Estoy abierto a oportunidades profesionales donde pueda aportar en desarrollo web, integración IoT, ciberseguridad, automatización e IA aplicada.",
-    availabilityTitle: "Disponibilidad",
-    availabilityText: "También puedes revisar mi proyecto principal desplegado en producción:",
     formTitle: "Formulario de contacto",
     quickLinks: "Enlaces rápidos",
     form: {

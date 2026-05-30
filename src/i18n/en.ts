@@ -38,7 +38,6 @@ export const en: typeof es = {
     downloadCv: "Download CV",
     github: "GitHub",
     linkedin: "LinkedIn",
-    viewNbaInsight: "View NBA Insight",
     viewDemo: "Live Demo",
     viewCode: "GitHub",
     technicalDetails: "Case Study",
@@ -253,6 +252,10 @@ export const en: typeof es = {
           { label: "Challenges", value: "Progress" },
           { label: "Tips", value: "Daily security" },
         ],
+        visual: {
+          src: "/project-attackflow-lab-visual.jpg",
+          alt: "Illustrated avatar as a cybersecurity analyst with defensive panels",
+        },
         description:
           "Interactive cybersecurity education platform in Spanish. It helps users learn common threats through visual simulations, guided scenarios, practical safety tips, recommended tools and knowledge challenges with local progress.",
         technologies: [
@@ -470,6 +473,7 @@ export const en: typeof es = {
     title: "Continuous learning in software, cybersecurity and AI",
     description:
       "My education combines software development, information security, applied artificial intelligence and technical systems fundamentals, allowing me to approach solutions from a complete perspective.",
+    avatarAlt: "Illustrated avatar of Balbino Martínez wearing a graduation gown and holding a diploma",
     mainTitle: "Main education",
     certificationsTitle: "Certifications",
     education: [
@@ -490,8 +494,6 @@ export const en: typeof es = {
     title: "Let’s talk about software, data and connected systems.",
     description:
       "I’m open to professional opportunities where I can contribute to web development, IoT integration, cybersecurity, automation and applied AI.",
-    availabilityTitle: "Availability",
-    availabilityText: "You can also review my main project deployed in production:",
     formTitle: "Contact form",
     quickLinks: "Quick links",
     form: {

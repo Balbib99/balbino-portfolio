@@ -10,8 +10,8 @@ export const Projects = () => {
       <div className="mx-auto max-w-7xl">
         <SectionTitle eyebrow={t.projects.eyebrow} title={t.projects.title} description={t.projects.description} />
         <div className="grid gap-8">
-          {t.projects.items.map((project) => (
-            <ProjectCard key={project.name} project={project} />
+          {t.projects.items.map((project, index) => (
+            <ProjectCard key={project.name} project={project} index={index} />
           ))}
         </div>
       </div>

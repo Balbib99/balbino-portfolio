@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import type { ReactNode } from "react";
 import { useLanguage } from "../context/LanguageContext";
@@ -7,7 +8,10 @@ import { SkillBadge } from "./SkillBadge";
 
 type ProjectCardProps = {
   project: Project;
+  index: number;
 };
+
+const easeOut = [0.16, 1, 0.3, 1] as const;
 
 const accentStyles = {
   orange: {
@@ -97,7 +101,7 @@ const CaseStudySection = ({
 const tabKeys = ["summary", "architecture", "decisions", "outcome"] as const;
 type TabKey = (typeof tabKeys)[number];
 
-export const ProjectCard = ({ project }: ProjectCardProps) => {
+export const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<TabKey>("summary");
   const { t } = useLanguage();
@@ -106,8 +110,12 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
   const tabs: { key: TabKey; label: string }[] = tabKeys.map((key) => ({ key, label: t.projects.card.tabs[key] }));
 
   return (
-    <article
-      className={`relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft transition duration-200 dark:border-white/10 dark:bg-white/[0.055] ${accent.article}`}
+    <motion.article
+      initial={{ opacity: 0, y: 36 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: easeOut, delay: Math.min(index, 2) * 0.1 }}
+      className={`relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft transition-colors duration-200 dark:border-white/10 dark:bg-white/[0.055] ${accent.article}`}
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.08] dark:opacity-[0.06]">
         <div className={`absolute -left-24 top-10 h-72 w-72 rounded-full border-[18px] ${accent.outline}`} />
@@ -145,7 +153,11 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           </div>
 
           {project.visual ? (
-            <div className="relative mx-auto mt-7 h-44 w-44 sm:h-52 sm:w-52">
+            <motion.div
+              className="relative mx-auto mt-7 h-44 w-44 cursor-default sm:h-52 sm:w-52"
+              whileHover={{ scale: 1.06, rotate: -2 }}
+              transition={{ type: "spring", stiffness: 300, damping: 18 }}
+            >
               <div className={`absolute -inset-3 rounded-full blur-xl ${accent.avatarGlow}`} />
               <div className={`absolute inset-0 rounded-full border ${accent.badgePrimary} opacity-90`} />
               <div className={`absolute inset-2 rounded-full border border-white/25 ${accent.avatarGlow}`} />
@@ -156,7 +168,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                 loading="lazy"
                 decoding="async"
               />
-            </div>
+            </motion.div>
           ) : null}
 
           <div className="mt-8">
@@ -227,191 +239,202 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
               className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-slate-800 transition duration-200 hover:bg-slate-100 hover:text-slate-950 focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-slate-100 dark:hover:bg-white/[0.07] dark:hover:text-white dark:focus-visible:ring-offset-slate-950"
             >
               {t.buttons.technicalDetails}
-              <span
-                className={`transition-transform duration-200 ${isCaseStudyOpen ? "rotate-180" : ""}`}
+              <motion.span
+                animate={{ rotate: isCaseStudyOpen ? 180 : 0 }}
+                transition={{ duration: 0.2, ease: easeOut }}
                 aria-hidden="true"
               >
                 v
-              </span>
+              </motion.span>
             </button>
           </div>
 
-          <div
-            id={caseStudyId}
-            className={`grid transition-all duration-300 ease-out ${
-              isCaseStudyOpen ? "mt-7 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
-            }`}
-          >
-            <div className="overflow-hidden">
-              <div className="rounded-lg border border-slate-200 bg-paper-muted p-4 dark:border-white/10 dark:bg-[#0b1220]/85 sm:p-5">
-                <div role="tablist" aria-label={t.buttons.technicalDetails} className="flex flex-wrap gap-2">
-                  {tabs.map((tab) => (
-                    <button
-                      key={tab.key}
-                      type="button"
-                      role="tab"
-                      id={`${caseStudyId}-tab-${tab.key}`}
-                      aria-selected={activeTab === tab.key}
-                      aria-controls={`${caseStudyId}-panel-${tab.key}`}
-                      tabIndex={activeTab === tab.key ? 0 : -1}
-                      onClick={() => setActiveTab(tab.key)}
-                      className={`rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition duration-200 ${
-                        activeTab === tab.key
-                          ? "border-slate-950 bg-slate-950 text-white dark:border-teal-400 dark:bg-teal-400 dark:text-slate-950"
-                          : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-950 dark:border-white/10 dark:bg-white/[0.05] dark:text-slate-300 dark:hover:text-white"
-                      }`}
+          <AnimatePresence initial={false}>
+            {isCaseStudyOpen ? (
+              <motion.div
+                key="case-study"
+                id={caseStudyId}
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.35, ease: easeOut }}
+                className="mt-7 overflow-hidden"
+              >
+                <div className="rounded-lg border border-slate-200 bg-paper-muted p-4 dark:border-white/10 dark:bg-[#0b1220]/85 sm:p-5">
+                  <div role="tablist" aria-label={t.buttons.technicalDetails} className="flex flex-wrap gap-2">
+                    {tabs.map((tab) => (
+                      <button
+                        key={tab.key}
+                        type="button"
+                        role="tab"
+                        id={`${caseStudyId}-tab-${tab.key}`}
+                        aria-selected={activeTab === tab.key}
+                        aria-controls={`${caseStudyId}-panel-${tab.key}`}
+                        tabIndex={activeTab === tab.key ? 0 : -1}
+                        onClick={() => setActiveTab(tab.key)}
+                        className={`relative rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition-colors duration-200 ${
+                          activeTab === tab.key
+                            ? "border-slate-950 text-white dark:border-teal-400 dark:text-slate-950"
+                            : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-950 dark:border-white/10 dark:bg-white/[0.05] dark:text-slate-300 dark:hover:text-white"
+                        }`}
+                      >
+                        {activeTab === tab.key ? (
+                          <motion.span
+                            layoutId={`${caseStudyId}-tab-pill`}
+                            className="absolute inset-0 rounded-full bg-slate-950 dark:bg-teal-400"
+                            transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                          />
+                        ) : null}
+                        <span className="relative">{tab.label}</span>
+                      </button>
+                    ))}
+                  </div>
+
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeTab}
+                      id={`${caseStudyId}-panel-${activeTab}`}
+                      role="tabpanel"
+                      aria-labelledby={`${caseStudyId}-tab-${activeTab}`}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.18, ease: easeOut }}
+                      className="mt-5 grid gap-4"
                     >
-                      {tab.label}
-                    </button>
-                  ))}
-                </div>
-
-                <div
-                  id={`${caseStudyId}-panel-summary`}
-                  role="tabpanel"
-                  aria-labelledby={`${caseStudyId}-tab-summary`}
-                  hidden={activeTab !== "summary"}
-                  className="mt-5 grid gap-4"
-                >
-                  <CaseStudySection title={t.projects.card.overview} accent>
-                    <p>{project.caseStudy.overview}</p>
-                  </CaseStudySection>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <CaseStudySection title={t.projects.card.problem}>
-                      <p>{project.caseStudy.problem}</p>
-                    </CaseStudySection>
-                    <CaseStudySection title={t.projects.card.solution}>
-                      <p>{project.caseStudy.solution}</p>
-                    </CaseStudySection>
-                  </div>
-                  <CaseStudySection title={t.projects.card.mainFeatures}>
-                    <ul className="grid gap-2 sm:grid-cols-2">
-                      {project.caseStudy.mainFeatures.map((feature) => (
-                        <li key={feature} className="flex gap-3">
-                          <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.bullet}`} />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CaseStudySection>
-                </div>
-
-                <div
-                  id={`${caseStudyId}-panel-architecture`}
-                  role="tabpanel"
-                  aria-labelledby={`${caseStudyId}-tab-architecture`}
-                  hidden={activeTab !== "architecture"}
-                  className="mt-5 grid gap-4"
-                >
-                  <CaseStudySection title={t.projects.card.techStack}>
-                    <div className="flex flex-wrap gap-2">
-                      {project.caseStudy.techStack.map((technology) => (
-                        <span
-                          key={technology}
-                          className="rounded-full border border-slate-200 bg-paper-muted px-3 py-1.5 text-xs font-semibold text-slate-700 dark:border-white/10 dark:bg-[#0b1220]/80 dark:text-slate-200"
-                        >
-                          {technology}
-                        </span>
-                      ))}
-                    </div>
-                  </CaseStudySection>
-
-                  <div className="rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
-                    <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">
-                      {t.projects.card.architecture}
-                    </h4>
-                    <div className="mt-4 grid gap-3 sm:grid-cols-4">
-                      {project.caseStudy.pipelineItems.map((item, index) => (
-                        <div
-                          key={item}
-                          className={`rounded-lg border border-slate-200 bg-paper-muted p-3 transition duration-200 dark:border-white/10 dark:bg-[#0b1220]/80 ${accent.pipelineHover}`}
-                        >
-                          <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
-                            {t.projects.card.step} {index + 1}
-                          </p>
-                          <p className="mt-1 text-sm font-semibold text-slate-950 dark:text-white">{item}</p>
-                        </div>
-                      ))}
-                    </div>
-                    <ul className="mt-5 grid gap-2 text-sm leading-6 text-slate-600 dark:text-slate-300 md:grid-cols-2">
-                      {project.caseStudy.architecture.map((item) => (
-                        <li key={item} className="flex gap-3">
-                          <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.bullet}`} />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div
-                  id={`${caseStudyId}-panel-decisions`}
-                  role="tabpanel"
-                  aria-labelledby={`${caseStudyId}-tab-decisions`}
-                  hidden={activeTab !== "decisions"}
-                  className="mt-5 grid gap-4"
-                >
-                  <CaseStudySection title={t.projects.card.role} accent>
-                    <p>{project.caseStudy.role}</p>
-                  </CaseStudySection>
-                  <div className="rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
-                    <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">
-                      {t.projects.card.technicalDecisions}
-                    </h4>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {project.caseStudy.technicalDecisions.map((decision) => (
-                        <span
-                          key={decision}
-                          className="rounded-full border border-slate-200 bg-paper-muted px-3 py-1.5 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-[#0b1220]/80 dark:text-slate-200"
-                        >
-                          {decision}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  id={`${caseStudyId}-panel-outcome`}
-                  role="tabpanel"
-                  aria-labelledby={`${caseStudyId}-tab-outcome`}
-                  hidden={activeTab !== "outcome"}
-                  className="mt-5 grid gap-4"
-                >
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <CaseStudySection title={t.projects.card.result} accent>
-                      <p>{project.caseStudy.result}</p>
-                    </CaseStudySection>
-                    <CaseStudySection title={t.projects.card.learning} accent>
-                      <p>{project.caseStudy.learning}</p>
-                    </CaseStudySection>
-                  </div>
-                  <div className="rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
-                    <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">
-                      {t.projects.card.links}
-                    </h4>
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      {project.links.demo ? (
-                        <LinkButton
-                          href={project.links.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          variant="primary"
-                        >
-                          {t.buttons.viewDemo}
-                        </LinkButton>
+                      {activeTab === "summary" ? (
+                        <>
+                          <CaseStudySection title={t.projects.card.overview} accent>
+                            <p>{project.caseStudy.overview}</p>
+                          </CaseStudySection>
+                          <div className="grid gap-4 md:grid-cols-2">
+                            <CaseStudySection title={t.projects.card.problem}>
+                              <p>{project.caseStudy.problem}</p>
+                            </CaseStudySection>
+                            <CaseStudySection title={t.projects.card.solution}>
+                              <p>{project.caseStudy.solution}</p>
+                            </CaseStudySection>
+                          </div>
+                          <CaseStudySection title={t.projects.card.mainFeatures}>
+                            <ul className="grid gap-2 sm:grid-cols-2">
+                              {project.caseStudy.mainFeatures.map((feature) => (
+                                <li key={feature} className="flex gap-3">
+                                  <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.bullet}`} />
+                                  <span>{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </CaseStudySection>
+                        </>
                       ) : null}
-                      <LinkButton href={project.links.code} target="_blank" rel="noopener noreferrer">
-                        {t.buttons.viewCode}
-                      </LinkButton>
-                    </div>
-                  </div>
+
+                      {activeTab === "architecture" ? (
+                        <>
+                          <CaseStudySection title={t.projects.card.techStack}>
+                            <div className="flex flex-wrap gap-2">
+                              {project.caseStudy.techStack.map((technology) => (
+                                <span
+                                  key={technology}
+                                  className="rounded-full border border-slate-200 bg-paper-muted px-3 py-1.5 text-xs font-semibold text-slate-700 dark:border-white/10 dark:bg-[#0b1220]/80 dark:text-slate-200"
+                                >
+                                  {technology}
+                                </span>
+                              ))}
+                            </div>
+                          </CaseStudySection>
+
+                          <div className="rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
+                            <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">
+                              {t.projects.card.architecture}
+                            </h4>
+                            <div className="mt-4 grid gap-3 sm:grid-cols-4">
+                              {project.caseStudy.pipelineItems.map((item, stepIndex) => (
+                                <div
+                                  key={item}
+                                  className={`rounded-lg border border-slate-200 bg-paper-muted p-3 transition duration-200 dark:border-white/10 dark:bg-[#0b1220]/80 ${accent.pipelineHover}`}
+                                >
+                                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
+                                    {t.projects.card.step} {stepIndex + 1}
+                                  </p>
+                                  <p className="mt-1 text-sm font-semibold text-slate-950 dark:text-white">{item}</p>
+                                </div>
+                              ))}
+                            </div>
+                            <ul className="mt-5 grid gap-2 text-sm leading-6 text-slate-600 dark:text-slate-300 md:grid-cols-2">
+                              {project.caseStudy.architecture.map((item) => (
+                                <li key={item} className="flex gap-3">
+                                  <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.bullet}`} />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </>
+                      ) : null}
+
+                      {activeTab === "decisions" ? (
+                        <>
+                          <CaseStudySection title={t.projects.card.role} accent>
+                            <p>{project.caseStudy.role}</p>
+                          </CaseStudySection>
+                          <div className="rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
+                            <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">
+                              {t.projects.card.technicalDecisions}
+                            </h4>
+                            <div className="mt-4 flex flex-wrap gap-2">
+                              {project.caseStudy.technicalDecisions.map((decision) => (
+                                <span
+                                  key={decision}
+                                  className="rounded-full border border-slate-200 bg-paper-muted px-3 py-1.5 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-[#0b1220]/80 dark:text-slate-200"
+                                >
+                                  {decision}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </>
+                      ) : null}
+
+                      {activeTab === "outcome" ? (
+                        <>
+                          <div className="grid gap-4 md:grid-cols-2">
+                            <CaseStudySection title={t.projects.card.result} accent>
+                              <p>{project.caseStudy.result}</p>
+                            </CaseStudySection>
+                            <CaseStudySection title={t.projects.card.learning} accent>
+                              <p>{project.caseStudy.learning}</p>
+                            </CaseStudySection>
+                          </div>
+                          <div className="rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
+                            <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">
+                              {t.projects.card.links}
+                            </h4>
+                            <div className="mt-4 flex flex-wrap gap-3">
+                              {project.links.demo ? (
+                                <LinkButton
+                                  href={project.links.demo}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  variant="primary"
+                                >
+                                  {t.buttons.viewDemo}
+                                </LinkButton>
+                              ) : null}
+                              <LinkButton href={project.links.code} target="_blank" rel="noopener noreferrer">
+                                {t.buttons.viewCode}
+                              </LinkButton>
+                            </div>
+                          </div>
+                        </>
+                      ) : null}
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 };

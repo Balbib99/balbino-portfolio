@@ -238,8 +238,8 @@ export const projects: Project[] = [
       { label: "Favorites", value: "Saved" },
     ],
     visual: {
-      src: "/project-nba-insight-visual.jpg",
-      alt: "Avatar ilustrado revisando dashboards y estadísticas de baloncesto",
+      src: "/project-nba-insight-screenshot.jpg",
+      alt: "Captura de pantalla de la aplicación NBA Insight en producción",
     },
     description:
       "Plataforma full-stack de analítica NBA desarrollada con React, TypeScript, Node.js y PostgreSQL. El proyecto permite explorar equipos, jugadores, standings, playoffs, comparativas y favoritos mediante una interfaz limpia, responsive y preparada como producto real desplegado.",
@@ -339,8 +339,8 @@ export const projects: Project[] = [
       { label: "Tips", value: "Daily security" },
     ],
     visual: {
-      src: "/project-attackflow-lab-visual.jpg",
-      alt: "Avatar ilustrado como analista de ciberseguridad con paneles defensivos",
+      src: "/project-attackflow-lab-screenshot.jpg",
+      alt: "Captura de pantalla de la aplicación AttackFlow Lab en producción",
     },
     description:
       "Plataforma educativa e interactiva de ciberseguridad en español. Permite aprender amenazas comunes mediante simulaciones visuales, escenarios guiados, consejos prácticos, herramientas recomendadas y retos de conocimiento con progreso local.",
@@ -437,8 +437,8 @@ export const projects: Project[] = [
       { label: "Export", value: "PNG/JSON" },
     ],
     visual: {
-      src: "/project-court-vision-lab-visual.jpg",
-      alt: "Avatar ilustrado driblando con diagramas tácticos de baloncesto",
+      src: "/project-court-vision-lab-screenshot.jpg",
+      alt: "Captura de pantalla de la aplicación Court Vision Lab en producción",
     },
     description:
       "Herramienta frontend para visualizar, editar y reproducir jugadas de baloncesto en un tablero táctico 2D. Incluye movimientos animados, modo edición, playbook, roster, estadísticas, guías interactivas, persistencia local y exportación de diagramas.",

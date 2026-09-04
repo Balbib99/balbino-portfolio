@@ -32,7 +32,7 @@ const accentStyles = {
     bullet: "bg-orange-500",
     pipelineHover:
       "hover:border-orange-200 hover:bg-orange-50/70 dark:hover:border-orange-400/25 dark:hover:bg-orange-400/[0.07]",
-    avatarGlow: "bg-[radial-gradient(circle,rgba(251,146,60,0.32),rgba(251,146,60,0.04)_72%)]",
+    previewGlow: "bg-[radial-gradient(circle,rgba(251,146,60,0.32),rgba(251,146,60,0.04)_72%)]",
   },
   red: {
     article:
@@ -50,7 +50,7 @@ const accentStyles = {
       "bg-red-50 text-red-700 ring-1 ring-red-200 dark:bg-red-950/30 dark:text-red-300 dark:ring-red-900/70",
     bullet: "bg-red-500",
     pipelineHover: "hover:border-red-200 hover:bg-red-50/70 dark:hover:border-red-400/25 dark:hover:bg-red-400/[0.07]",
-    avatarGlow: "bg-[radial-gradient(circle,rgba(248,113,113,0.32),rgba(248,113,113,0.04)_72%)]",
+    previewGlow: "bg-[radial-gradient(circle,rgba(248,113,113,0.32),rgba(248,113,113,0.04)_72%)]",
   },
   emerald: {
     article:
@@ -70,7 +70,7 @@ const accentStyles = {
     bullet: "bg-emerald-500",
     pipelineHover:
       "hover:border-emerald-200 hover:bg-emerald-50/70 dark:hover:border-emerald-400/25 dark:hover:bg-emerald-400/[0.07]",
-    avatarGlow: "bg-[radial-gradient(circle,rgba(52,211,153,0.32),rgba(52,211,153,0.04)_72%)]",
+    previewGlow: "bg-[radial-gradient(circle,rgba(52,211,153,0.32),rgba(52,211,153,0.04)_72%)]",
   },
 };
 
@@ -154,20 +154,30 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
 
           {project.visual ? (
             <motion.div
-              className="relative mx-auto mt-7 h-44 w-44 cursor-default sm:h-52 sm:w-52"
-              whileHover={{ scale: 1.06, rotate: -2 }}
-              transition={{ type: "spring", stiffness: 300, damping: 18 }}
+              className="relative mt-7 w-full"
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className={`absolute -inset-3 rounded-full blur-xl ${accent.avatarGlow}`} />
-              <div className={`absolute inset-0 rounded-full border ${accent.badgePrimary} opacity-90`} />
-              <div className={`absolute inset-2 rounded-full border border-white/25 ${accent.avatarGlow}`} />
-              <img
-                src={project.visual.src}
-                alt={project.visual.alt}
-                className="relative h-full w-full rounded-full object-cover p-2 shadow-[0_0_0_1px_rgba(255,255,255,0.12),0_22px_70px_-34px_rgba(0,0,0,0.8)]"
-                loading="lazy"
-                decoding="async"
-              />
+              <div className={`absolute -inset-2 rounded-xl opacity-80 blur-lg ${accent.previewGlow}`} />
+              <div className="relative overflow-hidden rounded-lg border border-white/15 shadow-[0_20px_55px_-26px_rgba(0,0,0,0.9)]">
+                <div className="flex items-center gap-1.5 border-b border-white/10 bg-white/[0.06] px-3 py-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+                  {project.links.demo ? (
+                    <span className="ml-2 truncate rounded bg-white/10 px-2 py-0.5 text-[10px] font-medium text-slate-300">
+                      {project.links.demo.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                    </span>
+                  ) : null}
+                </div>
+                <img
+                  src={project.visual.src}
+                  alt={project.visual.alt}
+                  className="aspect-[16/10] w-full bg-[#05070c] object-cover object-top"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </motion.div>
           ) : null}
 

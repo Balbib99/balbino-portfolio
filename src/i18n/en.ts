@@ -203,8 +203,8 @@ export const en: typeof es = {
           { label: "Favorites", value: "Saved" },
         ],
         visual: {
-          src: "/project-nba-insight-visual.jpg",
-          alt: "Illustrated avatar reviewing basketball dashboards and statistics",
+          src: "/project-nba-insight-screenshot.jpg",
+          alt: "Screenshot of the NBA Insight application in production",
         },
         description:
           "Full-stack NBA analytics platform built with React, TypeScript, Node.js and PostgreSQL. It lets users explore teams, players, standings, playoffs, comparisons and favorites through a clean, responsive interface prepared as a real deployed product.",
@@ -301,8 +301,8 @@ export const en: typeof es = {
           { label: "Tips", value: "Daily security" },
         ],
         visual: {
-          src: "/project-attackflow-lab-visual.jpg",
-          alt: "Illustrated avatar as a cybersecurity analyst with defensive panels",
+          src: "/project-attackflow-lab-screenshot.jpg",
+          alt: "Screenshot of the AttackFlow Lab application in production",
         },
         description:
           "Interactive cybersecurity education platform in Spanish. It helps users learn common threats through visual simulations, guided scenarios, practical safety tips, recommended tools and knowledge challenges with local progress.",
@@ -399,8 +399,8 @@ export const en: typeof es = {
           { label: "Export", value: "PNG/JSON" },
         ],
         visual: {
-          src: "/project-court-vision-lab-visual.jpg",
-          alt: "Illustrated avatar dribbling with basketball tactical diagrams",
+          src: "/project-court-vision-lab-screenshot.jpg",
+          alt: "Screenshot of the Court Vision Lab application in production",
         },
         description:
           "Frontend tool to visualize, edit and replay basketball plays on a 2D tactical board. It includes animated movements, edit mode, playbook, roster, stats, guided help, local persistence and diagram exports.",

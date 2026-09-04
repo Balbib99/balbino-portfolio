@@ -16,13 +16,18 @@ export const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl transition-colors duration-300 dark:border-slate-800/80 dark:bg-[#070b14]/95 dark:shadow-[0_18px_60px_-52px_rgba(0,0,0,0.75)]">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-[1.125rem] sm:px-6 lg:px-8" aria-label={t.nav.aria}>
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-paper/90 backdrop-blur-xl transition-colors duration-300 dark:border-slate-800/80 dark:bg-[#070b14]/95 dark:shadow-[0_18px_60px_-52px_rgba(0,0,0,0.75)]">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-[1.125rem] sm:px-6 lg:px-8"
+        aria-label={t.nav.aria}
+      >
         <a href="#inicio" onClick={closeMenu} className="flex items-center gap-3 rounded-lg">
           <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-950 text-sm font-bold text-white dark:border dark:border-teal-400/30 dark:bg-[#0d1b24] dark:text-teal-200">
             BM
           </span>
-          <span className="hidden text-sm font-bold text-slate-950 dark:text-slate-100 sm:inline">{personalData.displayName}</span>
+          <span className="hidden text-sm font-bold text-slate-950 dark:text-slate-100 sm:inline">
+            {personalData.displayName}
+          </span>
         </a>
 
         <div className="hidden items-center gap-2 lg:flex">
@@ -48,15 +53,28 @@ export const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
             aria-label={t.nav.openMenu}
             onClick={() => setIsOpen((current) => !current)}
           >
-            <span aria-hidden="true" className="text-xl leading-none">
-              {isOpen ? "×" : "☰"}
-            </span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {isOpen ? <path d="M18 6 6 18M6 6l12 12" /> : <path d="M3 6h18M3 12h18M3 18h18" />}
+            </svg>
           </button>
         </div>
       </nav>
 
       {isOpen ? (
-        <div id="mobile-menu" className="border-t border-slate-200 bg-white px-4 py-3 dark:border-slate-800/80 dark:bg-[#070b14] lg:hidden">
+        <div
+          id="mobile-menu"
+          className="border-t border-slate-200 bg-paper px-4 py-3 dark:border-slate-800/80 dark:bg-[#070b14] lg:hidden"
+        >
           <div className="mx-auto grid max-w-7xl gap-1">
             {t.navItems.map((item) => (
               <a

@@ -21,7 +21,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: #f8fafc;
+  background: #faf7f1;
 }
 
 ::selection {
@@ -62,7 +62,6 @@ body {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
-
 }
 
 @layer base {

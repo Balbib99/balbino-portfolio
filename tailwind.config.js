@@ -10,6 +10,12 @@ export default {
       boxShadow: {
         soft: "0 18px 60px -36px rgba(14, 23, 40, 0.35)",
       },
+      colors: {
+        paper: {
+          DEFAULT: "#FAF7F1",
+          muted: "#F1E9DC",
+        },
+      },
     },
   },
   plugins: [],

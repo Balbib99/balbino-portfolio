@@ -16,13 +16,14 @@ export const en: typeof es = {
     profileImage: "/balbino-profile.jpg",
     cvUrl: "/cv-balbino-martinez-en.pdf",
     heroTitle: "Hi, I’m Balbino Martínez.",
-    heroSubtitle: "Full-stack developer building data-driven web applications with React, TypeScript and real-world API integrations.",
+    heroSubtitle:
+      "Full-stack developer building data-driven web applications with React, TypeScript and real-world API integrations.",
     heroDescription:
       "I work across frontend, backend, APIs, databases and deployment to turn technical ideas into usable products.",
     professionalProfile:
       "I’m a software developer with a hybrid profile in web development, cybersecurity, IoT and applied AI. I have experience in real R&D environments, web interface development, hardware–software integration, data acquisition and visualization, distributed systems and security best practices.",
     about:
-      "I hold a Higher Technician degree in Web Application Development and I’m currently studying a Master’s Degree in Cybersecurity. My profile combines web development, hardware–software integration, data analysis, IoT and applied AI. I have worked in real R&D environments developing web interfaces, sensor modules, distributed systems and solutions focused on data acquisition and visualization.",
+      "I hold a Higher Technician degree in Web Application Development and a Master's Degree in Cybersecurity. My profile combines web development, hardware–software integration, data analysis, IoT and applied AI. I have worked in real R&D environments developing web interfaces, sensor modules, distributed systems and solutions focused on data acquisition and visualization.",
   },
   navItems: [
     { label: "About", href: "#sobre-mi" },
@@ -57,8 +58,7 @@ export const en: typeof es = {
     title: "Hybrid profile in development, data and cybersecurity",
     description:
       "I’m a software developer with a hybrid profile in web development, cybersecurity, IoT and applied AI. I have experience in real R&D environments, web interface development, hardware–software integration, data acquisition and visualization, distributed systems and security best practices.",
-    text:
-      "I hold a Higher Technician degree in Web Application Development and I’m currently studying a Master’s Degree in Cybersecurity. My profile combines web development, hardware–software integration, data analysis, IoT and applied AI. I have worked in real R&D environments developing web interfaces, sensor modules, distributed systems and solutions focused on data acquisition and visualization.",
+    text: "I hold a Higher Technician degree in Web Application Development and a Master's Degree in Cybersecurity. My profile combines web development, hardware–software integration, data analysis, IoT and applied AI. I have worked in real R&D environments developing web interfaces, sensor modules, distributed systems and solutions focused on data acquisition and visualization.",
     avatarAlt: "Illustrated avatar of Balbino Martínez with cybersecurity panels",
     cards: [
       {
@@ -81,11 +81,26 @@ export const en: typeof es = {
     description:
       "My profile combines web development, data, IoT and cybersecurity, allowing me to contribute to different stages of a solution: from the user interface to integration with systems, APIs, databases and security best practices.",
     items: [
-      { title: "Modern interfaces", text: "I build responsive, maintainable interfaces designed to make products easy to understand and use." },
-      { title: "End-to-end integration", text: "I connect frontend with backend services, APIs, authentication and databases to build functional applications." },
-      { title: "Real-world projects", text: "I have worked on applied solutions beyond landing pages: data, services, deployment and product thinking." },
-      { title: "Data, IoT and security", text: "I am interested in data-driven products, connected systems, cybersecurity and hardware-software integration." },
-      { title: "Technical quality and UX", text: "I care about architecture and maintainability as much as visual clarity, responsiveness and user experience." },
+      {
+        title: "Modern interfaces",
+        text: "I build responsive, maintainable interfaces designed to make products easy to understand and use.",
+      },
+      {
+        title: "End-to-end integration",
+        text: "I connect frontend with backend services, APIs, authentication and databases to build functional applications.",
+      },
+      {
+        title: "Real-world projects",
+        text: "I have worked on applied solutions beyond landing pages: data, services, deployment and product thinking.",
+      },
+      {
+        title: "Data, IoT and security",
+        text: "I am interested in data-driven products, connected systems, cybersecurity and hardware-software integration.",
+      },
+      {
+        title: "Technical quality and UX",
+        text: "I care about architecture and maintainability as much as visual clarity, responsiveness and user experience.",
+      },
     ],
   },
   experience: {
@@ -114,7 +129,17 @@ export const en: typeof es = {
           "Setup and configuration of IoT services, servers and databases.",
           "Application of artificial intelligence and security best practices in data-oriented systems.",
         ],
-        technologies: ["Python", "Linux", "Raspberry Pi", "IoT", "Sensors", "Databases", "Applied AI", "Hardware–software integration", "Data acquisition"],
+        technologies: [
+          "Python",
+          "Linux",
+          "Raspberry Pi",
+          "IoT",
+          "Sensors",
+          "Databases",
+          "Applied AI",
+          "Hardware–software integration",
+          "Data acquisition",
+        ],
         valuePoints: [
           "Experience in real R&D environments.",
           "Ability to connect software, hardware and data.",
@@ -138,7 +163,17 @@ export const en: typeof es = {
           "Work with version control and collaboration on development tasks.",
           "Participation in the development cycle from an internship stage to a later temporary position.",
         ],
-        technologies: ["Angular", "Node.js", "JavaScript", "InfluxDB", "WordPress", "APIs", "Git", "Web development", "Full Stack"],
+        technologies: [
+          "Angular",
+          "Node.js",
+          "JavaScript",
+          "InfluxDB",
+          "WordPress",
+          "APIs",
+          "Git",
+          "Web development",
+          "Full Stack",
+        ],
         valuePoints: [
           "First professional experience in web development.",
           "Continuity after the internship period, taking on new responsibilities.",
@@ -173,7 +208,21 @@ export const en: typeof es = {
         },
         description:
           "Full-stack NBA analytics platform built with React, TypeScript, Node.js and PostgreSQL. It lets users explore teams, players, standings, playoffs, comparisons and favorites through a clean, responsive interface prepared as a real deployed product.",
-        technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "API-Basketball", "JWT", "Vercel", "Render", "Neon", "Git"],
+        technologies: [
+          "React",
+          "TypeScript",
+          "Vite",
+          "Tailwind CSS",
+          "Node.js",
+          "Express",
+          "PostgreSQL",
+          "API-Basketball",
+          "JWT",
+          "Vercel",
+          "Render",
+          "Neon",
+          "Git",
+        ],
         highlights: [
           "Real application deployed in production.",
           "Demo mode available for recruiters without registration.",
@@ -221,8 +270,7 @@ export const en: typeof es = {
             "Demo mode with local persistence so any recruiter can test the application without signing up.",
             "API-Basketball integration for NBA data without exposing API keys in the frontend.",
           ],
-          role:
-            "I designed and developed the full application, from frontend structure and user experience to backend integration, authentication, persistent favorites and deployment.",
+          role: "I designed and developed the full application, from frontend structure and user experience to backend integration, authentication, persistent favorites and deployment.",
           technicalDecisions: [
             "Separation between frontend and backend.",
             "Demo mode available without registration.",
@@ -317,8 +365,7 @@ export const en: typeof es = {
             "Light/dark theme with a primary dark tech experience.",
             "No backend or real user data in this version.",
           ],
-          role:
-            "I designed and developed the full application, from route and component architecture to educational content, simulators, challenges, theming and the responsive experience.",
+          role: "I designed and developed the full application, from route and component architecture to educational content, simulators, challenges, theming and the responsive experience.",
           technicalDecisions: [
             "Next.js App Router to organize educational routes.",
             "Typed local content to iterate quickly without a backend.",
@@ -416,8 +463,7 @@ export const en: typeof es = {
             "JSON import/export for plays and playbook backups.",
             "Frontend deployment on Vercel.",
           ],
-          role:
-            "I designed and developed the full application, including the tactical data model, interactive court, play animation, editor, playbook, local persistence, roster/stats views and deployment.",
+          role: "I designed and developed the full application, including the tactical data model, interactive court, play animation, editor, playbook, local persistence, roster/stats views and deployment.",
           technicalDecisions: [
             "Separate tactical data from visual rendering.",
             "Use Framer Motion for clear and controlled movement.",
@@ -454,6 +500,12 @@ export const en: typeof es = {
       technicalDecisions: "Technical decisions",
       links: "Links",
       pipelineItems: ["Frontend", "Backend", "Database", "Deploy"],
+      tabs: {
+        summary: "Summary",
+        architecture: "Architecture",
+        decisions: "Decisions",
+        outcome: "Outcome",
+      },
     },
   },
   stack: {
@@ -462,10 +514,28 @@ export const en: typeof es = {
     description:
       "I have worked with frontend, backend, data, IoT systems, deployment and cybersecurity technologies, applying them in academic, professional and personal projects.",
     categories: [
-      { title: "Frontend Engineering", description: "I build modern, responsive and maintainable interfaces using current web ecosystem technologies.", items: ["React", "TypeScript", "Vite", "Tailwind CSS", "Responsive design", "Dark mode"] },
-      { title: "Backend & APIs", description: "I build APIs, business logic, authentication flows and integrations with external services.", items: ["Node.js", "Express", "REST APIs", "PostgreSQL", "External API integration"] },
-      { title: "Data & Deployment", description: "I work with deployment, configuration and data visualization to bring applications to production.", items: ["Vercel", "Render", "Neon", "Data visualization", "Environment variables"] },
-      { title: "IoT & Cybersecurity", description: "Experience with Linux, Raspberry Pi, sensors and cybersecurity fundamentals in connected systems.", items: ["Raspberry Pi", "Sensors", "MQTT", "Linux", "Cybersecurity fundamentals", "ISO 27001"] },
+      {
+        title: "Frontend Engineering",
+        description: "I build modern, responsive and maintainable interfaces using current web ecosystem technologies.",
+        items: ["React", "TypeScript", "Vite", "Tailwind CSS", "Responsive design", "Dark mode"],
+      },
+      {
+        title: "Backend & APIs",
+        description: "I build APIs, business logic, authentication flows and integrations with external services.",
+        items: ["Node.js", "Express", "REST APIs", "PostgreSQL", "External API integration"],
+      },
+      {
+        title: "Data & Deployment",
+        description:
+          "I work with deployment, configuration and data visualization to bring applications to production.",
+        items: ["Vercel", "Render", "Neon", "Data visualization", "Environment variables"],
+      },
+      {
+        title: "IoT & Cybersecurity",
+        description:
+          "Experience with Linux, Raspberry Pi, sensors and cybersecurity fundamentals in connected systems.",
+        items: ["Raspberry Pi", "Sensors", "MQTT", "Linux", "Cybersecurity fundamentals", "ISO 27001"],
+      },
     ],
   },
   education: {
@@ -477,16 +547,83 @@ export const en: typeof es = {
     mainTitle: "Main education",
     certificationsTitle: "Certifications",
     education: [
-      { title: "Master’s Degree in Cybersecurity", institution: "Instituto Europeo de Posgrado", period: "2025 - 2026", description: "Specialized training in system protection, risk analysis, security auditing, forensic investigation and information security management.", tags: ["Cybersecurity", "Risk analysis", "ISO 27001", "Audit", "Digital forensics"] },
-      { title: "Online Master’s Degree in AI and Innovation", institution: "Founderz & Microsoft", period: "2026", description: "Program focused on the practical application of artificial intelligence in digital products, process automation, AI agents and productivity improvement.", tags: ["Applied AI", "Automation", "AI agents", "Innovation", "Productivity"] },
-      { title: "Higher Technician in Web Application Development", institution: "IES Julián Marías", period: "2021 - 2023", description: "Technical training in web application development, databases, frontend, backend, programming and deployment of web solutions.", tags: ["Web development", "Frontend", "Backend", "Databases", "JavaScript"] },
-      { title: "Technician in Electrical and Automatic Installations", institution: "IES Julián Marías", period: "2019 - 2021", description: "Technical training in electrical installations, automation and electrical systems fundamentals, providing a useful base for hardware–software integration and IoT.", tags: ["Automation", "Electrical installations", "Hardware fundamentals", "IoT"] },
+      {
+        title: "Master’s Degree in Cybersecurity",
+        institution: "Instituto Europeo de Posgrado",
+        period: "2025 - 2026",
+        description:
+          "Specialized training in system protection, risk analysis, security auditing, forensic investigation and information security management.",
+        tags: ["Cybersecurity", "Risk analysis", "ISO 27001", "Audit", "Digital forensics"],
+      },
+      {
+        title: "Online Master’s Degree in AI and Innovation",
+        institution: "Founderz & Microsoft",
+        period: "2026",
+        description:
+          "Program focused on the practical application of artificial intelligence in digital products, process automation, AI agents and productivity improvement.",
+        tags: ["Applied AI", "Automation", "AI agents", "Innovation", "Productivity"],
+      },
+      {
+        title: "Higher Technician in Web Application Development",
+        institution: "IES Julián Marías",
+        period: "2021 - 2023",
+        description:
+          "Technical training in web application development, databases, frontend, backend, programming and deployment of web solutions.",
+        tags: ["Web development", "Frontend", "Backend", "Databases", "JavaScript"],
+      },
+      {
+        title: "Technician in Electrical and Automatic Installations",
+        institution: "IES Julián Marías",
+        period: "2019 - 2021",
+        description:
+          "Technical training in electrical installations, automation and electrical systems fundamentals, providing a useful base for hardware–software integration and IoT.",
+        tags: ["Automation", "Electrical installations", "Hardware fundamentals", "IoT"],
+      },
     ],
     certifications: [
-      { title: "Internal Auditor ISO 27001:2022", institution: "IEP / CUA / Bureau Veritas Business School", period: "2026", description: "Certification focused on internal auditing of Information Security Management Systems under ISO 27001:2022.", tags: ["ISO 27001", "ISMS", "Internal audit", "Information security"] },
-      { title: "Cyber Security 101", institution: "TryHackMe", period: "2026", description: "Introductory certification focused on cybersecurity fundamentals, Linux, networking, basic analysis and security tools.", tags: ["TryHackMe", "Linux", "Cybersecurity fundamentals", "Offensive security"] },
-      { title: "React Master: ReactJS, Hooks, MERN, NodeJS, JWT+", institution: "Udemy", period: "2023", description: "Practical training in frontend development with React, hooks, MERN architecture, Node.js and JWT authentication.", tags: ["React", "Hooks", "MERN", "Node.js", "JWT"] },
-      { title: "Featured TryHackMe badges", institution: "TryHackMe", period: "2025 - 2026", description: "Practical recognitions obtained in cybersecurity labs focused on Linux, enumeration, controlled vulnerability exploitation and tools such as Metasploit and SQLMap.", tags: ["Linux", "Metasploit", "SQLMap", "EternalBlue", "Controlled exploitation", "Practical labs", "Aprendiz de espada", "Being competent in Linux", "Contains the knowledge to use Metasploit", "Hacking into Windows via EternalBlue"] },
+      {
+        title: "Internal Auditor ISO 27001:2022",
+        institution: "IEP / CUA / Bureau Veritas Business School",
+        period: "2026",
+        description:
+          "Certification focused on internal auditing of Information Security Management Systems under ISO 27001:2022.",
+        tags: ["ISO 27001", "ISMS", "Internal audit", "Information security"],
+      },
+      {
+        title: "Cyber Security 101",
+        institution: "TryHackMe",
+        period: "2026",
+        description:
+          "Introductory certification focused on cybersecurity fundamentals, Linux, networking, basic analysis and security tools.",
+        tags: ["TryHackMe", "Linux", "Cybersecurity fundamentals", "Offensive security"],
+      },
+      {
+        title: "React Master: ReactJS, Hooks, MERN, NodeJS, JWT+",
+        institution: "Udemy",
+        period: "2023",
+        description:
+          "Practical training in frontend development with React, hooks, MERN architecture, Node.js and JWT authentication.",
+        tags: ["React", "Hooks", "MERN", "Node.js", "JWT"],
+      },
+      {
+        title: "Featured TryHackMe badges",
+        institution: "TryHackMe",
+        period: "2025 - 2026",
+        description:
+          "Practical recognitions obtained in cybersecurity labs focused on Linux, enumeration, controlled vulnerability exploitation and tools such as Metasploit and SQLMap.",
+        tags: [
+          "Linux",
+          "Metasploit",
+          "SQLMap",
+          "EternalBlue",
+          "Controlled exploitation",
+          "Practical labs",
+          "Aprendiz de espada",
+          "Being competent in Linux",
+          "Contains the knowledge to use Metasploit",
+          "Hacking into Windows via EternalBlue",
+        ],
+      },
     ],
   },
   contact: {
@@ -506,7 +643,12 @@ export const en: typeof es = {
       message: "Message",
       messagePlaceholder: "Write your message here...",
       submit: "Prepare email",
+      submitDirect: "Send message",
+      sending: "Sending...",
       help: "Your email app will open with the message prepared before sending it.",
+      helpDirect: "Your message is sent directly, no need to open your email app.",
+      success: "Message sent! I'll get back to you as soon as possible.",
+      submitError: "Couldn't send the message. Please try again or email me directly.",
       error: "Subject and message are required.",
       bodyName: "Name",
       bodyEmail: "Contact email",

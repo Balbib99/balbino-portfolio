@@ -94,7 +94,7 @@ export const personalData = {
   professionalProfile:
     "Soy desarrollador de software con un perfil híbrido en desarrollo web, ciberseguridad, IoT e IA aplicada. Tengo experiencia en entornos reales de I+D, desarrollo de interfaces web, integración hardware-software, adquisición y visualización de datos, sistemas distribuidos y buenas prácticas de seguridad.",
   about:
-    "Soy Técnico Superior en Desarrollo de Aplicaciones Web y actualmente curso un Máster en Ciberseguridad. Mi perfil combina desarrollo web, integración hardware-software, análisis de datos, IoT e IA aplicada. He trabajado en entornos reales de I+D desarrollando interfaces web, módulos de sensorización, sistemas distribuidos y soluciones orientadas a la adquisición y visualización de datos.",
+    "Soy Técnico Superior en Desarrollo de Aplicaciones Web y Máster en Ciberseguridad. Mi perfil combina desarrollo web, integración hardware-software, análisis de datos, IoT e IA aplicada. He trabajado en entornos reales de I+D desarrollando interfaces web, módulos de sensorización, sistemas distribuidos y soluciones orientadas a la adquisición y visualización de datos.",
 };
 
 export const links = {
@@ -203,7 +203,17 @@ export const experiences: Experience[] = [
       "Trabajo con control de versiones y colaboración en tareas de desarrollo.",
       "Participación en el ciclo de desarrollo desde una primera etapa de prácticas hasta una posterior incorporación temporal.",
     ],
-    technologies: ["Angular", "Node.js", "JavaScript", "InfluxDB", "WordPress", "APIs", "Git", "Desarrollo web", "Full Stack"],
+    technologies: [
+      "Angular",
+      "Node.js",
+      "JavaScript",
+      "InfluxDB",
+      "WordPress",
+      "APIs",
+      "Git",
+      "Desarrollo web",
+      "Full Stack",
+    ],
     valuePoints: [
       "Primera experiencia profesional en desarrollo web.",
       "Continuidad tras el periodo de prácticas, asumiendo nuevas responsabilidades.",
@@ -295,8 +305,7 @@ export const projects: Project[] = [
         "Modo demo con persistencia local para permitir que cualquier recruiter pruebe la aplicación sin registrarse.",
         "Integración con API-Basketball para datos NBA sin exponer API keys en el frontend.",
       ],
-      role:
-        "Diseñé y desarrollé la aplicación completa, desde la estructura frontend y la experiencia de usuario hasta la integración backend, autenticación, persistencia de favoritos y despliegue.",
+      role: "Diseñé y desarrollé la aplicación completa, desde la estructura frontend y la experiencia de usuario hasta la integración backend, autenticación, persistencia de favoritos y despliegue.",
       technicalDecisions: [
         "Separación entre frontend y backend.",
         "Modo demo accesible sin registro.",
@@ -394,8 +403,7 @@ export const projects: Project[] = [
         "Tema claro/oscuro con experiencia principal dark tech.",
         "Sin backend ni datos reales de usuarios en esta versión.",
       ],
-      role:
-        "Diseñé y desarrollé la aplicación completa, desde la arquitectura de rutas y componentes hasta el contenido educativo, los simuladores, los retos, el sistema de tema y la experiencia responsive.",
+      role: "Diseñé y desarrollé la aplicación completa, desde la arquitectura de rutas y componentes hasta el contenido educativo, los simuladores, los retos, el sistema de tema y la experiencia responsive.",
       technicalDecisions: [
         "Next.js App Router para organizar rutas educativas.",
         "Contenido local tipado para iterar rápido sin backend.",
@@ -493,8 +501,7 @@ export const projects: Project[] = [
         "Importación y exportación JSON para jugadas y backups de playbook.",
         "Despliegue frontend en Vercel.",
       ],
-      role:
-        "Diseñé y desarrollé la aplicación completa, incluyendo el modelo de datos táctico, la cancha interactiva, la animación de jugadas, el editor, el playbook, la persistencia local, las vistas de roster/stats y el despliegue.",
+      role: "Diseñé y desarrollé la aplicación completa, incluyendo el modelo de datos táctico, la cancha interactiva, la animación de jugadas, el editor, el playbook, la persistencia local, las vistas de roster/stats y el despliegue.",
       technicalDecisions: [
         "Separar datos tácticos de renderizado visual.",
         "Usar Framer Motion para movimientos claros y controlados.",
@@ -525,8 +532,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: "Backend & APIs",
-    description:
-      "Construcción de APIs, lógica de negocio, autenticación e integración con servicios externos.",
+    description: "Construcción de APIs, lógica de negocio, autenticación e integración con servicios externos.",
     items: ["Node.js", "Express", "APIs REST", "PostgreSQL", "Integración de APIs externas"],
   },
   {

@@ -10,12 +10,17 @@ type ContactFormState = {
   message: string;
 };
 
+type SubmitStatus = "idle" | "sending" | "success" | "error";
+
 const initialState: ContactFormState = {
   name: "",
   email: "",
   subject: "",
   message: "",
 };
+
+const formspreeFormId = import.meta.env.VITE_FORMSPREE_FORM_ID as string | undefined;
+const formspreeEndpoint = formspreeFormId ? `https://formspree.io/f/${formspreeFormId}` : null;
 
 const inputClassName =
   "mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-950 transition placeholder:text-slate-400 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/30 dark:border-slate-700/80 dark:bg-[#0a1020] dark:text-slate-50 dark:placeholder:text-slate-400/80 dark:focus:border-teal-400 dark:focus:ring-teal-400/30";
@@ -24,6 +29,7 @@ export const ContactForm = () => {
   const { t } = useLanguage();
   const [form, setForm] = useState<ContactFormState>(initialState);
   const [error, setError] = useState("");
+  const [status, setStatus] = useState<SubmitStatus>("idle");
 
   const updateField = (field: keyof ContactFormState, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
@@ -32,7 +38,20 @@ export const ContactForm = () => {
     }
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const sendViaMailto = () => {
+    const bodyLines = [
+      form.name.trim() ? `${t.contact.form.bodyName}: ${form.name.trim()}` : null,
+      form.email.trim() ? `${t.contact.form.bodyEmail}: ${form.email.trim()}` : null,
+      "",
+      `${t.contact.form.bodyMessage}:`,
+      form.message.trim(),
+    ].filter((line): line is string => line !== null);
+
+    const mailtoUrl = `mailto:${personalData.email}?subject=${encodeURIComponent(form.subject.trim())}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    window.location.href = mailtoUrl;
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const subject = form.subject.trim();
@@ -43,17 +62,36 @@ export const ContactForm = () => {
       return;
     }
 
-    const bodyLines = [
-      form.name.trim() ? `${t.contact.form.bodyName}: ${form.name.trim()}` : null,
-      form.email.trim() ? `${t.contact.form.bodyEmail}: ${form.email.trim()}` : null,
-      "",
-      `${t.contact.form.bodyMessage}:`,
-      message,
-    ].filter((line): line is string => line !== null);
+    if (formspreeEndpoint) {
+      setStatus("sending");
+      try {
+        const response = await fetch(formspreeEndpoint, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new URLSearchParams({
+            name: form.name.trim(),
+            email: form.email.trim(),
+            subject,
+            message,
+          }),
+        });
 
-    const mailtoUrl = `mailto:${personalData.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-    window.location.href = mailtoUrl;
+        if (!response.ok) {
+          throw new Error("Formspree request failed");
+        }
+
+        setStatus("success");
+        setForm(initialState);
+      } catch {
+        setStatus("error");
+      }
+      return;
+    }
+
+    sendViaMailto();
   };
+
+  const isSending = status === "sending";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -110,16 +148,19 @@ export const ContactForm = () => {
       </label>
 
       <p className="text-sm leading-6 text-slate-400">
-        {t.contact.form.help}
+        {formspreeEndpoint ? t.contact.form.helpDirect : t.contact.form.help}
       </p>
 
       {error ? <p className="text-sm font-semibold text-red-300">{error}</p> : null}
+      {status === "success" ? <p className="text-sm font-semibold text-teal-300">{t.contact.form.success}</p> : null}
+      {status === "error" ? <p className="text-sm font-semibold text-red-300">{t.contact.form.submitError}</p> : null}
 
       <button
         type="submit"
-        className="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-teal-400 bg-teal-400 px-5 py-3 text-sm font-semibold text-slate-950 shadow-soft transition duration-200 hover:border-teal-300 hover:bg-teal-300 focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 dark:shadow-[0_16px_45px_-28px_rgba(45,212,191,0.9)] sm:w-auto"
+        disabled={isSending}
+        className="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-teal-400 bg-teal-400 px-5 py-3 text-sm font-semibold text-slate-950 shadow-soft transition duration-200 hover:border-teal-300 hover:bg-teal-300 focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-70 dark:shadow-[0_16px_45px_-28px_rgba(45,212,191,0.9)] sm:w-auto"
       >
-        {t.contact.form.submit}
+        {isSending ? t.contact.form.sending : formspreeEndpoint ? t.contact.form.submitDirect : t.contact.form.submit}
       </button>
     </form>
   );

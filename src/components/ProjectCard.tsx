@@ -15,8 +15,7 @@ const accentStyles = {
       "hover:border-orange-200 focus-within:border-orange-200 dark:shadow-[0_28px_100px_-58px_rgba(251,146,60,0.28)] dark:hover:border-orange-400/25 dark:focus-within:border-orange-400/25",
     badgePrimary:
       "border-orange-300/40 bg-orange-300/10 text-orange-100 dark:border-orange-300/30 dark:bg-orange-300/10",
-    badgeSecondary:
-      "border-teal-300/30 bg-teal-300/10 text-teal-100 dark:border-teal-300/30 dark:bg-teal-300/10",
+    badgeSecondary: "border-teal-300/30 bg-teal-300/10 text-teal-100 dark:border-teal-300/30 dark:bg-teal-300/10",
     outline: "border-orange-500",
     line: "bg-orange-500",
     heroRing: "border-orange-400/15",
@@ -27,15 +26,15 @@ const accentStyles = {
     contentBadgePrimary:
       "bg-orange-50 text-orange-700 ring-1 ring-orange-200 dark:bg-orange-950/30 dark:text-orange-300 dark:ring-orange-900/70",
     bullet: "bg-orange-500",
-    pipelineHover: "hover:border-orange-200 hover:bg-orange-50/70 dark:hover:border-orange-400/25 dark:hover:bg-orange-400/[0.07]",
+    pipelineHover:
+      "hover:border-orange-200 hover:bg-orange-50/70 dark:hover:border-orange-400/25 dark:hover:bg-orange-400/[0.07]",
+    avatarGlow: "bg-[radial-gradient(circle,rgba(251,146,60,0.32),rgba(251,146,60,0.04)_72%)]",
   },
   red: {
     article:
       "hover:border-red-200 focus-within:border-red-200 dark:shadow-[0_28px_100px_-58px_rgba(248,113,113,0.3)] dark:hover:border-red-400/30 dark:focus-within:border-red-400/30",
-    badgePrimary:
-      "border-red-300/45 bg-red-300/10 text-red-100 dark:border-red-300/30 dark:bg-red-300/10",
-    badgeSecondary:
-      "border-cyan-300/30 bg-cyan-300/10 text-cyan-100 dark:border-cyan-300/30 dark:bg-cyan-300/10",
+    badgePrimary: "border-red-300/45 bg-red-300/10 text-red-100 dark:border-red-300/30 dark:bg-red-300/10",
+    badgeSecondary: "border-cyan-300/30 bg-cyan-300/10 text-cyan-100 dark:border-cyan-300/30 dark:bg-cyan-300/10",
     outline: "border-red-500",
     line: "bg-red-500",
     heroRing: "border-red-400/15",
@@ -47,14 +46,14 @@ const accentStyles = {
       "bg-red-50 text-red-700 ring-1 ring-red-200 dark:bg-red-950/30 dark:text-red-300 dark:ring-red-900/70",
     bullet: "bg-red-500",
     pipelineHover: "hover:border-red-200 hover:bg-red-50/70 dark:hover:border-red-400/25 dark:hover:bg-red-400/[0.07]",
+    avatarGlow: "bg-[radial-gradient(circle,rgba(248,113,113,0.32),rgba(248,113,113,0.04)_72%)]",
   },
   emerald: {
     article:
       "hover:border-emerald-200 focus-within:border-emerald-200 dark:shadow-[0_28px_100px_-58px_rgba(52,211,153,0.28)] dark:hover:border-emerald-400/30 dark:focus-within:border-emerald-400/30",
     badgePrimary:
       "border-emerald-300/45 bg-emerald-300/10 text-emerald-100 dark:border-emerald-300/30 dark:bg-emerald-300/10",
-    badgeSecondary:
-      "border-sky-300/30 bg-sky-300/10 text-sky-100 dark:border-sky-300/30 dark:bg-sky-300/10",
+    badgeSecondary: "border-sky-300/30 bg-sky-300/10 text-sky-100 dark:border-sky-300/30 dark:bg-sky-300/10",
     outline: "border-emerald-500",
     line: "bg-emerald-500",
     heroRing: "border-emerald-400/15",
@@ -65,7 +64,9 @@ const accentStyles = {
     contentBadgePrimary:
       "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 dark:bg-emerald-950/30 dark:text-emerald-300 dark:ring-emerald-900/70",
     bullet: "bg-emerald-500",
-    pipelineHover: "hover:border-emerald-200 hover:bg-emerald-50/70 dark:hover:border-emerald-400/25 dark:hover:bg-emerald-400/[0.07]",
+    pipelineHover:
+      "hover:border-emerald-200 hover:bg-emerald-50/70 dark:hover:border-emerald-400/25 dark:hover:bg-emerald-400/[0.07]",
+    avatarGlow: "bg-[radial-gradient(circle,rgba(52,211,153,0.32),rgba(52,211,153,0.04)_72%)]",
   },
 };
 
@@ -93,18 +94,22 @@ const CaseStudySection = ({
   </section>
 );
 
+const tabKeys = ["summary", "architecture", "decisions", "outcome"] as const;
+type TabKey = (typeof tabKeys)[number];
+
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<TabKey>("summary");
   const { t } = useLanguage();
   const caseStudyId = `${project.name.toLowerCase().replace(/\s+/g, "-")}-case-study`;
   const accent = accentStyles[project.accentColor];
+  const tabs: { key: TabKey; label: string }[] = tabKeys.map((key) => ({ key, label: t.projects.card.tabs[key] }));
 
   return (
-    <article className={`relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft transition duration-200 dark:border-white/10 dark:bg-white/[0.055] ${accent.article}`}>
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.08] dark:opacity-[0.06]"
-      >
+    <article
+      className={`relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft transition duration-200 dark:border-white/10 dark:bg-white/[0.055] ${accent.article}`}
+    >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.08] dark:opacity-[0.06]">
         <div className={`absolute -left-24 top-10 h-72 w-72 rounded-full border-[18px] ${accent.outline}`} />
         <div className={`absolute -left-6 top-0 h-96 w-40 rounded-full border-r-[10px] ${accent.outline}`} />
         <div className={`absolute right-12 top-8 h-28 w-28 rounded-full border-[8px] ${accent.outline}`} />
@@ -141,12 +146,15 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 
           {project.visual ? (
             <div className="relative mx-auto mt-7 h-44 w-44 sm:h-52 sm:w-52">
-              <div className={`absolute inset-0 rounded-full border ${accent.badgePrimary} opacity-70`} />
-              <div className="absolute inset-2 rounded-full border border-white/10 bg-white/5" />
+              <div className={`absolute -inset-3 rounded-full blur-xl ${accent.avatarGlow}`} />
+              <div className={`absolute inset-0 rounded-full border ${accent.badgePrimary} opacity-90`} />
+              <div className={`absolute inset-2 rounded-full border border-white/25 ${accent.avatarGlow}`} />
               <img
                 src={project.visual.src}
                 alt={project.visual.alt}
-                className="relative h-full w-full rounded-full object-cover p-2 shadow-[0_22px_70px_-34px_rgba(0,0,0,0.8)]"
+                className="relative h-full w-full rounded-full object-cover p-2 shadow-[0_0_0_1px_rgba(255,255,255,0.12),0_22px_70px_-34px_rgba(0,0,0,0.8)]"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           ) : null}
@@ -159,7 +167,9 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                   key={item.label}
                   className={`rounded-lg border border-white/10 bg-white/5 p-3 transition duration-200 ${accent.dashboardHover}`}
                 >
-                  <p className={`text-xs font-semibold uppercase tracking-[0.14em] ${accent.dashboardLabel}`}>{item.label}</p>
+                  <p className={`text-xs font-semibold uppercase tracking-[0.14em] ${accent.dashboardLabel}`}>
+                    {item.label}
+                  </p>
                   <p className="mt-1 font-semibold text-white">{item.value}</p>
                 </div>
               ))}
@@ -217,7 +227,10 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
               className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-slate-800 transition duration-200 hover:bg-slate-100 hover:text-slate-950 focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-slate-100 dark:hover:bg-white/[0.07] dark:hover:text-white dark:focus-visible:ring-offset-slate-950"
             >
               {t.buttons.technicalDetails}
-              <span className={`transition-transform duration-200 ${isCaseStudyOpen ? "rotate-180" : ""}`} aria-hidden="true">
+              <span
+                className={`transition-transform duration-200 ${isCaseStudyOpen ? "rotate-180" : ""}`}
+                aria-hidden="true"
+              >
                 v
               </span>
             </button>
@@ -230,23 +243,49 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             }`}
           >
             <div className="overflow-hidden">
-              <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-[#0b1220]/85 sm:p-5">
-                <CaseStudySection title={t.projects.card.overview} accent>
-                  <p>{project.caseStudy.overview}</p>
-                </CaseStudySection>
-
-                <div className="mt-4 grid gap-4 md:grid-cols-2">
-                  <CaseStudySection title={t.projects.card.problem}>
-                    <p>{project.caseStudy.problem}</p>
-                  </CaseStudySection>
-                  <CaseStudySection title={t.projects.card.solution}>
-                    <p>{project.caseStudy.solution}</p>
-                  </CaseStudySection>
+              <div className="rounded-lg border border-slate-200 bg-paper-muted p-4 dark:border-white/10 dark:bg-[#0b1220]/85 sm:p-5">
+                <div role="tablist" aria-label={t.buttons.technicalDetails} className="flex flex-wrap gap-2">
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab.key}
+                      type="button"
+                      role="tab"
+                      id={`${caseStudyId}-tab-${tab.key}`}
+                      aria-selected={activeTab === tab.key}
+                      aria-controls={`${caseStudyId}-panel-${tab.key}`}
+                      tabIndex={activeTab === tab.key ? 0 : -1}
+                      onClick={() => setActiveTab(tab.key)}
+                      className={`rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition duration-200 ${
+                        activeTab === tab.key
+                          ? "border-slate-950 bg-slate-950 text-white dark:border-teal-400 dark:bg-teal-400 dark:text-slate-950"
+                          : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-950 dark:border-white/10 dark:bg-white/[0.05] dark:text-slate-300 dark:hover:text-white"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
                 </div>
 
-                <div className="mt-4 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+                <div
+                  id={`${caseStudyId}-panel-summary`}
+                  role="tabpanel"
+                  aria-labelledby={`${caseStudyId}-tab-summary`}
+                  hidden={activeTab !== "summary"}
+                  className="mt-5 grid gap-4"
+                >
+                  <CaseStudySection title={t.projects.card.overview} accent>
+                    <p>{project.caseStudy.overview}</p>
+                  </CaseStudySection>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <CaseStudySection title={t.projects.card.problem}>
+                      <p>{project.caseStudy.problem}</p>
+                    </CaseStudySection>
+                    <CaseStudySection title={t.projects.card.solution}>
+                      <p>{project.caseStudy.solution}</p>
+                    </CaseStudySection>
+                  </div>
                   <CaseStudySection title={t.projects.card.mainFeatures}>
-                    <ul className="grid gap-2">
+                    <ul className="grid gap-2 sm:grid-cols-2">
                       {project.caseStudy.mainFeatures.map((feature) => (
                         <li key={feature} className="flex gap-3">
                           <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.bullet}`} />
@@ -255,79 +294,117 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                       ))}
                     </ul>
                   </CaseStudySection>
+                </div>
+
+                <div
+                  id={`${caseStudyId}-panel-architecture`}
+                  role="tabpanel"
+                  aria-labelledby={`${caseStudyId}-tab-architecture`}
+                  hidden={activeTab !== "architecture"}
+                  className="mt-5 grid gap-4"
+                >
                   <CaseStudySection title={t.projects.card.techStack}>
                     <div className="flex flex-wrap gap-2">
                       {project.caseStudy.techStack.map((technology) => (
                         <span
                           key={technology}
-                          className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700 dark:border-white/10 dark:bg-[#0b1220]/80 dark:text-slate-200"
+                          className="rounded-full border border-slate-200 bg-paper-muted px-3 py-1.5 text-xs font-semibold text-slate-700 dark:border-white/10 dark:bg-[#0b1220]/80 dark:text-slate-200"
                         >
                           {technology}
                         </span>
                       ))}
                     </div>
                   </CaseStudySection>
-                </div>
 
-                <div className="mt-4 rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
-                  <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">{t.projects.card.architecture}</h4>
-                  <div className="mt-4 grid gap-3 sm:grid-cols-4">
-                    {project.caseStudy.pipelineItems.map((item, index) => (
-                      <div key={item} className={`rounded-lg border border-slate-200 bg-slate-50 p-3 transition duration-200 dark:border-white/10 dark:bg-[#0b1220]/80 ${accent.pipelineHover}`}>
-                        <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
-                          {t.projects.card.step} {index + 1}
-                        </p>
-                        <p className="mt-1 text-sm font-semibold text-slate-950 dark:text-white">{item}</p>
-                      </div>
-                    ))}
+                  <div className="rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
+                    <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">
+                      {t.projects.card.architecture}
+                    </h4>
+                    <div className="mt-4 grid gap-3 sm:grid-cols-4">
+                      {project.caseStudy.pipelineItems.map((item, index) => (
+                        <div
+                          key={item}
+                          className={`rounded-lg border border-slate-200 bg-paper-muted p-3 transition duration-200 dark:border-white/10 dark:bg-[#0b1220]/80 ${accent.pipelineHover}`}
+                        >
+                          <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
+                            {t.projects.card.step} {index + 1}
+                          </p>
+                          <p className="mt-1 text-sm font-semibold text-slate-950 dark:text-white">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <ul className="mt-5 grid gap-2 text-sm leading-6 text-slate-600 dark:text-slate-300 md:grid-cols-2">
+                      {project.caseStudy.architecture.map((item) => (
+                        <li key={item} className="flex gap-3">
+                          <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.bullet}`} />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="mt-5 grid gap-2 text-sm leading-6 text-slate-600 dark:text-slate-300 md:grid-cols-2">
-                    {project.caseStudy.architecture.map((item) => (
-                      <li key={item} className="flex gap-3">
-                        <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.bullet}`} />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
 
-                <div className="mt-4 grid gap-4 md:grid-cols-3">
+                <div
+                  id={`${caseStudyId}-panel-decisions`}
+                  role="tabpanel"
+                  aria-labelledby={`${caseStudyId}-tab-decisions`}
+                  hidden={activeTab !== "decisions"}
+                  className="mt-5 grid gap-4"
+                >
                   <CaseStudySection title={t.projects.card.role} accent>
                     <p>{project.caseStudy.role}</p>
                   </CaseStudySection>
-                  <CaseStudySection title={t.projects.card.result} accent>
-                    <p>{project.caseStudy.result}</p>
-                  </CaseStudySection>
-                  <CaseStudySection title={t.projects.card.learning} accent>
-                    <p>{project.caseStudy.learning}</p>
-                  </CaseStudySection>
-                </div>
-
-                <div className="mt-4 rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
-                  <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">{t.projects.card.technicalDecisions}</h4>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.caseStudy.technicalDecisions.map((decision) => (
-                      <span
-                        key={decision}
-                        className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-[#0b1220]/80 dark:text-slate-200"
-                      >
-                        {decision}
-                      </span>
-                    ))}
+                  <div className="rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
+                    <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">
+                      {t.projects.card.technicalDecisions}
+                    </h4>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.caseStudy.technicalDecisions.map((decision) => (
+                        <span
+                          key={decision}
+                          className="rounded-full border border-slate-200 bg-paper-muted px-3 py-1.5 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-[#0b1220]/80 dark:text-slate-200"
+                        >
+                          {decision}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                <div className="mt-4 rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
-                  <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">{t.projects.card.links}</h4>
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    {project.links.demo ? (
-                      <LinkButton href={project.links.demo} target="_blank" rel="noopener noreferrer" variant="primary">
-                        {t.buttons.viewDemo}
+                <div
+                  id={`${caseStudyId}-panel-outcome`}
+                  role="tabpanel"
+                  aria-labelledby={`${caseStudyId}-tab-outcome`}
+                  hidden={activeTab !== "outcome"}
+                  className="mt-5 grid gap-4"
+                >
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <CaseStudySection title={t.projects.card.result} accent>
+                      <p>{project.caseStudy.result}</p>
+                    </CaseStudySection>
+                    <CaseStudySection title={t.projects.card.learning} accent>
+                      <p>{project.caseStudy.learning}</p>
+                    </CaseStudySection>
+                  </div>
+                  <div className="rounded-lg border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.05]">
+                    <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">
+                      {t.projects.card.links}
+                    </h4>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      {project.links.demo ? (
+                        <LinkButton
+                          href={project.links.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          variant="primary"
+                        >
+                          {t.buttons.viewDemo}
+                        </LinkButton>
+                      ) : null}
+                      <LinkButton href={project.links.code} target="_blank" rel="noopener noreferrer">
+                        {t.buttons.viewCode}
                       </LinkButton>
-                    ) : null}
-                    <LinkButton href={project.links.code} target="_blank" rel="noopener noreferrer">
-                      {t.buttons.viewCode}
-                    </LinkButton>
+                    </div>
                   </div>
                 </div>
               </div>

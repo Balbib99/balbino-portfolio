@@ -1,72 +1,104 @@
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 import type { Experience } from "../data/portfolioData";
 import { useLanguage } from "../context/LanguageContext";
-import { SkillBadge } from "./SkillBadge";
 
 type ExperienceCardProps = {
   experience: Experience;
+  isLast: boolean;
 };
 
-export const ExperienceCard = ({ experience }: ExperienceCardProps) => {
+const easeOut = [0.16, 1, 0.3, 1] as const;
+
+export const ExperienceCard = ({ experience, isLast }: ExperienceCardProps) => {
   const { t } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
+  const rowId = `${experience.company}-${experience.role}`.toLowerCase().replace(/\s+/g, "-");
 
   return (
-    <article className="rounded-lg border border-slate-200 bg-white p-6 shadow-soft transition duration-200 hover:-translate-y-1 hover:border-teal-200 dark:border-white/10 dark:bg-white/[0.055] dark:shadow-[0_24px_80px_-54px_rgba(45,212,191,0.24)] dark:hover:border-teal-400/35 dark:hover:bg-white/[0.075]">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">
-            {experience.company}
+    <div className={isLast ? "" : "border-b border-line"}>
+      <button
+        type="button"
+        onClick={() => setIsOpen((current) => !current)}
+        aria-expanded={isOpen}
+        aria-controls={`${rowId}-panel`}
+        className="flex w-full flex-col gap-3 px-5 py-4 text-left transition hover:bg-surface-2 focus-visible:outline-offset-[-2px] sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+      >
+        <div className="min-w-0">
+          <h3 className="text-base font-semibold text-ink">
+            {experience.role} <span className="font-normal text-ink-muted">· {experience.company}</span>
+          </h3>
+          <p className="mt-1 font-mono text-xs text-ink-muted">
+            {experience.location} · {experience.type}
           </p>
-          <h3 className="mt-2 text-2xl font-bold text-slate-950 dark:text-white">{experience.role}</h3>
-          <div className="mt-3 flex flex-wrap gap-2 text-xs font-semibold text-slate-600 dark:text-slate-300">
-            <span className="rounded-full bg-slate-100 px-3 py-1 dark:bg-white/[0.07]">{experience.location}</span>
-            <span className="rounded-full bg-slate-100 px-3 py-1 dark:bg-white/[0.07]">{experience.type}</span>
-          </div>
         </div>
-        <span className="inline-flex shrink-0 rounded-full bg-teal-50 px-3 py-1 text-sm font-semibold text-teal-700 dark:bg-teal-950/40 dark:text-teal-300">
-          {experience.period}
-        </span>
-      </div>
-
-      <p className="mt-5 text-sm leading-6 text-slate-600 dark:text-slate-300">{experience.summary}</p>
-
-      <div className="mt-6">
-        <h4 className="text-sm font-bold uppercase tracking-[0.14em] text-slate-700 dark:text-slate-200">
-          {t.experience.responsibilities}
-        </h4>
-        <ul className="mt-3 space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
-          {experience.responsibilities.map((item) => (
-            <li key={item} className="flex gap-3">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-500" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="mt-6">
-        <h4 className="text-sm font-bold uppercase tracking-[0.14em] text-slate-700 dark:text-slate-200">
-          {t.experience.technologies}
-        </h4>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {experience.technologies.map((technology) => (
-            <SkillBadge key={technology} label={technology} />
-          ))}
+        <div className="flex shrink-0 items-center gap-3 sm:flex-row-reverse">
+          <span
+            className={`text-ink-muted transition-transform duration-200 ${isOpen ? "rotate-90" : ""}`}
+            aria-hidden="true"
+          >
+            ▸
+          </span>
+          <span className="rounded-sm border border-line-strong px-2.5 py-1 font-mono text-xs text-ink-secondary">
+            {experience.period}
+          </span>
         </div>
-      </div>
+      </button>
 
-      <div className="mt-6 rounded-lg border border-slate-200 bg-paper-muted p-5 dark:border-white/10 dark:bg-[#0b1220]/80">
-        <h4 className="text-sm font-bold uppercase tracking-[0.14em] text-teal-700 dark:text-teal-300">
-          {t.experience.value}
-        </h4>
-        <ul className="mt-3 grid gap-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
-          {experience.valuePoints.map((point) => (
-            <li key={point} className="flex gap-3">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-500" />
-              <span>{point}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </article>
+      <AnimatePresence initial={false}>
+        {isOpen ? (
+          <motion.div
+            id={`${rowId}-panel`}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: easeOut }}
+            className="overflow-hidden"
+          >
+            <div className="px-5 pb-6">
+              <p className="text-sm leading-relaxed text-ink-secondary">{experience.summary}</p>
+
+              <div className="mt-5">
+                <p className="font-mono text-xs lowercase text-ink-muted">{t.experience.responsibilities}</p>
+                <ul className="mt-2.5 space-y-2">
+                  {experience.responsibilities.map((item) => (
+                    <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-ink-secondary">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-ink-muted" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-5">
+                <p className="font-mono text-xs lowercase text-ink-muted">{t.experience.technologies}</p>
+                <div className="mt-2.5 flex flex-wrap gap-2">
+                  {experience.technologies.map((technology) => (
+                    <span
+                      key={technology}
+                      className="rounded-sm border border-line-strong px-2.5 py-1 font-mono text-xs text-ink-secondary"
+                    >
+                      {technology}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-5 rounded-md border border-signal/40 bg-signal/5 p-4">
+                <p className="font-mono text-xs lowercase text-signal-strong">{t.experience.value}</p>
+                <ul className="mt-2.5 space-y-2">
+                  {experience.valuePoints.map((point) => (
+                    <li key={point} className="flex gap-2.5 text-sm leading-relaxed text-ink-secondary">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-signal" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </div>
   );
 };

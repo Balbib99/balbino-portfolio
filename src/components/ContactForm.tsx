@@ -23,7 +23,9 @@ const formspreeFormId = import.meta.env.VITE_FORMSPREE_FORM_ID as string | undef
 const formspreeEndpoint = formspreeFormId ? `https://formspree.io/f/${formspreeFormId}` : null;
 
 const inputClassName =
-  "mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-950 transition placeholder:text-slate-400 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/30 dark:border-slate-700/80 dark:bg-[#0a1020] dark:text-slate-50 dark:placeholder:text-slate-400/80 dark:focus:border-teal-400 dark:focus:ring-teal-400/30";
+  "mt-1.5 w-full rounded-sm border border-line-strong bg-surface-2 px-3 py-2.5 text-sm text-ink transition placeholder:text-ink-muted focus:border-signal focus:outline-none";
+
+const labelClassName = "block font-mono text-xs lowercase text-ink-muted";
 
 export const ContactForm = () => {
   const { t } = useLanguage();
@@ -96,7 +98,7 @@ export const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block text-sm font-semibold text-slate-200" htmlFor="contact-name">
+        <label className={labelClassName} htmlFor="contact-name">
           {t.contact.form.name}
           <input
             id="contact-name"
@@ -108,7 +110,7 @@ export const ContactForm = () => {
             autoComplete="name"
           />
         </label>
-        <label className="block text-sm font-semibold text-slate-200" htmlFor="contact-email">
+        <label className={labelClassName} htmlFor="contact-email">
           {t.contact.form.email}
           <input
             id="contact-email"
@@ -122,7 +124,7 @@ export const ContactForm = () => {
         </label>
       </div>
 
-      <label className="block text-sm font-semibold text-slate-200" htmlFor="contact-subject">
+      <label className={labelClassName} htmlFor="contact-subject">
         {t.contact.form.subject}
         <input
           id="contact-subject"
@@ -135,7 +137,7 @@ export const ContactForm = () => {
         />
       </label>
 
-      <label className="block text-sm font-semibold text-slate-200" htmlFor="contact-message">
+      <label className={labelClassName} htmlFor="contact-message">
         {t.contact.form.message}
         <textarea
           id="contact-message"
@@ -147,18 +149,20 @@ export const ContactForm = () => {
         />
       </label>
 
-      <p className="text-sm leading-6 text-slate-400">
+      <p className="text-sm leading-relaxed text-ink-muted">
         {formspreeEndpoint ? t.contact.form.helpDirect : t.contact.form.help}
       </p>
 
-      {error ? <p className="text-sm font-semibold text-red-300">{error}</p> : null}
-      {status === "success" ? <p className="text-sm font-semibold text-teal-300">{t.contact.form.success}</p> : null}
-      {status === "error" ? <p className="text-sm font-semibold text-red-300">{t.contact.form.submitError}</p> : null}
+      <div role="status" aria-live="polite">
+        {error ? <p className="text-sm text-danger">{error}</p> : null}
+        {status === "success" ? <p className="text-sm text-signal-strong">{t.contact.form.success}</p> : null}
+        {status === "error" ? <p className="text-sm text-danger">{t.contact.form.submitError}</p> : null}
+      </div>
 
       <button
         type="submit"
         disabled={isSending}
-        className="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-teal-400 bg-teal-400 px-5 py-3 text-sm font-semibold text-slate-950 shadow-soft transition duration-200 hover:border-teal-300 hover:bg-teal-300 focus-visible:ring-2 focus-visible:ring-teal-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-70 dark:shadow-[0_16px_45px_-28px_rgba(45,212,191,0.9)] sm:w-auto"
+        className="inline-flex min-h-11 w-full items-center justify-center rounded-sm border border-signal bg-signal/10 px-5 py-3 font-mono text-sm text-signal-strong transition duration-200 hover:bg-signal hover:text-surface-0 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
         {isSending ? t.contact.form.sending : formspreeEndpoint ? t.contact.form.submitDirect : t.contact.form.submit}
       </button>

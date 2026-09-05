@@ -5,24 +5,20 @@ export const Value = () => {
   const { t } = useLanguage();
 
   return (
-    <section
-      id="aportacion"
-      className="bg-paper-muted px-4 py-20 transition-colors duration-300 dark:bg-[#0b1220] sm:px-6 lg:px-8"
-    >
+    <section id="aportacion" className="bg-surface-0 px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionTitle eyebrow={t.value.eyebrow} title={t.value.title} description={t.value.description} />
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-5">
+        <SectionTitle index="02" eyebrow={t.value.eyebrow} title={t.value.title} description={t.value.description} />
+        <div className="overflow-hidden rounded-md border border-line bg-surface-1 md:grid md:grid-cols-2">
           {t.value.items.map((item, index) => (
-            <article
+            <div
               key={item.title}
-              className="group rounded-lg border border-slate-200 bg-white p-6 shadow-soft transition duration-200 hover:-translate-y-1 hover:border-teal-200 dark:border-white/10 dark:bg-white/[0.055] dark:shadow-[0_24px_80px_-54px_rgba(45,212,191,0.28)] dark:hover:border-teal-400/35 dark:hover:bg-white/[0.075]"
+              className={`px-5 py-4 md:px-6 md:py-5 ${
+                index !== t.value.items.length - 1 ? "border-b border-line" : ""
+              } ${index % 2 === 0 && index !== t.value.items.length - 1 ? "md:border-r md:border-line" : ""}`}
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-sm font-bold text-teal-700 transition group-hover:bg-teal-600 group-hover:text-white dark:bg-teal-400/10 dark:text-teal-200 dark:group-hover:bg-teal-400 dark:group-hover:text-slate-950">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-5 text-lg font-bold text-slate-950 dark:text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{item.text}</p>
-            </article>
+              <h3 className="text-base font-semibold text-ink">{item.title}</h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-ink-secondary">{item.text}</p>
+            </div>
           ))}
         </div>
       </div>

@@ -38,21 +38,22 @@ export const es = {
     technicalDetails: "Caso de estudio",
   },
   hero: {
-    tag: "Desarrollo web · IoT · Ciberseguridad · IA aplicada",
+    status: "disponible para nuevas oportunidades",
     profileAlt: "Foto de perfil de Balbino Martínez Rodríguez",
-    cardTitle: "Perfil híbrido técnico",
-    cardText: "Software, datos, seguridad e integración hardware-software.",
+    role: "desarrollador full-stack",
+    location: "Valladolid, España",
   },
   nav: {
     aria: "Navegación principal",
     openMenu: "Abrir menú de navegación",
+    status: "disponible",
+    skipToContent: "Saltar al contenido",
   },
   about: {
     eyebrow: "Sobre mí",
     title: "Perfil híbrido en desarrollo, datos y ciberseguridad",
     description: personalData.professionalProfile,
     text: personalData.about,
-    avatarAlt: "Avatar ilustrado de Balbino Martínez con paneles de ciberseguridad",
     cards: aboutCards,
   },
   value: {
@@ -67,7 +68,6 @@ export const es = {
     title: "Experiencia en desarrollo, datos e integración",
     description:
       "He trabajado en entornos reales desarrollando soluciones web, sistemas de sensorización, integración hardware-software, servicios IoT y herramientas orientadas a la visualización y gestión de datos.",
-    avatarAlt: "Avatar ilustrado de Balbino Martínez con tecnologías de desarrollo, datos e IoT",
     responsibilities: "Responsabilidades",
     technologies: "Tecnologías y áreas",
     value: "Valor aportado",
@@ -115,7 +115,6 @@ export const es = {
     title: "Aprendizaje continuo en software, ciberseguridad e IA",
     description:
       "Mi formación combina desarrollo de software, seguridad de la información, inteligencia artificial aplicada y fundamentos técnicos de sistemas, lo que me permite abordar soluciones desde una perspectiva completa.",
-    avatarAlt: "Avatar ilustrado de Balbino Martínez con toga y diploma de graduación",
     mainTitle: "Formación principal",
     certificationsTitle: "Certificaciones",
     education,
@@ -127,7 +126,6 @@ export const es = {
     description:
       "Estoy abierto a oportunidades profesionales donde pueda aportar en desarrollo web, integración IoT, ciberseguridad, automatización e IA aplicada.",
     formTitle: "Formulario de contacto",
-    quickLinks: "Enlaces rápidos",
     form: {
       name: "Nombre",
       namePlaceholder: "Tu nombre",

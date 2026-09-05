@@ -86,15 +86,18 @@ export const personalData = {
   location: "Valladolid, España",
   profileImage: "/balbino-profile.jpg",
   cvUrl: "/cv-balbino-martinez-es.pdf",
-  heroTitle: "Hola, soy Balbino Martínez.",
+  heroTitle: "Construyo aplicaciones full-stack y sé cómo intentarían romperlas.",
   heroSubtitle:
-    "Desarrollador web full-stack enfocado en crear aplicaciones basadas en datos, integraciones reales con APIs y productos digitales desplegables.",
+    "Full-stack con base en I+D: interfaces web, integración hardware-software y sistemas de adquisición de datos en tiempo real, con la seguridad incorporada desde el diseño.",
   heroDescription:
-    "Trabajo con frontend, backend, APIs, bases de datos y despliegue para convertir ideas técnicas en productos utilizables.",
+    "Angular, Node.js y Python en producción; sensores y Raspberry Pi en el otro extremo. Máster en Ciberseguridad y Auditor Interno ISO 27001 — no como añadido, sino porque ya protegía estos datos antes de formalizarlo.",
   professionalProfile:
     "Soy desarrollador de software con un perfil híbrido en desarrollo web, ciberseguridad, IoT e IA aplicada. Tengo experiencia en entornos reales de I+D, desarrollo de interfaces web, integración hardware-software, adquisición y visualización de datos, sistemas distribuidos y buenas prácticas de seguridad.",
-  about:
-    "Soy Técnico Superior en Desarrollo de Aplicaciones Web y Máster en Ciberseguridad. Mi perfil combina desarrollo web, integración hardware-software, análisis de datos, IoT e IA aplicada. He trabajado en entornos reales de I+D desarrollando interfaces web, módulos de sensorización, sistemas distribuidos y soluciones orientadas a la adquisición y visualización de datos.",
+  about: [
+    "Empecé programando para clientes reales en ZG Service —Angular, Node.js, APIs REST— antes incluso de terminar el ciclo de Desarrollo de Aplicaciones Web. Entre 2024 y enero de 2026 trabajé como Técnico Investigador en la Universidad de Valladolid, donde el problema cambiaba de forma: en vez de una API que devuelve JSON, eran sensores que generaban datos en tiempo real que había que capturar, procesar y visualizar sin perder ni un paquete. Ahí es donde el desarrollo web se cruzó con el hardware —Raspberry Pi, Linux, integración de sensores— y donde entendí que proteger esos datos no es un extra, es parte del diseño desde el primer día.",
+    "Por eso hice el Máster en Ciberseguridad y me certifiqué como Auditor Interno ISO 27001: no para cambiar de campo, sino para dejar de improvisar la parte de seguridad de lo que ya construía. Lo complementé con laboratorios prácticos de TryHackMe —explotación controlada, Metasploit, SQLMap— porque quería entender el ataque, no solo la defensa.",
+    "Fuera del trabajo, construyo aplicaciones full-stack completas para demostrar que puedo llevar un producto de cero a producción: NBA Insight (analítica deportiva con React, Node y PostgreSQL), AttackFlow Lab (plataforma educativa de ciberseguridad) y Court Vision Lab (editor táctico de baloncesto). Las tres están desplegadas y funcionando — no en un repositorio a medias.",
+  ],
 };
 
 export const links = {
@@ -156,7 +159,7 @@ export const experiences: Experience[] = [
   {
     company: "Universidad de Valladolid",
     role: "Técnico Investigador Nivel 1",
-    period: "2024 - 2026",
+    period: "2024 - Enero 2026",
     location: "Valladolid, España",
     type: "I+D · Tiempo completo",
     summary:

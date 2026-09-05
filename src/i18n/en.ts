@@ -15,15 +15,18 @@ export const en: typeof es = {
     location: "Valladolid, Spain",
     profileImage: "/balbino-profile.jpg",
     cvUrl: "/cv-balbino-martinez-en.pdf",
-    heroTitle: "Hi, I’m Balbino Martínez.",
+    heroTitle: "I build full-stack applications, and I know how they'd try to break them.",
     heroSubtitle:
-      "Full-stack developer building data-driven web applications with React, TypeScript and real-world API integrations.",
+      "Full-stack with an R&D background: web interfaces, hardware-software integration and real-time data acquisition systems, with security built in from the design stage.",
     heroDescription:
-      "I work across frontend, backend, APIs, databases and deployment to turn technical ideas into usable products.",
+      "Angular, Node.js and Python in production; sensors and Raspberry Pi on the other end. Master's in Cybersecurity and ISO 27001 Internal Auditor — not as an add-on, but because I was already protecting this data before I formalized it.",
     professionalProfile:
       "I’m a software developer with a hybrid profile in web development, cybersecurity, IoT and applied AI. I have experience in real R&D environments, web interface development, hardware–software integration, data acquisition and visualization, distributed systems and security best practices.",
-    about:
-      "I hold a Higher Technician degree in Web Application Development and a Master's Degree in Cybersecurity. My profile combines web development, hardware–software integration, data analysis, IoT and applied AI. I have worked in real R&D environments developing web interfaces, sensor modules, distributed systems and solutions focused on data acquisition and visualization.",
+    about: [
+      "I started building for real clients at ZG Service — Angular, Node.js, REST APIs — before I'd even finished my Web Application Development degree. Between 2024 and January 2026 I worked as a Research Technician at the University of Valladolid, where the problem changed shape: instead of an API returning JSON, it was sensors generating real-time data that had to be captured, processed and visualized without dropping a single packet. That's where web development met hardware — Raspberry Pi, Linux, sensor integration — and where I learned that protecting that data isn't an extra, it's part of the design from day one.",
+      "That's why I did a Master's in Cybersecurity and became an ISO 27001 Internal Auditor: not to change fields, but to stop improvising the security side of what I was already building. I backed it up with hands-on TryHackMe labs — controlled exploitation, Metasploit, SQLMap — because I wanted to understand the attack, not just the defense.",
+      "Outside of work, I build complete full-stack applications to prove I can take a product from zero to production: NBA Insight (sports analytics with React, Node and PostgreSQL), AttackFlow Lab (a cybersecurity education platform) and Court Vision Lab (a basketball tactics editor). All three are deployed and running — not sitting half-finished in a repo.",
+    ],
   },
   navItems: [
     { label: "About", href: "#sobre-mi" },
@@ -44,22 +47,27 @@ export const en: typeof es = {
     technicalDetails: "Case Study",
   },
   hero: {
-    tag: "Web development · IoT · Cybersecurity · Applied AI",
+    status: "open to new opportunities",
     profileAlt: "Profile photo of Balbino Martínez Rodríguez",
-    cardTitle: "Hybrid technical profile",
-    cardText: "Software, data, security and hardware–software integration.",
+    role: "full-stack developer",
+    location: "Valladolid, Spain",
   },
   nav: {
     aria: "Main navigation",
     openMenu: "Open navigation menu",
+    status: "available",
+    skipToContent: "Skip to content",
   },
   about: {
     eyebrow: "About me",
     title: "Hybrid profile in development, data and cybersecurity",
     description:
       "I’m a software developer with a hybrid profile in web development, cybersecurity, IoT and applied AI. I have experience in real R&D environments, web interface development, hardware–software integration, data acquisition and visualization, distributed systems and security best practices.",
-    text: "I hold a Higher Technician degree in Web Application Development and a Master's Degree in Cybersecurity. My profile combines web development, hardware–software integration, data analysis, IoT and applied AI. I have worked in real R&D environments developing web interfaces, sensor modules, distributed systems and solutions focused on data acquisition and visualization.",
-    avatarAlt: "Illustrated avatar of Balbino Martínez with cybersecurity panels",
+    text: [
+      "I started building for real clients at ZG Service — Angular, Node.js, REST APIs — before I'd even finished my Web Application Development degree. Between 2024 and January 2026 I worked as a Research Technician at the University of Valladolid, where the problem changed shape: instead of an API returning JSON, it was sensors generating real-time data that had to be captured, processed and visualized without dropping a single packet. That's where web development met hardware — Raspberry Pi, Linux, sensor integration — and where I learned that protecting that data isn't an extra, it's part of the design from day one.",
+      "That's why I did a Master's in Cybersecurity and became an ISO 27001 Internal Auditor: not to change fields, but to stop improvising the security side of what I was already building. I backed it up with hands-on TryHackMe labs — controlled exploitation, Metasploit, SQLMap — because I wanted to understand the attack, not just the defense.",
+      "Outside of work, I build complete full-stack applications to prove I can take a product from zero to production: NBA Insight (sports analytics with React, Node and PostgreSQL), AttackFlow Lab (a cybersecurity education platform) and Court Vision Lab (a basketball tactics editor). All three are deployed and running — not sitting half-finished in a repo.",
+    ],
     cards: [
       {
         title: "Real R&D",
@@ -108,7 +116,6 @@ export const en: typeof es = {
     title: "Experience in development, data and integration",
     description:
       "I have worked in real environments developing web solutions, sensing systems, hardware–software integration, IoT services and tools focused on data visualization and management.",
-    avatarAlt: "Illustrated avatar of Balbino Martínez with development, data and IoT technologies",
     responsibilities: "Responsibilities",
     technologies: "Technologies and areas",
     value: "Professional value",
@@ -116,7 +123,7 @@ export const en: typeof es = {
       {
         company: "Universidad de Valladolid",
         role: "Research Technician Level 1",
-        period: "2024 - 2026",
+        period: "2024 - January 2026",
         location: "Valladolid, Spain",
         type: "R&D · Full-time",
         summary:
@@ -543,7 +550,6 @@ export const en: typeof es = {
     title: "Continuous learning in software, cybersecurity and AI",
     description:
       "My education combines software development, information security, applied artificial intelligence and technical systems fundamentals, allowing me to approach solutions from a complete perspective.",
-    avatarAlt: "Illustrated avatar of Balbino Martínez wearing a graduation gown and holding a diploma",
     mainTitle: "Main education",
     certificationsTitle: "Certifications",
     education: [
@@ -632,7 +638,6 @@ export const en: typeof es = {
     description:
       "I’m open to professional opportunities where I can contribute to web development, IoT integration, cybersecurity, automation and applied AI.",
     formTitle: "Contact form",
-    quickLinks: "Quick links",
     form: {
       name: "Name",
       namePlaceholder: "Your name",

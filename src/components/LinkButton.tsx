@@ -2,21 +2,19 @@ import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 type LinkButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "panel" | "panelPrimary";
 };
 
 const variants = {
-  primary:
-    "border border-teal-600 bg-teal-600 text-white shadow-soft hover:border-teal-500 hover:bg-teal-500 dark:border-teal-400 dark:bg-teal-400 dark:text-slate-950 dark:hover:border-teal-300 dark:hover:bg-teal-300",
-  secondary:
-    "border border-slate-300 bg-white text-slate-900 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-100 dark:hover:border-teal-400/40 dark:hover:bg-white/[0.1] dark:hover:text-white",
-  ghost:
-    "text-slate-800 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-100 dark:hover:bg-white/[0.07] dark:hover:text-white",
+  panel:
+    "rounded-sm border border-line-strong bg-surface-2 font-mono text-[0.8125rem] text-ink hover:border-signal hover:bg-surface-3",
+  panelPrimary:
+    "rounded-sm border border-signal bg-signal/10 font-mono text-[0.8125rem] text-signal-strong hover:bg-signal hover:text-surface-0",
 };
 
-export const LinkButton = ({ children, className = "", variant = "secondary", ...props }: LinkButtonProps) => (
+export const LinkButton = ({ children, className = "", variant = "panel", ...props }: LinkButtonProps) => (
   <a
-    className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition duration-200 focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${variants[variant]} ${className}`}
+    className={`inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3 text-sm font-semibold transition duration-200 ${variants[variant]} ${className}`}
     {...props}
   >
     {children}

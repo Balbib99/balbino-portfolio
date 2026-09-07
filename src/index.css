@@ -9,43 +9,38 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Panel de Sistema — design tokens (light) */
-  --surface-0: #f1f2f5;
-  --surface-1: #ffffff;
-  --surface-2: #e7e9ed;
-  --surface-3: #dbdee4;
-  --line: #d6d9df;
-  --line-strong: #b9bfc9;
-  --ink: #14171c;
-  --ink-secondary: #454c58;
-  --ink-muted: #545d6b;
-  --signal-rgb: 30 155 114;
-  --signal-strong-rgb: 18 110 80;
-  --amber-rgb: 165 105 26;
-  --amber-strong-rgb: 133 84 21;
-  --danger-rgb: 194 59 46;
-  --focus-ring: #2a6fd6;
+  /* Negativo — design tokens (light: black on white) */
+  --bg: #f5f5f5;
+  --bg-raised: #eaeaea;
+  --ink: #121212;
+  --ink-soft: #5c5c5c;
+  /* Labels and dates are real content, so this tier still clears WCAG AA (4.6:1). */
+  --ink-faint: #6f6f6f;
+  --line: rgb(18 18 18 / 0.14);
+  --line-strong: rgb(18 18 18 / 0.34);
+  --invert-bg: #121212;
+  --invert-ink: #f5f5f5;
+  --accent-from: #8b5cf6;
+  --accent-to: #ec4899;
+  --danger: #b3261e;
+  --focus-ring: #121212;
 }
 
 .dark {
   color-scheme: dark;
 
-  /* Panel de Sistema — design tokens (dark, primary identity) */
-  --surface-0: #14171c;
-  --surface-1: #1b1f26;
-  --surface-2: #232830;
-  --surface-3: #2a303a;
-  --line: #2e3440;
-  --line-strong: #3c4452;
-  --ink: #edeff2;
-  --ink-secondary: #aeb6c4;
-  --ink-muted: #8a94a6;
-  --signal-rgb: 63 182 139;
-  --signal-strong-rgb: 87 209 164;
-  --amber-rgb: 224 164 88;
-  --amber-strong-rgb: 240 184 118;
-  --danger-rgb: 226 104 92;
-  --focus-ring: #5fa8ff;
+  /* The same palette with foreground and background swapped */
+  --bg: #121212;
+  --bg-raised: #1c1c1c;
+  --ink: #f5f5f5;
+  --ink-soft: #a6a6a6;
+  --ink-faint: #8f8f8f;
+  --line: rgb(245 245 245 / 0.14);
+  --line-strong: rgb(245 245 245 / 0.3);
+  --invert-bg: #f5f5f5;
+  --invert-ink: #121212;
+  --danger: #f2938c;
+  --focus-ring: #f5f5f5;
 }
 
 html {
@@ -55,32 +50,28 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: var(--surface-0);
+  background: var(--bg);
 }
 
 ::selection {
-  background: #14b8a6;
-  color: #ffffff;
+  background: var(--invert-bg);
+  color: var(--invert-ink);
 }
 
-.hero-copy {
-  animation: hero-fade-up 0.6s ease-out both;
+/* Anchor links land below the sticky header instead of under it. */
+main > section {
+  scroll-margin-top: 120px;
 }
 
-.hero-photo {
-  animation: hero-fade-up 0.7s ease-out 0.12s both;
+/* Native disclosure widgets carry the whole "expand in place" language of the
+   site, so the default marker is removed everywhere. */
+summary {
+  list-style: none;
+  cursor: pointer;
 }
 
-@keyframes hero-fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+summary::-webkit-details-marker {
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -100,7 +91,15 @@ body {
 
 @layer base {
   body {
-    @apply bg-surface-0 text-ink transition-colors duration-300;
+    @apply bg-bg text-ink transition-colors duration-300;
+  }
+
+  /* Fira Code carries the display voice; Open Sans carries everything read. */
+  h1,
+  h2,
+  h3 {
+    @apply font-mono font-semibold tracking-tight;
+    text-wrap: balance;
   }
 
   a,
@@ -109,7 +108,8 @@ body {
   }
 
   a:focus-visible,
-  button:focus-visible {
+  button:focus-visible,
+  summary:focus-visible {
     outline: 2px solid var(--focus-ring);
     outline-offset: 2px;
   }

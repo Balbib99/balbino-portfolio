@@ -1,18 +1,19 @@
 type SectionTitleProps = {
-  eyebrow?: string;
+  /** Order number for the numbered sections; omitted where the content isn't a sequence. */
+  index?: string;
+  eyebrow: string;
   title: string;
   description?: string;
-  /** Section index shown before the eyebrow, e.g. "01". */
-  index?: string;
 };
 
-export const SectionTitle = ({ eyebrow, title, description, index }: SectionTitleProps) => (
-  <div className="mb-10 max-w-3xl">
-    <div className="mb-3 flex items-center gap-3 font-mono text-xs text-ink-muted">
-      {index ? <span>{index}</span> : null}
-      {eyebrow ? <span className="lowercase">{eyebrow}</span> : null}
+export const SectionTitle = ({ index, eyebrow, title, description }: SectionTitleProps) => (
+  <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
+    <div>
+      <span className="font-mono text-xs lowercase text-ink-faint">
+        {index ? `${index} / ${eyebrow}` : `// ${eyebrow}`}
+      </span>
+      <h2 className="mt-2.5 text-2xl text-ink sm:text-3xl">{title}</h2>
     </div>
-    <h2 className="text-2xl font-semibold text-ink sm:text-3xl">{title}</h2>
-    {description ? <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink-secondary">{description}</p> : null}
+    {description ? <p className="max-w-[34ch] text-sm leading-relaxed text-ink-soft">{description}</p> : null}
   </div>
 );

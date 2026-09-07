@@ -5,20 +5,16 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["IBM Plex Sans", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
-      },
-      boxShadow: {
-        soft: "0 18px 60px -36px rgba(14, 23, 40, 0.35)",
+        sans: ["Open Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["Fira Code", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       colors: {
-        // Panel de Sistema — design-system tokens, swap automatically with the
-        // existing .dark class via the CSS custom properties in index.css.
-        surface: {
-          0: "var(--surface-0)",
-          1: "var(--surface-1)",
-          2: "var(--surface-2)",
-          3: "var(--surface-3)",
+        // Negativo — the palette is strictly monochrome and the light/dark
+        // toggle swaps foreground and background wholesale. Tokens live in
+        // index.css and follow the existing .dark class.
+        bg: {
+          DEFAULT: "var(--bg)",
+          raised: "var(--bg-raised)",
         },
         line: {
           DEFAULT: "var(--line)",
@@ -26,20 +22,20 @@ export default {
         },
         ink: {
           DEFAULT: "var(--ink)",
-          secondary: "var(--ink-secondary)",
-          muted: "var(--ink-muted)",
+          soft: "var(--ink-soft)",
+          faint: "var(--ink-faint)",
         },
-        signal: {
-          DEFAULT: "rgb(var(--signal-rgb) / <alpha-value>)",
-          strong: "rgb(var(--signal-strong-rgb) / <alpha-value>)",
+        // The inverted pair: what reads as background on one theme reads as
+        // foreground on the other. Used for hover/active states.
+        invert: {
+          bg: "var(--invert-bg)",
+          ink: "var(--invert-ink)",
         },
-        amber: {
-          DEFAULT: "rgb(var(--amber-rgb) / <alpha-value>)",
-          strong: "rgb(var(--amber-strong-rgb) / <alpha-value>)",
+        accent: {
+          from: "var(--accent-from)",
+          to: "var(--accent-to)",
         },
-        danger: {
-          DEFAULT: "rgb(var(--danger-rgb) / <alpha-value>)",
-        },
+        danger: "var(--danger)",
       },
     },
   },

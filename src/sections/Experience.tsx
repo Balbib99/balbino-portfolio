@@ -6,21 +6,12 @@ export const Experience = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="experiencia" className="bg-surface-0 px-4 py-20 sm:px-6 lg:px-8">
+    <section id="experiencia" className="border-t border-line px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionTitle
-          index="03"
-          eyebrow={t.experience.eyebrow}
-          title={t.experience.title}
-          description={t.experience.description}
-        />
-        <div className="overflow-hidden rounded-md border border-line bg-surface-1">
-          {t.experience.items.map((experience, index) => (
-            <ExperienceCard
-              key={`${experience.company}-${experience.role}`}
-              experience={experience}
-              isLast={index === t.experience.items.length - 1}
-            />
+        <SectionTitle index="01" eyebrow={t.experience.eyebrow} title={t.experience.title} />
+        <div className="border-t border-line-strong">
+          {t.experience.items.map((experience) => (
+            <ExperienceCard key={`${experience.company}-${experience.role}`} experience={experience} />
           ))}
         </div>
       </div>

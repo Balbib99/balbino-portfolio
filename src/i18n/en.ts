@@ -30,10 +30,8 @@ export const en: typeof es = {
   },
   navItems: [
     { label: "About", href: "#sobre-mi" },
-    { label: "Value", href: "#aportacion" },
     { label: "Experience", href: "#experiencia" },
     { label: "Projects", href: "#proyectos" },
-    { label: "Stack", href: "#stack" },
     { label: "Education", href: "#formacion" },
     { label: "Contact", href: "#contacto" },
   ],
@@ -42,15 +40,21 @@ export const en: typeof es = {
     downloadCv: "Download CV",
     github: "GitHub",
     linkedin: "LinkedIn",
-    viewDemo: "Live Demo",
-    viewCode: "GitHub",
-    technicalDetails: "Case Study",
+    viewDemo: "live demo",
+    viewCode: "code",
+    viewProject: "view project",
+    technicalDetails: "view case study",
   },
   hero: {
     status: "open to new opportunities",
     profileAlt: "Profile photo of Balbino Martínez Rodríguez",
     role: "full-stack developer",
     location: "Valladolid, Spain",
+    eyebrow: "valladolid, spain",
+    headline: "Full-stack Developer",
+    carouselLabel: "Featured projects",
+    prevProject: "Previous project",
+    nextProject: "Next project",
   },
   nav: {
     aria: "Main navigation",
@@ -80,6 +84,30 @@ export const en: typeof es = {
       {
         title: "Applied AI",
         text: "Use of artificial intelligence and automation to improve processes, data analysis and productivity.",
+      },
+    ],
+    lead: "Hi! I'm Balbino, a full-stack developer. More than 2 years of experience in R&D and hardware-software integration.",
+    more: "more about me",
+    profileTitle: "profile",
+    storyTitle: "the story",
+    valueTitle: "what I bring",
+    focusTitle: "where I work",
+    stack: [
+      {
+        title: "Front-end",
+        items: ["React", "TypeScript", "Next.js", "Angular", "Vite", "Jest", "Framer Motion"],
+      },
+      {
+        title: "Styles",
+        items: ["Tailwind CSS", "SCSS", "Material UI", "Responsive"],
+      },
+      {
+        title: "Back-end & data",
+        items: ["Node", "Express", "Python", "REST APIs", "PostgreSQL", "MySQL", "MongoDB"],
+      },
+      {
+        title: "DevOps & IoT",
+        items: ["Docker", "Nginx", "Linux", "Vercel", "Render", "Raspberry Pi", "MQTT", "ISO 27001"],
       },
     ],
   },
@@ -514,36 +542,6 @@ export const en: typeof es = {
         outcome: "Outcome",
       },
     },
-  },
-  stack: {
-    eyebrow: "Technology stack",
-    title: "Technologies and areas of expertise",
-    description:
-      "I have worked with frontend, backend, data, IoT systems, deployment and cybersecurity technologies, applying them in academic, professional and personal projects.",
-    categories: [
-      {
-        title: "Frontend Engineering",
-        description: "I build modern, responsive and maintainable interfaces using current web ecosystem technologies.",
-        items: ["React", "TypeScript", "Vite", "Tailwind CSS", "Responsive design", "Dark mode"],
-      },
-      {
-        title: "Backend & APIs",
-        description: "I build APIs, business logic, authentication flows and integrations with external services.",
-        items: ["Node.js", "Express", "REST APIs", "PostgreSQL", "External API integration"],
-      },
-      {
-        title: "Data & Deployment",
-        description:
-          "I work with deployment, configuration and data visualization to bring applications to production.",
-        items: ["Vercel", "Render", "Neon", "Data visualization", "Environment variables"],
-      },
-      {
-        title: "IoT & Cybersecurity",
-        description:
-          "Experience with Linux, Raspberry Pi, sensors and cybersecurity fundamentals in connected systems.",
-        items: ["Raspberry Pi", "Sensors", "MQTT", "Linux", "Cybersecurity fundamentals", "ISO 27001"],
-      },
-    ],
   },
   education: {
     eyebrow: "Education and certifications",

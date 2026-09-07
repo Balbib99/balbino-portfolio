@@ -5,8 +5,8 @@ export const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t border-line bg-surface-0 px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col gap-4 font-mono text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between">
+    <footer className="border-t border-line px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 font-mono text-xs text-ink-faint sm:flex-row sm:items-center sm:justify-between">
         <p>
           © {new Date().getFullYear()} {personalData.name}. {t.footer.text}
         </p>

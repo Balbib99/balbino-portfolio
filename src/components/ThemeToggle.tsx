@@ -13,7 +13,7 @@ export const ThemeToggle = ({ theme, onToggle, labels }: ThemeToggleProps) => (
   <button
     type="button"
     onClick={onToggle}
-    className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface-2 text-ink-secondary transition hover:border-signal hover:text-ink"
+    className="grid h-8 w-8 shrink-0 place-items-center rounded border border-line-strong text-ink-soft transition hover:border-invert-bg hover:bg-invert-bg hover:text-invert-ink"
     aria-label={theme === "dark" ? labels.toLight : labels.toDark}
     title={theme === "dark" ? labels.light : labels.dark}
   >

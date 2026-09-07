@@ -22,10 +22,12 @@ const initialState: ContactFormState = {
 const formspreeFormId = import.meta.env.VITE_FORMSPREE_FORM_ID as string | undefined;
 const formspreeEndpoint = formspreeFormId ? `https://formspree.io/f/${formspreeFormId}` : null;
 
+// Field borders use ink-faint rather than the decorative line token so the
+// control boundary itself clears the 3:1 contrast minimum.
 const inputClassName =
-  "mt-1.5 w-full rounded-sm border border-line-strong bg-surface-2 px-3 py-2.5 text-sm text-ink transition placeholder:text-ink-muted focus:border-signal focus:outline-none";
+  "mt-1.5 w-full rounded-md border border-ink-faint bg-transparent px-3.5 py-2.5 text-sm text-ink transition placeholder:text-ink-faint focus:border-ink focus:outline-none";
 
-const labelClassName = "block font-mono text-xs lowercase text-ink-muted";
+const labelClassName = "block font-mono text-xs lowercase text-ink-faint";
 
 export const ContactForm = () => {
   const { t } = useLanguage();
@@ -149,20 +151,20 @@ export const ContactForm = () => {
         />
       </label>
 
-      <p className="text-sm leading-relaxed text-ink-muted">
+      <p className="text-sm leading-relaxed text-ink-faint">
         {formspreeEndpoint ? t.contact.form.helpDirect : t.contact.form.help}
       </p>
 
       <div role="status" aria-live="polite">
         {error ? <p className="text-sm text-danger">{error}</p> : null}
-        {status === "success" ? <p className="text-sm text-signal-strong">{t.contact.form.success}</p> : null}
+        {status === "success" ? <p className="text-sm text-ink">{t.contact.form.success}</p> : null}
         {status === "error" ? <p className="text-sm text-danger">{t.contact.form.submitError}</p> : null}
       </div>
 
       <button
         type="submit"
         disabled={isSending}
-        className="inline-flex min-h-11 w-full items-center justify-center rounded-sm border border-signal bg-signal/10 px-5 py-3 font-mono text-sm text-signal-strong transition duration-200 hover:bg-signal hover:text-surface-0 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-invert-bg px-6 py-3 font-mono text-sm font-semibold text-invert-ink transition duration-200 hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
         {isSending ? t.contact.form.sending : formspreeEndpoint ? t.contact.form.submitDirect : t.contact.form.submit}
       </button>

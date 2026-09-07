@@ -56,7 +56,6 @@ export type Project = {
 
 export type SkillCategory = {
   title: string;
-  description: string;
   items: string[];
 };
 
@@ -528,27 +527,20 @@ export const projects: Project[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Frontend Engineering",
-    description:
-      "Desarrollo interfaces modernas, responsive y mantenibles usando tecnologías actuales del ecosistema web.",
-    items: ["React", "TypeScript", "Vite", "Tailwind CSS", "Diseño responsive", "Modo oscuro"],
+    title: "Front-end",
+    items: ["React", "TypeScript", "Next.js", "Angular", "Vite", "Jest", "Framer Motion"],
   },
   {
-    title: "Backend & APIs",
-    description: "Construcción de APIs, lógica de negocio, autenticación e integración con servicios externos.",
-    items: ["Node.js", "Express", "APIs REST", "PostgreSQL", "Integración de APIs externas"],
+    title: "Styles",
+    items: ["Tailwind CSS", "SCSS", "Material UI", "Responsive"],
   },
   {
-    title: "Data & Deployment",
-    description:
-      "Trabajo con despliegue, configuración y visualización de datos para llevar aplicaciones a producción.",
-    items: ["Vercel", "Render", "Neon", "Visualización de datos", "Variables de entorno"],
+    title: "Back-end & datos",
+    items: ["Node", "Express", "Python", "APIs REST", "PostgreSQL", "MySQL", "MongoDB"],
   },
   {
-    title: "IoT & Cybersecurity",
-    description:
-      "Experiencia con Linux, Raspberry Pi, sensores y fundamentos de ciberseguridad en sistemas conectados.",
-    items: ["Raspberry Pi", "Sensores", "MQTT", "Linux", "Fundamentos de ciberseguridad", "ISO 27001"],
+    title: "DevOps & IoT",
+    items: ["Docker", "Nginx", "Linux", "Vercel", "Render", "Raspberry Pi", "MQTT", "ISO 27001"],
   },
 ];
 
